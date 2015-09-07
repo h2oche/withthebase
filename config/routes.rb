@@ -1,4 +1,5 @@
 Myapp::Application.routes.draw do
+  #fdsfds
   get 'info/index'
 
   get 'howto/index'
