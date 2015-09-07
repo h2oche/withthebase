@@ -1,4 +1,18 @@
 Myapp::Application.routes.draw do
+  get 'info/index'
+
+  get 'howto/index'
+
+  get 'league/dashboard'
+
+  get 'league/info'
+
+  get 'league/draft'
+
+  get 'league/lineup'
+
+  get 'league/result'
+
   get "home/index"
   get "home/minor"
   # The priority is based upon order of creation: first created -> highest priority.
