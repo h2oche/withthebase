@@ -1,3 +1,63 @@
 // Place all the styles related to the league controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#leaguename{
+    
+    font-size:200%;
+}
+
+#teamname{
+    
+    font-size:180%;
+}
+
+#emblem{
+    height:100px;
+    width:100px;
+    margin-top : 30px;
+}
+
+#league{
+    padding: 10px 10px 0px 10px;
+}
+#league:hover{
+    opacity:0.8;
+}
+#total {
+    margin : 10px 10px;
+}
+
+.table{
+    font-size:100%;
+}
+tbody>tr:hover{
+    opacity:0.8;
+    cursor:pointer;
+}
+
+tr {
+    text-align:center;
+}
+
+#search{
+    background-color:#e8e8e8;
+    border-radius:3px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-bottom: 10px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+#title-box{
+    background-color:white;
+    text-align : left;
+    padding : 10px;
+}
+
+.book{
+    text-align: left;
+    margin : 0px;
+    margin-top : 5px;
+    margin-bottom : 5px;
+    
+}
