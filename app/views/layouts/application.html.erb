@@ -18,21 +18,19 @@
     <%= csrf_meta_tags %>
 
 </head>
-<body class="fixed-sidebar">
+<body class="fixed-sidebar fixed-nav">
 
     <!-- Wrapper-->
     <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
 
         <!-- Navigation -->
-        <%= render 'layouts/topnavbar' %>
-        <div>
-        <!-- Page wrapper -->
         <%= render 'layouts/navigation' %>
 
         <!-- Page wraper -->
         <div id="page-wrapper" class="gray-bg">
 
-            
+            <!-- Page wrapper -->
+            <%= render 'layouts/topnavbar' %>
 
             <!-- Main view  -->
             <%= yield %>
@@ -42,7 +40,6 @@
 
         </div>
         <!-- End page wrapper-->
-        </div>
 
     </div>
     <!-- End wrapper-->

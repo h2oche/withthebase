@@ -3,11 +3,11 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <!--
+                    
                     <span>
-                        <img alt="image" class="img-circle" src="<%= image_url 'profile_small.png' %>"/>
+                        <img alt="image" class="img-circle" src="<%= image_url 'profile_small2.png' %>"/>
                     </span>                    
-                    -->
+                    
                     
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
@@ -24,17 +24,34 @@
                     </ul>
                 </div>
             </li>
-            <li class="<%= is_active_controller('league') %>">
+            <li class="<%= is_active_action('info') %>">
                 <%= link_to league_info_path do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">리그 설정</span>
+                <i class="fa fa-laptop"></i> <span class="nav-label">리그설정</span>
                 <% end %>
             </li>
-            <li class="<%= is_active_controller('league') %>">
+            <li>
                 <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">마이팀</span><span class="fa arrow"></a>
-                <ul class="nav nav-second-level collapse <%= is_active_controller('league') %>">
+                <ul class="nav nav-second-level collapse ">
                     <li class="<%= is_active_action('lineup') %>"><%= link_to "라인업", league_lineup_path %></li>
                     <li class="<%= is_active_action('trade') %>"><%= link_to "트레이드", league_trade_path %></li>
                 </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">드래프트</span><span class="fa arrow"></a>
+                <ul class="nav nav-second-level collapse ">
+                    <li class="<%= is_active_action('lineup') %>"><%= link_to "드래프트", league_lineup_path %></li>
+                    <li class="<%= is_active_action('trade') %>"><%= link_to "오토픽", league_trade_path %></li>
+                </ul>
+            </li>
+            <li class="<%= is_active_action('result') %>">
+                <%= link_to league_result_path do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label">결과</span>
+                <% end %>
+            </li>
+            <li class="<%= is_active_action('info') %>">
+                <%= link_to league_info_path do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label">인터리그</span>
+                <% end %>
             </li>
         </ul>
 
