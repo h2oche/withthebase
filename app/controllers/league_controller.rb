@@ -5,12 +5,18 @@ class LeagueController < ApplicationController
   def info
   end
 
-  def draft
-  end
-
   def lineup
   end
 
+  def trade
+  end
+
+  def draft
+  end
+  
+  def autopick
+  end
+  
   def result
   end
 end
