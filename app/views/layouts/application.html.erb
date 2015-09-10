@@ -20,7 +20,7 @@
     
 </head>
 
-<body class="fixed-sidebar fixed-nav" oncontextmenu="return false;">
+<body class="fixed-sidebar fixed-nav <%= is_navbar_league('league') %>" oncontextmenu="return false;">
 
     <!-- Wrapper-->
     <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
