@@ -21,21 +21,18 @@
 </head>
 
 <body class="fixed-sidebar fixed-nav" oncontextmenu="return false;">
-
     <!-- Wrapper-->
     <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
-
-        <% if params[:controller] == "league" %>
+        <% if params[:controller] == "league" && params[:action] != "dashboard" %>
         <!-- Navigation -->
-        <%= render 'layouts/navigation' %>
+            <%= render 'layouts/navigation' %>
         <% end %>
-        
         <!-- Page wraper -->
         <div id="page-wrapper" class="gray-bg">
 
             <!-- Page wrapper -->
             <%= render 'layouts/topnavbar' %>
-
+            
             <!-- Main view  -->
             <%= yield %>
 

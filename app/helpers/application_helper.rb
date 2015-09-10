@@ -11,7 +11,7 @@ module ApplicationHelper
         params[:controller] != controller_name ? "mini-navbar" : nil
     end
     
-    def is_minibtn_league(controller_name)
-        params[:controller] != controller_name ? "display: none" : nil
+    def is_minibtn_league(controller_name, action_name)
+        params[:controller] != controller_name ? "display: none" : params[:action] == action_name ? "display:none" : nil
     end
 end
