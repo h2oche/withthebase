@@ -66,6 +66,8 @@ tr {
 .image_div{
     padding-left : 0px;
     padding-right: 0px;
+    
+
 }
 .image_div > img{
     width : 100%;
@@ -74,6 +76,7 @@ tr {
 .name_div{
     padding-top:12px;
     font-size:110%;
+    
 }
 #title-box{
     font-size:150%;
@@ -87,15 +90,17 @@ tr {
     margin-bottom : 8px;
 }
 .special{
-    background-color : #CC99FF;
+    background-color:#9E0A39;
     padding-bottom : 12px;
     border-radius : 5px;
     color : #ffffff;
 }
+.special2{
+    background-color:#FFF9D6;
+}
 
 .name_div2{
-    margin-top:14px;
-    margin-bottom:14px;
+
     padding-top:5px;
     padding-bottom:5px;
     color:#fff;
@@ -109,4 +114,37 @@ tr {
 }
 .image_div2 > img{
     width : 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+//result action css
+.line > div > img{
+    
+    height:50px;
+    
+    opacity: 0.5;
+}//이미지 크기 조절
+.time{
+    
+    text-align:center;
+    font-size:120%;
+    background-color:gray;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.versus{
+    text-align:center;
+}
+.line{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.club{
+    padding-left:20px;
+    text-align:center;
+    font-size:140%;
 }
