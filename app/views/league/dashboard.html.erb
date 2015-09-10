@@ -1,11 +1,12 @@
+
 <div class="wrapper wrapper-content">
     <div class="animated fadeInRightBig">
         <div class = "row" id = "total">
-            <div class = "col-lg-5">
+            <div class = "col-md-5">
             <!--First league-->
-            <div class="col-lg-12 widget red-bg p-lg" id = "league">
+            <div class="col-md-12 widget red-bg p-md" id = "league">
                 <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>    
-                <div class="m-b-md col-lg-5 text-center">
+                <div class="m-b-md col-md-5 text-center">
                     <strong id = "leaguename" >윗더베</strong><small style = "font-size:130%"> 리그</small><br>
                     <strong id = "teamname"> 성하짱짱 팀</strong>
                     <div>
@@ -13,9 +14,9 @@
                          src = "http://www.pngimage.com/wp-content/uploads/2014/10/real_madrid_logo.png">
                     </div>
                 </div>
-                <div class = "col-lg-7">
+                <div class = "col-md-7">
                     <br>
-                    <div class = "visible-lg">
+                    <div class = "visible-md">
                         <p> 드래프트까지 10일 남았습니다.</p>
                         <br>
                         <p>모드 : 리그매치</p>
@@ -28,9 +29,9 @@
             </div>
         
             <!--Second League-->
-            <div class="col-lg-12 widget yellow-bg p-lg" id = "league">
+            <div class="col-md-12 widget yellow-bg p-md" id = "league">
                 <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>    
-                <div class="m-b-md col-lg-5 text-center">
+                <div class="m-b-md col-md-5 text-center">
                     <strong id = "leaguename" >윗더베</strong><small style = "font-size:130%"> 리그</small><br>
                     <strong id = "teamname"> 성하짱짱 팀</strong>
                     <div>
@@ -39,7 +40,7 @@
                     </div>
                 </div>
                 
-                <div class = "col-lg-7 visible-lg">
+                <div class = "col-md-7 visible-md">
                     <br>
                     <div>
                         <p> 드래프트까지 10일 남았습니다.</p>
@@ -54,9 +55,9 @@
              </div>
             
             <!--Third League-->
-            <div class="col-lg-12 widget blue-bg p-lg" id = "league">
+            <div class="col-md-12 widget blue-bg p-md" id = "league">
                 <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>    
-                <div class="m-b-md col-lg-5 text-center">
+                <div class="m-b-md col-md-5 text-center">
                     <strong id = "leaguename" >윗더베</strong><small style = "font-size:130%"> 리그</small><br>
                     <strong id = "teamname"> 성하짱짱 팀</strong>
                     <div>
@@ -65,9 +66,9 @@
                     </div>
                 </div>
                 
-                <div class = "col-lg-7">
+                <div class = "col-md-7">
                     <br>
-                    <div class = "visible-lg">
+                    <div class = "visible-md">
                         <p> 드래프트까지 10일 남았습니다.</p>
                         <br>
                         <p>모드 : 리그매치</p>
@@ -81,10 +82,10 @@
     
             
             <!-- search menu-->
-            <div class = "col-lg-7">
+            <div class = "col-md-7">
                 <div class ="row" style = "margin-top:10px">
                     <!--search form-->
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         
                         <div class="input-group m-b">
                             <span class="input-group-btn">
@@ -99,14 +100,14 @@
                     </div>
                 <div class = "row" id = "search">
                     
-                    <div class = "col-lg-4">
+                    <div class = "col-md-4">
                         <select class = "form-control">
                             <option>리그 모드?</option>
                             <option>리그 매치</option>
                         </select>
                     </div>
                     
-                    <div class = "col-lg-4">
+                    <div class = "col-md-4">
                     <select class = "form-control">
                         <option>최대 인원수?</option>
                         <option>5명</option>
@@ -116,7 +117,7 @@
                     </select>
                     </div>
                     
-                    <div class = "col-lg-4">
+                    <div class = "col-md-4">
                     <select class = "form-control">
                         <option>리그 기간?</option>
                         <option>5명</option>
@@ -161,10 +162,183 @@
                 </table>
                 <div class="row">
                     <div style="text-align:right;">
-                        <button class="btn btn-warning">리그 생성</button>
+                        <button class="btn btn-warning"data-toggle="modal" data-target="#myModal">리그 생성</button>
                     </div>
+                    <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content animated bounceInRight">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">리그 생성 </h4>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                            <p><strong>리그를 생성합니다.</strong>필요한 정보를 입력해 주세요.</p>
+                                            
+                                            <div class="row form-group has-success">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("tropy.png")%>
+                                                </div>
+                                                <div class = "col-md-11">
+                                                    <label >리그 이름  </label> 
+                                                    <input type="email" placeholder="야알못" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("emblem.png")%>
+                                                </div>
+                                                <div class = "col-md-5">
+                                                    <label >리그 엠블럼   </label> 
+                                                    <input type="file" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("Mode.png")%>
+                                                </div>
+                                                <div class = "col-md-5">
+                                                    <label >리그 모드  </label> 
+                                                    <select class = "form-control m-b" name = "account">
+                                                        <option>리그 매치 </option>
+                                                        <option>클래식 모드 </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("period.png")%>
+                                                </div>
+                                                <div class = "col-md-2">
+                                                    <label >리그 기간  </label> 
+                                                    <select class = "form-control m-b" name = "account">
+                                                        <option>1주 </option>
+                                                        <option>2주 </option>
+                                                        <option>3주 </option>
+                                                        <option>4주 </option>
+                                                        <option>5주 </option>
+                                                        <option>6주 </option>
+                                                        <option>7주 </option>
+                                                    </select>
+                                                </div>
+                                            
+                                                
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("Lock.png")%>
+                                                </div>
+                                                <div class = "col-md-5">
+                                                    <label>리그 공개</label>
+                                                    <div class="switch">
+                                                        <div class="onoffswitch">
+                                                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                                                            <label class="onoffswitch-label" for="example1">
+                                                                <span class="onoffswitch-inner"></span>
+                                                                <span class="onoffswitch-switch"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--공개방 mode-->
+                                             <div class="row form-group">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("diary.png")%>
+                                                </div>
+                                                <div class = "col-md-5" id = "data_1">
+                                                    <p><strong>드래프트 날짜 선택 </strong> </p> 
+                                                        <div class="input-group date">
+                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" value="03/04/2014">
+                                                        </div> 
+                                                </div>
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("clock.png")%>
+                                                </div>
+                                                <div class = "col-md-5" id = "data_1">
+                                                    <p><strong>드래프트 시간 선택 </strong> </p> 
+                                                    <select class = "form-control m-b" name = "account">
+                                                        <option>2명 </option>
+                                                        <option>3명  </option>
+                                                        <option>4명 </option>
+                                                        <option>5명  </option>    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--공개방 mode end-->   
+
+                                             <!--비공개방 mode-->
+                                             <div class="row form-group">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("password.png")%>
+                                                </div>
+                                                <div class = "col-md-5" id = "data_1">
+                                                    <p><strong>비밀번호 </strong> </p> 
+                                                        <input type = "password" class = "form-control" name = "password">
+                                                </div>
+                                            <!--비공개방 mode end--> 
+                                            </div>
+
+                                             <div class="row form-group">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("max_people.png")%>
+                                                </div>
+                                                <div class = "col-md-5">
+                                                    <p><strong>최대 참가 인원 </strong> </p> 
+                                                    <select class = "form-control m-b" name = "account">
+                                                        <option>2명 </option>
+                                                        <option>3명  </option>
+                                                        <option>4명 </option>
+                                                        <option>5명  </option>    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                                  
+                                             <div class="row form-group">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("time_attack.png")%>
+                                                </div>
+                                                <div class = "col-md-5">
+                                                    <p><strong> 드래프트 제한 시간 </strong> </p> 
+                                                      <select class = "form-control m-b" name = "account">
+                                                        <option>15초 </option>
+                                                        <option>45초  </option>
+                                                        <option>1분 </option>
+                                                        <option>5분  </option>    
+                                                    </select>
+                                                </div>
+                                            </div>  
+
+                                            <div class="row form-group has-warning">
+                                                <div class = "col-md-1 image" style = "padding-left:0px">
+                                                    <%= image_tag("team_name.png")%>
+                                                </div>
+                                                <div class = "col-md-11">
+                                                    <p><strong> 팀 이름 </strong> </p> 
+                                                      <input type = "text" class="form-control">
+                                                </div>
+                                            </div>  
+                                                   
+                                                
+                                        
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary">만들기</button>
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">돌아가기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--모달 End-->
+
+
+                        </div>
                 </div>
             </div>
         </div>
         </div>
     </div>
+    
