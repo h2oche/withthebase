@@ -1,0 +1,133 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-10 col-md-2">
+            <div class="btn-group" role="group">
+                <button class="btn btn-default" ng-click="batterView=true; resetCompare()">타자</button>
+                <button class="btn btn-default" ng-click="batterView=false; resetCompare()">투수</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-12" ng-hide="!batterView">
+                <h3>주전 선수</h3>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>포지션</th>
+                            <th>선수</th>
+                            <th>타율</th>
+                            <th>홈런</th>
+                            <th>타점</th>
+                            <th>도루</th>
+                            <th>실책</th>
+                            <th>다음 상대 선발</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="player in startingBatters()" ng-model="stats=player.stats" ng-click="toggleCompare(player)">
+                            <td>{{player.positionId | positionName}}</td>
+                            <td>{{player.name}}</td>
+                            <td>{{stats.avg}}</td>
+                            <td>{{stats.hr}}</td>
+                            <td>{{stats.rbi}}</td>
+                            <td>{{stats.sb}}</td>
+                            <td>{{stats.err}}</td>
+                            <td>모름</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>후보 선수</h3>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>포지션</th>
+                            <th>선수</th>
+                            <th>타율</th>
+                            <th>홈런</th>
+                            <th>타점</th>
+                            <th>도루</th>
+                            <th>실책</th>
+                            <th>다음 상대 선발</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="player in benchBatters()" ng-model="stats = player.stats" ng-click="toggleCompare(player)">
+                            <td>{{player.positionId | positionName}}</td>
+                            <td>{{player.name}}</td>
+                            <td>{{stats.avg}}</td>
+                            <td>{{stats.hr}}</td>
+                            <td>{{stats.rbi}}</td>
+                            <td>{{stats.sb}}</td>
+                            <td>{{stats.err}}</td>
+                            <td>모름</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12" ng-hide="batterView">
+                <h3>주전 선수</h3>
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>포지션</th>
+                            <th>선수</th>
+                            <th>승리</th>
+                            <th>평균자책점</th>
+                            <th>탈삼진</th>
+                            <th>홀드</th>
+                            <th>세이브</th>
+                            <th>다음 상대 선발</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="player in startingPitchers()" ng-model="stats = player.stats" ng-click="toggleCompare(player)">
+                            <td>{{player.positionId | positionName}}</td>
+                            <td>{{player.name}}</td>
+                            <td>{{stats.win}}</td>
+                            <td>{{stats.era}}</td>
+                            <td>{{stats.so}}</td>
+                            <td>{{stats.hold}}</td>
+                            <td>{{stats.save}}</td>
+                            <td>모름</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>후보 선수</h3>
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>포지션</th>
+                            <th>선수</th>
+                            <th>승리</th>
+                            <th>평균자책점</th>
+                            <th>탈삼진</th>
+                            <th>홀드</th>
+                            <th>세이브</th>
+                            <th>다음 상대 선발</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="player in benchPitchers()" ng-model="stats = player.stats" ng-click="toggleCompare(player)">
+                            <td>{{player.positionId | positionName}}</td>
+                            <td>{{player.name}}</td>
+                            <td>{{stats.win}}</td>
+                            <td>{{stats.era}}</td>
+                            <td>{{stats.so}}</td>
+                            <td>{{stats.hold}}</td>
+                            <td>{{stats.save}}</td>
+                            <td>모름</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>선수비교</h3>
+            <div></div>
+            <wtb-position-slot ng-repeat="player in comparePlayers" ng-mousedown="toggleCompare(player)"></wtb-position-slot>
+        </div>
+    </div>
+</div>

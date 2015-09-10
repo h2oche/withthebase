@@ -1,1 +1,519 @@
-라인업
+<div class="wrapper wrapper-content" ng-controller="AppController">
+    <div class="animated fadeInRightBig">
+        <!-- content -->
+        <div id="lineup-container" class="container" ng-controller="LineupController">
+            <div id="lineup-button-container" class="row">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-default" ng-click="viewMode=false">Position View</button>
+                    <button class="btn btn-default" ng-click="viewMode=true">Data View</button>
+                </div>
+            </div>
+            
+            <div id="lineup-pview-container" class="row" ng-hide="viewMode">
+                <wtb-position-view></wtb-position-view>
+            </div>
+            <div id="lineup-dview-container" class="row" ng-hide="!viewMode">
+                <wtb-data-view></wtb-data-view>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var test;
+
+    Array.prototype.indexOfId = function(id) {
+        for (var i = 0; i < this.length; i++)
+            if (this[i].id === id)
+                return i;
+        return -1;
+    };
+
+    angular.module('lineup',['lineup.services','lineup.directives','lineup.controllers','lineup.filters']);
+    
+    angular.module('lineup.services',[])
+        .factory('position',function(){
+            var names = {
+                1 : '외야', //좌익수
+                2: '외야', //중견수
+                3: '외야', //우익수
+                4 : '유격',
+                5 : '2루',
+                6 : '3루',
+                7 : '1루',
+                8 : '포수',
+                9 : '지명',
+                10 : '선발',
+                11 : '중계',
+                'special':'투수'
+            }
+            
+            var classNames = {
+                1: 'left-fielder',
+                2: 'center-fielder',
+                3: 'right-fielder',
+                4: 'shortstop',
+                5: 'second-base',
+                6: 'third-base',
+                7: 'first-base',
+                8: 'catcher',
+                9: 'designated',
+                10: 's-pitcher',
+                11: 'l-pitcher'
+            }
+            
+            var batterMaxId = 9;
+            var outFielderMaxId = 3;
+            
+            var slotPosition = {
+                
+            }
+            
+            return {
+                getName: function(_positionId, _isSpecial) {
+                    if(_isSpecial && _positionId > batterMaxId) return names['special'];
+                    else return names[_positionId];
+                },
+                
+                getClassName : function(_positionId) {
+                    return classNames[_positionId];
+                },
+                
+                isSamePos: function( _posId1, _isSelectedSpecial, _isSelectedStarting, _posId2, _isSpecial, _isStarting ) {
+                    if(_posId1 == _posId2) return true;
+                    else if( _posId1 > batterMaxId && _posId2 > batterMaxId ) {
+                        if( !_isSelectedStarting && _isSpecial ) return true;
+                    }
+                    else if( this.isOutFielder(_posId1) && this.isOutFielder(_posId2) ) return true;
+                    
+                    return false;
+                },
+                
+                isPitcher: function(_positionId){
+                    return _positionId > batterMaxId;
+                },
+                
+                isOutFielder: function(_positionId) {
+                    return _positionId <= outFielderMaxId; 
+                }
+            }
+        })
+        .factory('team',function(){
+            return {
+                
+            }
+        });
+        
+    angular.module('lineup.filters',['lineup.services'])
+        .filter('positionName', ['position', function(_position){
+            return function(_input, _isSpecial) {
+                return _position.getName(_input*1, _isSpecial);
+            }
+        }]);
+        
+    angular.module('lineup.directives',['lineup.services'])
+        .directive('wtbPositionView',['position','team' ,function(_position, _team){
+            return {
+                restrict:'E',
+                transclude:false,
+                scope:true,
+                replace:true,
+                templateUrl:'/positionView.html',
+                
+                controller:function($scope){
+                    $scope.selectedPlayer = null;
+                    $scope.selectedSlotScope = null;
+                    
+                    $scope.selectPlayer = function(_scope, _event){
+                        $scope.selectedSlotScope = _scope;
+                        $scope.selectedPlayer = _scope.player;
+                        $scope.dragStart(_event);
+                    };
+                    
+                    
+                },
+                
+                link:function(_scope, _element, _attrs){
+                    var getSlotOffset = function(_target, _coordObj) {
+                        var coord = { 
+                                        top: _coordObj.top + _target.offsetTop,
+                                        left: _coordObj.left + _target.offsetLeft
+                                    };
+                        
+                        if( _target.offsetParent.id == "position-slot-container")
+                            return coord;
+                        else
+                            return getSlotOffset(_target.offsetParent, coord);
+                    };
+                    
+                    var $slotMirror = null;
+                    var dragBaseCoord = {top:0, left:0};
+                    var dragDeltaBaseCoord = {x:0, y:0};
+                    
+                    _scope.dragStart = function(_event){
+                        dragBaseCoord = getSlotOffset(_event.currentTarget,{top:0, left:0});
+                        
+                        //using jQuery
+                        (function($){
+                            $slotMirror = $slotMirror || $("#position-slot-mirror");
+                        })(jQuery);
+                        
+                        $slotMirror.css(dragBaseCoord);
+                        
+                        dragDeltaBaseCoord.x = _event.pageX;
+                        dragDeltaBaseCoord.y = _event.pageY;
+                        
+                        //broadcast
+                        _scope.$broadcast('playerSelected', {
+                                                                    positionId:_scope.selectedPlayer.positionId, 
+                                                                    isSpecial:_scope.selectedPlayer.isSpecial,
+                                                                    isStarting:_scope.selectedPlayer.starting
+                                                            }
+                        );
+                    }
+                    
+                    _scope.dragAction = function(_event){
+                        _event.preventDefault();
+                        
+                        if( _scope.selectedPlayer != null ) {
+                            (function($){
+                                $slotMirror = $slotMirror || $("#position-slot-mirror");
+                            })(jQuery);
+                            
+                            $slotMirror.css({
+                                top:dragBaseCoord.top + ( _event.pageY - dragDeltaBaseCoord.y ),
+                                left:dragBaseCoord.left + (_event.pageX - dragDeltaBaseCoord.x )
+                            });
+                            
+                        }
+                    }
+                    
+                    _scope.dragEnd = function(_event) {
+                        //right click event
+                        if( _event.which == 3) {
+                            _event.preventDefault();
+                            _event.stopPropagation();
+                            
+                            _scope.unselectPlayer();
+                            
+                            _scope.$broadcast('playerUnselected', null);
+                        }
+                    }
+                    
+                    _scope.unselectPlayer = function(){
+                        if( _scope.selectedSlotScope != null ) {
+                            _scope.selectedSlotScope.isDragOn = false;
+                            
+                            _scope.selectedPlayer = null;
+                            _scope.selectedSlotScope = null;
+                        }
+                    }
+                }
+            }
+        }])
+        .directive('wtbPositionSlot',['position',function(_position){
+            return {
+                restrict:'E',
+                transclude:false,
+                replace:true,
+                templateUrl:'/positionSlot.html',
+                scope:true,
+                
+                controller:function($scope){
+                    $scope.isDragOn = false;
+                    $scope.isSamePos = false;
+                    
+                    $scope.startingBatterPosClass = function(_batterPos) {
+                        console.log(_batterPos);
+                    }
+                    
+                    $scope.isSelected = function() {
+                        if($scope.isDragOn) return 'selected';
+                        else return null;
+                    }
+                    
+                    $scope.isHighlited = function() {
+                        if(!$scope.isDragOn && $scope.isSamePos) return 'highlited';
+                        else return null;
+                    }
+                    
+                    $scope.getPositionClassName = function(){
+                        return _position.getClassName($scope.player.positionId);
+                    }
+                },
+                link:function(_scope, _element, _attrs, _poistionViewController){
+                    
+                    _scope.dragStart = function($event){
+                        $event.preventDefault();
+                        $event.stopPropagation();
+                        
+                        if( !_scope.isDragOn && _scope.selectedPlayer == null && $event.which == 1 ) {
+                            _scope.isDragOn = true;
+                            _scope.selectPlayer(_scope, $event);
+                        }
+                        else if(_scope.selectedPlayer != null) {
+                            if(_scope.isSamePos) {
+                                _scope.swapPlayers(_scope.player, _scope.selectedPlayer);
+                            }
+                        }
+                    }
+                    
+                    _scope.$on('playerSelected',function(_e, _args){
+                        
+                        _scope.isSamePos = _position.isSamePos( _args.positionId,
+                                                                _args.isSpecial,
+                                                                _args.isStarting,
+                                                                _scope.player.positionId, 
+                                                                _scope.player.isSpecial,
+                                                                _scope.player.starting
+                                                                );
+                    });
+                    
+                    _scope.$on('playerUnselected',function(_e,_args){
+                        _scope.isSamePos = false;
+                        _scope.unselectPlayer();
+                    });
+                }
+            }
+        }])
+        .directive('wtbDataView',['position','team',function(_position, _team){
+            return {
+                restrict:'E',
+                replace:true,
+                scope:true,
+                templateUrl:'/dataView.html',
+                link:function(_scope, _element, _attrs){
+                    
+                },
+                controller:function($scope){
+                    $scope.batterView = true;
+                    $scope.comparePlayers = [];
+                    
+                    $scope.toggleCompare = function(_player){
+                        var index = false;
+                        index = $scope.comparePlayers.indexOfId(_player.id);
+                        
+                        if(index == 1) {
+                            $scope.comparePlayers.pop();
+                        }
+                        else if(index == 0){
+                            $scope.comparePlayers.shift();
+                        }
+                        else if($scope.comparePlayers.length < 2) {
+                            $scope.comparePlayers.push(_player);
+                        }
+                    }
+                    
+                    $scope.resetCompare = function(){
+                        //reset array
+                        $scope.comparePlayers.length = 0;
+                    }
+                }
+            }
+        }]);
+        
+    angular.module('lineup.controllers',['lineup.services'])
+        .controller('LineupController',['$scope','position',function($scope, _position){
+            
+            $scope.viewMode = false;
+            $scope.startingBatters = function() {
+                return $scope.playerData.filter(function(_playerObj){
+                    return _playerObj.starting && !_position.isPitcher(_playerObj.positionId);
+                });
+            };
+            $scope.startingPitchers = function(){
+                return $scope.playerData.filter(function(_playerObj){
+                    return _playerObj.starting && _position.isPitcher(_playerObj.positionId);
+                });
+            };
+            $scope.benchBatters = function(){
+                return $scope.playerData.filter(function(_playerObj){
+                    return !_playerObj.starting && !_position.isPitcher(_playerObj.positionId);
+                });
+            };
+            $scope.benchPitchers = function(){
+                return $scope.playerData.filter(function(_playerObj){
+                    return !_playerObj.starting && _position.isPitcher(_playerObj.positionId);
+                });
+            };
+            
+            $scope.swapPlayers = function(_playerObj1, _playerObj2) {
+                //temp variable
+                var temp;
+                
+                if( _playerObj1 == _playerObj2 ) return;
+                
+                if(_position.isOutFielder(_playerObj1.positionId) && _position.isOutFielder(_playerObj2.positionId)){
+                    temp = _playerObj1.positionId;
+                    _playerObj1.positionId = _playerObj2.positionId;
+                    _playerObj2.positionId = temp;
+                }
+                
+                if( _playerObj1.starting != _playerObj2.starting ) {
+                    _playerObj1.starting = !_playerObj1.starting;
+                    _playerObj2.starting = !_playerObj2.starting;
+                }
+                
+                if( _playerObj1.isSpecial != _playerObj2.isSpecial ) {
+                    _playerObj1.isSpecial = !_playerObj1.isSpecial;
+                    _playerObj2.isSpecial = !_playerObj2.isSpecial;
+                }
+                
+                //switch
+                var index1 = $scope.playerData.indexOfId(_playerObj1.id);
+                var index2 = $scope.playerData.indexOfId(_playerObj2.id);
+                
+                temp = $scope.playerData[index1];
+                $scope.playerData[index1] = $scope.playerData[index2];
+                $scope.playerData[index2] = temp;
+                
+                $scope.$broadcast('playerUnselected',null);
+            }
+        }]);
+        
+    angular.module('app',['lineup'])
+        .controller('AppController',['$scope',function($scope){
+            $scope.playerData = [
+                                    {id:1, starting:true, name: '이용규', positionId:1, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    {id:2, starting:true, name: '아두치', positionId:2, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    {id:3, starting:true, name: '이명기', positionId:3, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    {id:4, starting:true, name: '황재균', positionId:6, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    
+                                    {id:5, starting:true, name: '김상수', positionId:4, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    {id:6, starting:true, name: '나바로', positionId:5, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    {id:7, starting:true, name: '김태균', positionId:7, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    {id:8, starting:true, name: '강민호', positionId:8, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    
+                                    {id:9, starting:true, name: '이승엽', positionId:9, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    {id:10, starting:false, name: '최형우', positionId:1, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    {id:11, starting:false, name: '홍길동', positionId:5, teamId:1,stats:{
+                                        avg:0.333,
+                                        hr:2,
+                                        rbi:3,
+                                        sb:1,
+                                        err:1
+                                    }},
+                                    
+                                    {id:12, starting:false,isSpecial: false,name: '채병용', positionId:10, teamId:1,stats:{
+                                        win:3,
+                                        era:3.44,
+                                        so:10,
+                                        hold:1,
+                                        save:0
+                                    }},
+                                    
+                                    {id:13, starting:false,isSpecial: false, name: '권혁', positionId:11, teamId:1,stats:{
+                                        win:3,
+                                        era:3.44,
+                                        so:10,
+                                        hold:1,
+                                        save:0
+                                    }},
+                                    {id:14, starting:true, isSpecial: false, name: '레일리', positionId:10, teamId:1,stats:{
+                                        win:3,
+                                        era:3.44,
+                                        so:10,
+                                        hold:1,
+                                        save:0
+                                    }},
+                                    {id:15, starting:true, isSpecial: false, name: '로저스', positionId:10, teamId:1,stats:{
+                                        win:3,
+                                        era:3.44,
+                                        so:10,
+                                        hold:1,
+                                        save:0
+                                    }},
+                                    {id:16, starting:true, isSpecial: false, name: '정우람', positionId:11, teamId:1,stats:{
+                                        win:3,
+                                        era:3.44,
+                                        so:10,
+                                        hold:1,
+                                        save:0
+                                    }},
+                                    
+                                    {id:17, starting:true, isSpecial: false, name: '임창용', positionId:11, teamId:1,stats:{
+                                        win:3,
+                                        era:3.44,
+                                        so:10,
+                                        hold:1,
+                                        save:0
+                                    }},
+                                    {id:18, starting:true, isSpecial: true, name: '윤규진', positionId:11, teamId:1,stats:{
+                                        win:3,
+                                        era:3.44,
+                                        so:10,
+                                        hold:1,
+                                        save:0
+                                    }},
+                                    {id:19, starting:true, isSpecial: true, name: '김광현', positionId:10, teamId:1,stats:{
+                                        win:3,
+                                        era:3.44,
+                                        so:10,
+                                        hold:1,
+                                        save:0
+                                    }}
+                                ];
+                                
+            test = $scope.playerData;
+        }]);
+</script>
