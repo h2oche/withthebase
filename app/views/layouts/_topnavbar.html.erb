@@ -1,7 +1,7 @@
 <div class="row border-bottom">
     <nav class="navbar navbar-fixed-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#" style="<%= is_minibtn_league('league') %>"><i class="fa fa-bars"></i> </a>
             <ul class="nav navbar-top-links navbar-left">
                 <li>
                     <a href="<%= url_for :controller => 'home', :action => 'index' %>">
