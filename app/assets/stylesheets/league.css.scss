@@ -110,3 +110,126 @@ tr {
 .image_div2 > img{
     width : 100%;
 }
+
+
+/* lineup css */
+div#lineup-pview-container > div#position-slot-container {
+    position:relative;
+}
+        
+div.position-slot {
+    clear:both;
+    width:200px;
+    padding:5px;
+    margin:10px;
+    
+    border-radius:5px;
+    background-color:rgb(47,64,80);
+    
+    color:white;
+    font-weight:3.0em;
+    font-size:0.7em;
+    
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+div.position-slot > div {
+    float:left;
+    padding:5px 20px;
+    text-align:center;
+}
+
+div.position-slot-position {
+    width:35%;
+    font-size:0.7em;
+    background-color:rgb(44,56,67);
+}
+
+div.position-slot-name {
+    width:43%;
+    background-color:rgb(0,0,0);
+}
+
+div.position-slot-team {
+    width:17%;
+    background-color:rgb(44,56,67);
+}
+
+div.position-slot:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+div.position-slot.selected {
+    transform:scale(0.7);
+    opacity:0.3;
+}
+
+div.position-slot.highlited {
+    transform:scale(1.1);
+    border: 3px rgb(248,172,89) solid;
+}
+
+div#position-slot-mirror {
+    position:absolute;
+    z-index:-1;
+    margin:0px;
+}
+
+div#position-field {
+    position:relative;
+}
+
+div#position-field > div.position-slot {
+    position:absolute;
+}
+
+div#position-field > div.position-slot.left-fielder {
+    top:30%;
+    left:7%;
+}
+
+div#position-field > div.position-slot.center-fielder {
+    top:23%;
+    left:35%;
+}
+
+div#position-field > div.position-slot.right-fielder {
+    top:30%;
+    right:7%;
+}
+
+div#position-field > div.position-slot.shortstop {
+    top:55%;
+    left:20%;
+}
+
+div#position-field > div.position-slot.second-base {
+    top:55%;
+    left:50%;
+}
+
+div#position-field > div.position-slot.third-base {
+    left:8%;
+    top:70%;
+}
+
+div#position-field > div.position-slot.first-base {
+    right:8%;
+    top:70%;
+}
+
+div#position-field > div.position-slot.catcher {
+    bottom:2%;
+    left:35%;
+}
+
+div#position-field > div.position-slot.designated {
+    right:7%;
+    bottom:2%;
+}
+
+#lineup-container .btn-default {
+    background-color:#000;
+}
