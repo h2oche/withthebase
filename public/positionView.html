@@ -1,0 +1,33 @@
+<div id="position-slot-container" class="container" ng-mousemove="dragAction($event)" ng-mousedown="dragEnd($event)">
+    <div id="position-slot-mirror" class="position-slot" ng-hide="selectedSlotScope == null" style="transition:null;">
+        <div class="position-slot-position">{{selectedPlayer.positionId | positionName}}</div>
+        <div class="position-slot-name">{{selectedPlayer.name}}</div>
+        <div class="position-slot-team">{{selectedPlayer.teamId}}</div>
+    </div>
+    
+    <div class="row" style="display:table;">
+        <div class="col-md-9" id="position-field" style="display:table-cell; float:none;">
+            <wtb-position-slot ng-repeat="player in startingBatters()"></wtb-position-slot>
+        </div>
+        <div class="col-md-3" style="display:table-cell; float:none;">
+            <h1>주전 투수</h1>
+            <wtb-position-slot ng-repeat="player in startingPitchers()"></wtb-position-slot>
+        </div>
+    </div>
+    <div class="row">
+        <h1 class="col-md-12">벤치</h1>
+        <div class="col-md-9">
+            <div class="col-md-1">타자</div>
+            <div class="col-md-5">
+                <wtb-position-slot ng-repeat="player in benchBatters()"></wtb-position-slot>
+            </div>
+            <div class="col-md-1">투수</div>
+            <div class="col-md-5">
+                <wtb-position-slot ng-repeat="player in benchPitchers()"></wtb-position-slot>
+            </div>
+        </div>
+        <div class="col-md-3">
+            team
+        </div>
+    </div>
+</div>

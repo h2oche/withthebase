@@ -36,11 +36,11 @@
                     <li class="<%= is_active_action('trade') %>"><%= link_to "트레이드", league_trade_path %></li>
                 </ul>
             </li>
-            <li>
+            <li class="<%= is_active_action('draft') %> <%= is_active_action('autopick') %>">
                 <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">드래프트</span><span class="fa arrow"></a>
                 <ul class="nav nav-second-level collapse ">
-                    <li class="<%= is_active_action('lineup') %>"><%= link_to "드래프트", league_lineup_path %></li>
-                    <li class="<%= is_active_action('trade') %>"><%= link_to "오토픽", league_trade_path %></li>
+                    <li class="<%= is_active_action('draft') %>"><%= link_to "드래프트", league_draft_path %></li>
+                    <li class="<%= is_active_action('autopick') %>"><%= link_to "오토픽", league_autopick_path %></li>
                 </ul>
             </li>
             <li class="<%= is_active_action('result') %>">

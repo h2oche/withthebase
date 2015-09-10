@@ -1,3 +1,273 @@
 // Place all the styles related to the league controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#leaguename{
+    
+    font-size:200%;
+}
+
+#teamname{
+    
+    font-size:180%;
+}
+
+#emblem{
+    height:100px;
+    width:100px;
+    margin-top : 30px;
+}
+
+#league{
+    padding: 10px 10px 0px 10px;
+}
+#league:hover{
+    opacity:0.8;
+}
+#total {
+    margin : 10px 10px;
+}
+
+.table{
+    font-size:100%;
+}
+tbody>tr:hover{
+    opacity:0.8;
+    cursor:pointer;
+}
+
+tr {
+    text-align:center;
+}
+
+#search{
+    background-color:#e8e8e8;
+    border-radius:3px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-bottom: 10px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+#title-box{
+    background-color:white;
+    text-align : left;
+    padding : 10px;
+}
+
+.book{
+    text-align: left;
+    margin : 0px;
+    margin-top : 5px;
+    margin-bottom : 5px;
+    
+}
+
+//info action
+.image_div{
+    padding-left : 0px;
+    padding-right: 0px;
+    
+
+}
+.image_div > img{
+    width : 100%;
+}
+
+.name_div{
+    padding-top:12px;
+    font-size:110%;
+    
+}
+#title-box{
+    font-size:150%;
+}
+.add{
+    margin-top : 20px;
+    margin-bottom : 20px;
+}
+.add2{
+    margin-top : 8px;
+    margin-bottom : 8px;
+}
+.special{
+    background-color:#9E0A39;
+    padding-bottom : 12px;
+    border-radius : 5px;
+    color : #ffffff;
+}
+.special2{
+    background-color:#FFF9D6;
+}
+
+.name_div2{
+
+    padding-top:5px;
+    padding-bottom:5px;
+    color:#fff;
+    background-color:#CC99FF;
+    border-radius:5px;
+    text-align:center;
+}
+.image_div2{
+    padding-left : 0px;
+    padding-right: 0px;
+}
+.image_div2 > img{
+    width : 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+//result action css
+.line > div > img{
+    
+    height:50px;
+    opacity: 0.5;
+}//이미지 크기 조절
+.time{
+    color:white;
+    text-align:center;
+    font-size:120%;
+    background-color:gray;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.versus{
+    text-align:center;
+}
+.line{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.club{
+    padding-left:20px;
+    text-align:center;
+    font-size:140%;
+}
+
+
+/* lineup css */
+div#lineup-pview-container > div#position-slot-container {
+    position:relative;
+}
+        
+div.position-slot {
+    clear:both;
+    width:200px;
+    padding:5px;
+    margin:10px;
+    
+    border-radius:5px;
+    background-color:rgb(47,64,80);
+    
+    color:white;
+    font-weight:3.0em;
+    font-size:0.7em;
+    
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+div.position-slot > div {
+    float:left;
+    padding:5px 20px;
+    text-align:center;
+}
+
+div.position-slot-position {
+    width:35%;
+    font-size:0.7em;
+    background-color:rgb(44,56,67);
+}
+
+div.position-slot-name {
+    width:43%;
+    background-color:rgb(0,0,0);
+}
+
+div.position-slot-team {
+    width:17%;
+    background-color:rgb(44,56,67);
+}
+
+div.position-slot:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+div.position-slot.selected {
+    transform:scale(0.7);
+    opacity:0.3;
+}
+
+div.position-slot.highlited {
+    transform:scale(1.1);
+    border: 3px rgb(248,172,89) solid;
+}
+
+div#position-slot-mirror {
+    position:absolute;
+    z-index:-1;
+    margin:0px;
+}
+
+div#position-field {
+    position:relative;
+}
+
+div#position-field > div.position-slot {
+    position:absolute;
+}
+
+div#position-field > div.position-slot.left-fielder {
+    top:30%;
+    left:7%;
+}
+
+div#position-field > div.position-slot.center-fielder {
+    top:23%;
+    left:35%;
+}
+
+div#position-field > div.position-slot.right-fielder {
+    top:30%;
+    right:7%;
+}
+
+div#position-field > div.position-slot.shortstop {
+    top:55%;
+    left:20%;
+}
+
+div#position-field > div.position-slot.second-base {
+    top:55%;
+    left:50%;
+}
+
+div#position-field > div.position-slot.third-base {
+    left:8%;
+    top:70%;
+}
+
+div#position-field > div.position-slot.first-base {
+    right:8%;
+    top:70%;
+}
+
+div#position-field > div.position-slot.catcher {
+    bottom:2%;
+    left:35%;
+}
+
+div#position-field > div.position-slot.designated {
+    right:7%;
+    bottom:2%;
+}
+
+#lineup-container .btn-default {
+    background-color:#000;
+
+}

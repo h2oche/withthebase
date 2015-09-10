@@ -1,37 +1,114 @@
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-<h1>League#info</h1>
-<p>Find me in app/views/league/info.html.erb</p>
-vv
+
+<div class="wrapper wrapper-content">
+    <div class="animated fadeInRightBig">
+        <!--contents-->
+        <div class = "row">
+            
+            <!-- league informations-->
+            <div class = "col-md-6">
+                <div class = "ibox">
+                    <div>
+                        <div id = "title-box">
+                            <strong>리그 정보</strong>
+                        </div>    
+                    </div>
+                    <div class = "ibox-content special2">
+                        <div>
+                            <div class = "row add">
+                                <div class = "line col-md-2 hidden-sm image_div"><%= image_tag("tropy.png") %></div>
+                                <label class = "line col-md-4 name_div">리그 이름</label>
+                                <strong class = "line col-md-5 name_div special">윗 더 베 </strong>
+                            </div>
+                            <div class = "row add">
+                                <div class = "line col-md-2 hidden-sm image_div"><%= image_tag("emblem.png") %></div>
+                                <label class = "col-md-4 name_div">내 팀 이름</label>
+                                <strong class = "col-md-5 name_div special">장섭 독수리</strong>
+                            </div>
+                            <div class = "row add">
+                                <div class = "line col-md-2 hidden-sm image_div"><%= image_tag("Mode.png") %></div>
+                                <label class = "col-md-4 name_div">참여 인원</label>
+                                <strong class = "col-md-5 name_div special">총 10 팀 중 5 팀 참가 중  </strong>
+                            </div>
+                            <div class = "row add">
+                                <div class = "line col-md-2 hidden-sm image_div"><%= image_tag("unlock.png") %></div>
+                                <label class = "col-md-4 name_div">리그 기간</label>
+                                <strong class = "col-md-5 name_div special">6주 </strong>
+                            </div>
+                            <div class = "row add">
+                                <div class = "line col-md-2 hidden-sm image_div"><%= image_tag("diary.png") %></div>
+                                <label class = "col-md-4 name_div">드래프트 시작 여부</label>
+                                <strong class = "col-md-5 name_div special">완료</strong>
+                            </div>
+                            <div class = "row add">
+                                <div class = "line col-md-2 hidden-sm image_div"><%= image_tag("clock.png") %></div>
+                                <label class = "col-md-4 name_div">공개 여부</label>
+                                <strong class = "col-md-5 name_div special">공 개</strong>
+                            </div>
+                            <div class = "row add">
+                                <div class = "line col-md-2 hidden-sm image_div"><%= image_tag("max_people.png") %></div>
+                                <label class = "col-md-4 name_div">방장</label>
+                                <strong class = "col-md-5 name_div special">오장섭님의 장섭 독수리</strong>
+                            </div>
+                        </div>
+                        <button class = "btn btn-default">리그 설정</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!--participants list-->
+            <div class = "col-md-6">
+                <div>
+
+                    <div>
+                        <div id = "title-box">
+                            <strong>참여 팀</strong>
+                        </div>
+                    </div>
+                    <div class = "ibox-content">
+                        <div>
+                            <div class = "row add">
+                                <div class = "col-md-offset-1 col-md-2 col-md-2 hidden-sm image_div"><%= image_tag("team_name.png") %></div>
+                                <label class = "col-md-3 name_div" style ="font-size : 130%">팀 이름</label>
+                                <div class = "col-md-offset-1 col-md-2 hidden-sm image_div"><%= image_tag("emblem.png") %></div>
+                                <strong class = "col-md-3 name_div" style ="font-size : 130%">감독 </strong>
+                            </div>
+                            <div class = "row add2">
+                                <div class = "col-md-2 hidden-sm image_div2"><%= image_tag("user2.png") %></div>
+                                <label class = "col-md-3 name_div2">장섭 독수리</label>
+                                <strong class = "col-md-offset-2 col-md-4 name_div2">오장섭 </strong>
+                            </div>
+                            <div class = "row add2">
+                                <div class = "col-md-2 hidden-sm image_div2"><%= image_tag("user2.png") %></div>
+                                <label class = "col-md-3 name_div2">장섭 독수리</label>
+                                <strong class = "col-md-offset-2 col-md-4 name_div2">오장섭 </strong>
+                            </div>
+                            <div class = "row add2">
+                                <div class = "col-md-2 hidden-sm image_div2"><%= image_tag("user2.png") %></div>
+                                <label class = "col-md-3 name_div2">장섭 독수리</label>
+                                <strong class = "col-md-offset-2 col-md-4 name_div2">오장섭 </strong>
+                            </div>
+                            <div class = "row add2">
+                                <div class = "col-md-2 hidden-sm image_div2"><%= image_tag("user2.png") %></div>
+                                <label class = "col-md-3 name_div2">장섭 독수리</label>
+                                <strong class = "col-md-offset-2 col-md-4 name_div2">오장섭 </strong>
+                            </div>
+                            <div class = "row add2">
+                                <div class = "col-md-2 hidden-sm image_div2"><%= image_tag("user2.png") %></div>
+                                <label class = "col-md-3 name_div2">장섭 독수리</label>
+                                <strong class = "col-md-offset-2 col-md-4 name_div2">오장섭 </strong>
+                            </div>
+                            <div class = "row add2">
+                                <div class = "col-md-2 hidden-sm image_div2"><%= image_tag("user2.png") %></div>
+                                <label class = "col-md-3 name_div2">장섭 독수리</label>
+                                <strong class = "col-md-offset-2 col-md-4 name_div2">오장섭 </strong>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+    
