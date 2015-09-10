@@ -11,6 +11,87 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150910062511) do
+
+  create_table "bats", force: :cascade do |t|
+    t.integer  "player_id"
+    t.float    "bat_avg"
+    t.integer  "rbi"
+    t.integer  "homerun"
+    t.integer  "steal"
+    t.integer  "error"
+    t.date     "record_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer  "room_id"
+    t.date     "game_date"
+    t.integer  "team1"
+    t.integer  "team2"
+    t.string   "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pitches", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "win"
+    t.integer  "strikeout"
+    t.integer  "savehold"
+    t.float    "era"
+    t.date     "record_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.string   "pos"
+    t.string   "team"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "name"
+    t.string   "adminid"
+    t.string   "room_pw"
+    t.string   "mode"
+    t.integer  "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rosters", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "player_id"
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "account"
+    t.string   "password"
+    t.string   "email"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

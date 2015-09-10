@@ -16,6 +16,31 @@ Myapp::Application.routes.draw do
   get 'league/autopick'
   get 'league/result'
 
+  get 'admin/manage'
+  get 'admin/make_user'
+  get 'admin/delete_user/:id', to: 'admin#delete_user'
+  get 'admin/create_room'
+  get 'admin/delete_room_with_admin'
+  get 'admin/delete_room/:id', to: 'admin#delete_room'
+  get 'admin/join_room_from_user'
+  get 'admin/join_room'
+  get 'admin/delete_team/:id', to: 'admin#delete_team'
+  get 'admin/create_player_from_admin'
+  get 'admin/create_player'
+  get 'admin/create_player_random'
+  get 'admin/delete_player/:id', to: 'admin#delete_player'
+  get 'admin/pick_player_from_admin'
+  get 'admin/pick_player'
+  get 'admin/unpick_player/:id', to: 'admin#unpick_player'
+  get 'admin/get_data_random'
+  get 'admin/get_data'
+  get 'admin/delete_data_pitch/:id', to: 'admin#delete_data_pitch'
+  get 'admin/delete_data_bat/:id', to: 'admin#delete_data_bat'
+  get 'admin/make_game'
+  get 'admin/make_game_from_admin'
+  get 'admin/delete_game/:id', to: 'admin#delete_game'
+  get 'admin/play_game'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,396 @@
+<div class="row" style="border:thick 2px black">
+    
+    <!-- User Test -->
+    <div class="col-md-4">
+        <h1>사용자 관리창</h1>
+        <form action="/admin/make_user">
+            <input type='text' name='account' placeholder="UserID"></input>
+            <input type='text' name='password' placeholder="Password"></input>
+            <input type='text' name='email' placeholder="E-Mail"></input>
+            <input type='text' name='name' placeholder="Name"></input>
+            <input type='submit' value='유저만들기'></input>
+        </form>
+         
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>아이디</th>
+                <th>비밀번호</th>
+                <th>이메일</th>
+                <th>이름</th>
+                <th>[x]</th>
+            </tr>
+            <% @all_user.each do |x| %>
+            <tr>
+                <td><%= x.id %></td>
+                <td><%= x.account %></td>
+                <td><%= x.password %></td>
+                <td><%= x.email %></td>
+                <td><%= x.name %></td>
+                <td><a href="/admin/delete_user/<%= x.id %>">[x]</a></td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+    
+    
+    <!-- room Test -->
+    <div class="col-md-4">
+        <h1>리그 생성 관리창</h1>
+        <form action="/admin/create_room">
+            <input type='text' name='name' placeholder="room Name"></input>
+            방장 ID
+            <select name='adminid'>
+                <% @all_user.each do |x| %>
+                <option value="<%= x.id %>"><%= x.account %></option>
+                <% end %>
+            </select>
+            <input type='text' name='room_pw' placeholder="Password"></input>
+            모드
+            <select name='mode'>
+                <option value="Public">Public</option>
+                <option value="Private">Private</option>
+            </select>
+            인원
+            <select name='size'>
+                <option value="2">2</option>
+            </select>
+            <input type='text' name='team' placeholder="Team Name"></input>
+            <input type='submit' value='방만들기'></input>
+        </form>
+        
+        <table border="1">
+            <tr>
+                <th>리그 ID</th>
+                <th>리그 이름</th>
+                <th>방장 ID</th>
+                <th>비밀번호</th>
+                <th>모드</th>
+                <th>인원</th>
+                <th>[x]</th>
+            </tr>
+            <% @all_room.each do |x| %>
+            <tr>
+                <td><%= x.id %></td>
+                <td><%= x.name %></td>
+                <td><%= x.adminid %></td>
+                <td><%= x.room_pw %></td>
+                <td><%= x.mode %></td>
+                <td><%= x.size %></td>
+                <td><a href="/admin/delete_room/<%= x.id %>">[x]</a></td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+    
+    
+    <!-- Team Test --> 
+    
+    <div class="col-md-4">
+        <h1>리그 입장/탈퇴 관리창</h1>
+        <form action="/admin/join_room_from_user">
+            리그
+            <select name='room_id'>
+                <% @all_room.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %> (<%= x.name %>)</option>
+                <% end %>
+            </select>
+            유저
+            <select name='user_id'>
+                <% @all_user.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %> (<%= x.account %>)</option>
+                <% end %>
+            </select>
+            <input type='text' name='name' placeholder='team name'></input>
+            <input type='submit' value='방 입장'></input>
+        </form>
+        
+        <table border='1'>
+            <tr>
+                <th>리그</th>
+                <th>팀ID(이름)[x]</th>
+            </tr>
+            <% @all_room.each do |x| %>
+            <tr>
+                <td><%= x.id %> (<%= x.name %>)</td>
+                <td>
+                <% x.teams.each do |y| %>
+                <%= y.id %>(<%= y.name %>)<a href="/admin/delete_team/<%= y.id %>">[x]</a>&nbsp;
+                <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
+
+<div class='row' style="border:thick 2px black">
+    
+    <!-- Player -->
+    
+    <div class="col-md-4">
+        <h1>선수 DB 관리창</h1>
+        <form action='/admin/create_player_from_admin'>
+            <input type='text' name='name' placeholder='선수이름'></input>
+            <input type='text' name='pos' placeholder='포지션'></input>
+            <input type='text' name='team' placeholder='소속팀'></input>
+            <input type='submit' value='선수입력'></input>
+        </form>
+        <form action='/admin/create_player_random'>
+            <input type='submit' value='랜덤생성'></input>
+        </form>
+        
+        <table border='1'>
+            <tr>
+                <th>ID</th>
+                <th>선수이름</th>
+                <th>포지션</th>
+                <th>소속팀</th>
+                <th>[x]</th>
+            </tr>
+            <% @all_player.each do |x| %>
+            <tr>
+                <td><%= x.id %></td>
+                <td><%= x.name %></td>
+                <td><%= x.pos %></td>
+                <td><%= x.team %></td>
+                <td><a href="/admin/delete_player/<%= x.id %>">[x]</a></td>
+            </tr>
+            <% end %>
+        </table>
+        
+    </div>
+    
+    <!-- Roster -->
+    
+    <div class="col-md-4">
+        <h1>선수 픽/퇴출 관리창</h1>
+        <form action='/admin/pick_player_from_admin'>
+            팀
+            <select name='team_id'>
+                <% @all_team.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %>(<%= x.name %>)</option>
+                <% end %>
+            </select>
+            선수
+            <select name='player_id'>
+                <% @all_player.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %>(<%= x.name %>)</option>
+                <% end %>
+            </select>
+            <input type='submit' value='선수넣기'>
+            
+        </form>
+        
+        <table border='1'>
+            <tr>
+                <th>팀</th>
+                <th>선수ID[x]</th>
+            </tr>
+            <% @all_team.each do |x| %>
+            <tr>
+                <td><%= x.id %></td>
+                <td>
+                <% x.rosters.each do |y| %>
+                <%= y.player_id %><a href="/admin/unpick_player/<%= y.id %>">[x]</a>&nbsp;
+                <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+        
+    </div>
+    
+    
+    <!-- Data -->
+    <div class="col-md-4">
+        <h1>선수 기록 관리창</h1>
+        <form action='/admin/get_data_random'>
+            선수
+            <select name='player_id'>
+                <% @all_player.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %>(<%= x.name %>)</option>
+                <% end %>
+            </select>
+            날짜
+            <select name='date'>
+                <option value='<%= Date.today() %>'><%= Date.today() %></option>
+                <option value='<%= Date.today() + 1 %>'><%= Date.today() + 1 %></option>
+            </select>
+            <input type='submit' value='데이터 랜덤 생성'></input>
+        </form>
+        
+        <h3>투수</h3>
+        <table border='1'>
+            <tr>
+                <th>선수</th>
+                <th>날짜</th>
+                <th>다승</th>
+                <th>탈삼진</th>
+                <th>평균자책</th>
+                <th>세이브+홀드</th>
+                <th>[x]</th>
+            </tr>
+            <% @all_pitch.each do |x| %>
+            <tr>
+                <td><%= x.player_id %></td>
+                <td><%= x.record_date %></td>
+                <td><%= x.win %></td>
+                <td><%= x.strikeout %></td>
+                <td><%= x.era %></td>
+                <td><%= x.savehold %></td>
+                <td><a href="/admin/delete_data_pitch/<%= x.id %>">[x]</a></td>
+            </tr>
+            <% end %>
+        </table>
+        
+        <h3>타자</h3>
+        <table border='1'>
+            <tr>
+                <th>선수</th>
+                <th>날짜</th>
+                <th>타율</th>
+                <th>타점</th>
+                <th>홈런</th>
+                <th>도루</th>
+                <th>실책</th>
+                <th>[x]</th>
+            </tr>
+            <% @all_bat.each do |x| %>
+            <tr>
+                <td><%= x.player_id %></td>
+                <td><%= x.record_date %></td>
+                <td><%= x.bat_avg %></td>
+                <td><%= x.rbi %></td>
+                <td><%= x.homerun %></td>
+                <td><%= x.steal %></td>
+                <td><%= x.error %></td>
+                <td><a href="/admin/delete_data_bat/<%= x.id %>">[x]</a></td>
+            </tr>
+            <% end %>
+        </table>
+        
+    </div>
+    
+</div>
+    
+<div class="row" style="border:thick 2px black">
+    
+    
+    <!-- Schedule -->
+    
+    <div class="col-md-4">
+        <h1>경기 스케쥴 관리창</h1>
+        <form action='/admin/make_game_from_admin'>
+            리그
+            <select name='room_id'>
+                <% @all_room.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %>(<%= x.name %>)</option>
+                <% end %>
+            </select>
+            날짜
+            <select name='date'>
+                <option value='<%= Date.today() %>'><%= Date.today() %></option>
+                <option value='<%= Date.today() + 1 %>'><%= Date.today() + 1 %></option>
+            </select>
+            팀1
+            <select name='team1_id'>
+                <% @all_team.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %>(<%= x.name %>)</option>
+                <% end %>
+            </select>
+            팀2
+            <select name='team2_id'>
+                <% @all_team.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %>(<%= x.name %>)</option>
+                <% end %>
+            </select>
+            <input type='submit' value='경기 일정 등록'>
+            
+        </form>
+        
+        <table border='1'>
+            <tr>
+                <th>게임ID</th>
+                <th>리그</th>
+                <th>팀1 vs 팀2</th>
+                <th>날짜</th>
+                <th>결과</th>
+                <th>[x]</th>
+            </tr>
+            <% @all_game.each do |x| %>
+            <tr>
+                <td><%= x.id %></td>
+                <td><%= x.room_id %></td>
+                <td><%= x.team1 %> vs <%= x.team2 %></td>
+                <td><%= x.game_date %></td>
+                <td><%= x.result %></td>
+                <td><a href="/admin/delete_game/<%= x.id %>">[x]</a></td>
+            </tr>
+            <% end %>
+        </table>
+        
+    </div>
+    
+    
+    
+    <!-- Game Result -->
+    
+    <!--
+    <div class="col-md-4">
+        <h1>게임 진행 관리창</h1>
+        <form action='/admin/play_game'>
+            리그
+            <select name='room_id'>
+                <% @all_room.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %>(<%= x.name %>)</option>
+                <% end %>
+            </select>
+            날짜
+            <select name='date'>
+                <option value='<%= Date.today() %>'><%= Date.today() %></option>
+                <option value='<%= Date.today() + 1 %>'><%= Date.today() + 1 %></option>
+            </select>
+            팀1
+            <select name='team1_id'>
+                <% @all_team.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %>(<%= x.name %>)</option>
+                <% end %>
+            </select>
+            팀2
+            <select name='team2_id'>
+                <% @all_team.each do |x| %>
+                <option value="<%= x.id %>"><%= x.id %>(<%= x.name %>)</option>
+                <% end %>
+            </select>
+            <input type='submit' value='경기 일정 등록'>
+            
+        </form>
+        
+        <table border='1'>
+            <tr>
+                <th>리그</th>
+                <th>팀1 vs 팀2</th>
+                <th>날짜</th>
+                <th>결과</th>
+                <th>[x]</th>
+            </tr>
+            <% @all_game.each do |x| %>
+            <tr>
+                <td><%= x.room_id %></td>
+                <td><%= x.team1 %> vs <%= x.team2 %></td>
+                <td><%= x.game_date %></td>
+                <td><%= x.result %></td>
+                <td><a href="/admin/delete_game/<%= x.id %>">[x]</a></td>
+            </tr>
+            <% end %>
+        </table>
+        
+    </div>
+    -->
+    
+</div>
+
+<div style="height: 100px">
+    
+</div>
