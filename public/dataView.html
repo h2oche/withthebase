@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-md-offset-10 col-md-2">
             <div class="btn-group" role="group">
-                <button class="btn btn-default" ng-click="batterView=true;">타자</button>
-                <button class="btn btn-default" ng-click="batterView=false;">투수</button>
+                <button class="btn btn-default" ng-click="batterView=true; resetCompare()">타자</button>
+                <button class="btn btn-default" ng-click="batterView=false; resetCompare()">투수</button>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="player in benchBatters()" ng-model="stats = player.stats">
+                        <tr ng-repeat="player in benchBatters()" ng-model="stats = player.stats" ng-click="toggleCompare(player)">
                             <td>{{player.positionId | positionName}}</td>
                             <td>{{player.name}}</td>
                             <td>{{stats.avg}}</td>
@@ -82,7 +82,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="player in startingPitchers()" ng-model="stats = player.stats">
+                        <tr ng-repeat="player in startingPitchers()" ng-model="stats = player.stats" ng-click="toggleCompare(player)">
                             <td>{{player.positionId | positionName}}</td>
                             <td>{{player.name}}</td>
                             <td>{{stats.win}}</td>
@@ -110,7 +110,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="player in benchPitchers()" ng-model="stats = player.stats">
+                        <tr ng-repeat="player in benchPitchers()" ng-model="stats = player.stats" ng-click="toggleCompare(player)">
                             <td>{{player.positionId | positionName}}</td>
                             <td>{{player.name}}</td>
                             <td>{{stats.win}}</td>
@@ -126,8 +126,8 @@
         </div>
         <div class="col-md-4">
             <h3>선수비교</h3>
-            <div>그림</div>
-            <wtb-position-slot ng-repeat="player in comparePlayers"></wtb-position-slot>
+            <div></div>
+            <wtb-position-slot ng-repeat="player in comparePlayers" ng-mousedown="toggleCompare(player)"></wtb-position-slot>
         </div>
     </div>
 </div>
