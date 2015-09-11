@@ -5,7 +5,7 @@
 <!--팝업(모달) 바디 부분-->
 <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content animated flipInY pack">
+            <div class="modal-content animated fadeIn pack">
                 <div class="modal-body">
                     <!-- 위에 엠블럼이랑 소속정보-->
                     <div class = "row">
@@ -18,30 +18,62 @@
                             </div>
                         </div>
                         <div class = "col-sm-offset-3 col-sm-6">
-                            <div class = "row">
+                            <div class = "row player-line"
+                                style = "margin-right : 0px">
                                 <div class = "col-sm-6">
                                     KBO 리그 소속팀 : 
                                 </div>
-                                <div class = "col-sm-6">
+                                <div class = "col-sm-6 player">
                                     한화 이글스 
+                                </div>
+                            </div>
+                            <div class = "row player-line"
+                                style = "margin-right : 0px">
+                                <div class = "col-sm-6">
+                                    야알못 리그 소속팀 : 
+                                </div>
+                                <div class = "col-sm-6 player">
+                                    오장섭 감독의 <br>
+                                    <span>성하짱짱</span>팀
+                                </div>
+                            </div>
+                            <div class = "row player-line"
+                                style = "margin-right : 0px">
+                                <div class = "col-sm-6">
+                                    포지션 
+                                </div>
+                                <div class = "col-sm-6 player">
+                                    투 수
+                                </div>
+                            </div>
+                            <div class = "row player-line"
+                                style = "margin-right : 0px">
+                                <div class = "col-sm-6">
+                                    다음 경기 상대 투수
+                                </div>
+                                <div class = "col-sm-6 player">
+                                    <div class = "row">
+                                        <div class = "col-sm-9">
+                                            레일리
+                                        </div>
+                                        <div class = "col-sm-3 next" >
+                                            <%= image_tag("tiger.jpg")%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div class = "row">
-                                <div class = "col-sm-6">
-                                    KBO 리그 소속팀 : 
-                                </div>
-                                <div class = "col-sm-6">
-                                    한화 이글스 
-                                </div>
-                            </div>
+                           
+                            
                         </div>
                     </div>
                     <!--밑에 정보 테이블-->
-                    <table class="table table-bordered">
+                    <table class="table table-bordered border">
                         <thead>
                             <tr class = "border">
-                                <th>일시</th>
+                                <th class = "border-left">
+                                    일시
+                                </th>
                                 <th>경기회차</th>
                                 <th>승리</th>
                                 <th>평균자책</th>
@@ -60,7 +92,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>8/15</td>
+                            <td style = "border-left : solid">8/15</td>
                             <td>70</td>
                             <td>1</td>
                             <td>1.50</td>
@@ -74,11 +106,13 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td style = "border-right:solid"></td>
                             
                         </tr>
                         <tr>
-                            <td>8/15</td>
+                            <td style = "border-left:solid">
+                                8/15
+                            </td>
                             <td>70</td>
                             <td>1</td>
                             <td>1.50</td>
@@ -92,7 +126,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td style = "border-right:solid"></td>
                         </tr>
                         <tr class = "border">
                             <td colspan = "2">합계 </td>

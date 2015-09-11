@@ -299,17 +299,17 @@ div#position-field > div.position-slot.designated {
 .emblem > img{
     max-width:100%;
 }
-.border-left{
-    border-left: solid 1px black;
+.border_left{
+    border-left: solid;
 }
 .border-top{
-    border-top: solid 1px black;
+    border-top: solid;
 }
 .border-right{
-    border-right: solid 1px black;
+    border-right: solid;
 }
 .border-bottom{
-    border-bottom: solid 1px black;
+    border-bottom: solid;
 }
 .border{
     border : solid;
@@ -322,6 +322,30 @@ div#position-field > div.position-slot.designated {
     padding-bottom:10px;
     font-size:150%;
 }
-.border > th{
 
+.player-line{
+    border: solid 1px black;
+    font-size:130%;
+    margin:10px 0px;
+    margin-right : 0px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.player-line div{
+    padding : auto;
+}
+.player{
+    text-align:center;
+    background-color: #DF79A7;
+    color : #ffffff;
+}
+.player > span{
+    color : blue;
+}
+.next {
+    height : 60px;
+}
+
+.next > img {
+    max-height : 100%;
 }
