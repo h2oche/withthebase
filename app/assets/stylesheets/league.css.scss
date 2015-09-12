@@ -373,12 +373,16 @@ table > thead > tr> th{
 .next > img {
     width : 100%;
 }
-.full{
-    width : 1000px;
-}
+
 td > img{
     max-height: 36px;
 }
 table > tbody > tr > td {
     font-size:130%;
+}
+button{
+    float : right;
+}
+table > thead > tr > th{
+    text-align: center;
 }

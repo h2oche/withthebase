@@ -28,7 +28,7 @@
 <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content animated fadeIn pack">
-                <div class="modal-body full">
+                <div class="modal-body">
                     <!-- 위에 엠블럼이랑 소속정보-->
                     <div class = "row">
                         <div class = "col-sm-3">
@@ -69,26 +69,17 @@
                                     포수
                                 </div>
                             </div>
-                            
-                        </div>
-                        
-                    </div>
-                    <div class = "row">
-                        <div class = "col-sm-offset-4 col-sm-8 text-center">
-                            <div class = "row player-line next"
+                            <div class = "row player-line"
                                 style = "margin-right : 0px">
-                                <div class = "col-xs-6">
-                                    다음 경기 상대 투수
+                                <div class = "col-sm-6">
+                                    다음 경기 상대 투수 
                                 </div>
-                            
-                                <div class = "col-xs-4">
-                                        레일리(롯데 자이언츠)
-                                </div>        
-                                
-                                <div class = "col-xs-2 next">
+                                <div class = "col-sm-4">
+                                    레일리<br>(롯데 자이언츠)
+                                </div>
+                                <div class = "col-sm-2 next">
                                     <%=image_tag("bird.png")%>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -106,7 +97,7 @@
                                 <th>탈삼진</th>
                                 <th>홀드</th>
                                 <th>세이브</th>
-                                <th>상대팀 선발투수</th>
+                                <th style = "width : 30%">상대팀 선발투수</th>
                             </tr>
                         </thead>
                         <tbody>
