@@ -341,6 +341,13 @@ div#position-field > div.position-slot.designated {
 .border{
     border : solid;
 }
+table{
+    table-layout : fixed;
+    
+}
+table > thead > tr> th{
+    width : auto;
+}
 .black-box{
     text-align : center;
     color : white;
@@ -353,6 +360,7 @@ div#position-field > div.position-slot.designated {
 .player-line{
     overflow : auto;
     height : auto;
+    min-height:50px;
     border: solid 1px black;
     font-size:130%;
     margin:10px 0px;
@@ -373,9 +381,20 @@ div#position-field > div.position-slot.designated {
 }
 
 .next > img {
-    
     width : 100%;
-    
+
 }
 
+td > img{
+    max-height: 36px;
+}
+table > tbody > tr > td {
+    font-size:130%;
+}
+button{
+    float : right;
+}
+table > thead > tr > th{
+    text-align: center;
+}
 
