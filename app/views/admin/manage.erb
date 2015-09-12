@@ -324,8 +324,14 @@
                 <td><%= x.room_id %></td>
                 <td><%= x.team1 %> vs <%= x.team2 %></td>
                 <td><%= x.game_date %></td>
-                <td><%= x.result %></td>
-                <td><a href="/admin/delete_game/<%= x.id %>">[x]</a></td>
+                <td><%= x.result %>
+                    <% if x.result = "TBD"> %>
+                        <a href="/admin/play_game/<%= x.id %>">[계산]</a>
+                    <% end %>
+                </td>
+                <td>
+                    <a href="/admin/delete_game/<%= x.id %>">[x]</a>
+                </td>
             </tr>
             <% end %>
         </table>

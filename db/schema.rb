@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20150910062511) do
   end
 
   create_table "results", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "win"
+    t.integer  "strikeout"
+    t.integer  "savehold"
+    t.float    "era"
+    t.float    "bat_avg"
+    t.integer  "rbi"
+    t.integer  "homerun"
+    t.integer  "steal"
+    t.integer  "error"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

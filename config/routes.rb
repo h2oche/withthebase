@@ -39,7 +39,7 @@ Myapp::Application.routes.draw do
   get 'admin/make_game'
   get 'admin/make_game_from_admin'
   get 'admin/delete_game/:id', to: 'admin#delete_game'
-  get 'admin/play_game'
+  get 'admin/play_game/:id', to: 'admin#play_game'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

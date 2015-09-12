@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+
+gem 'flipclockjs-rails'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 gem 'bootstrap-sass', '~> 3.3.5'
