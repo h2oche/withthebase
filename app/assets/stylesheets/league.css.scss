@@ -314,6 +314,12 @@ div#position-field > div.position-slot.designated {
 .border{
     border : solid;
 }
+table{
+    table-layout : fixed;
+}
+table > thead > tr>th{
+    overflow : hidden;
+}
 .black-box{
     text-align : center;
     color : white;
