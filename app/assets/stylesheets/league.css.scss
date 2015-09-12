@@ -333,9 +333,10 @@ div#position-field > div.position-slot.designated {
 }
 table{
     table-layout : fixed;
+    
 }
-table > thead > tr>th{
-    overflow : hidden;
+table > thead > tr> th{
+    width : auto;
 }
 .black-box{
     text-align : center;
@@ -349,6 +350,7 @@ table > thead > tr>th{
 .player-line{
     overflow : auto;
     height : auto;
+    min-height:50px;
     border: solid 1px black;
     font-size:130%;
     margin:10px 0px;
@@ -369,7 +371,14 @@ table > thead > tr>th{
 }
 
 .next > img {
-    
     width : 100%;
-    
+}
+.full{
+    width : 1000px;
+}
+td > img{
+    max-height: 36px;
+}
+table > tbody > tr > td {
+    font-size:130%;
 }
