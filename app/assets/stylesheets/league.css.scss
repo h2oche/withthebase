@@ -63,6 +63,12 @@ tr {
 }
 
 //info action
+ul > li{
+    display : inline;
+}
+ul > li > div{
+    height : inherit;
+}
 .image_div{
     padding-left : 0px;
     padding-right: 0px;
@@ -70,7 +76,7 @@ tr {
 
 }
 .image_div > img{
-    width : 100%;
+    max-width : 100%;
 }
 
 .name_div{
@@ -82,6 +88,7 @@ tr {
     font-size:150%;
 }
 .add{
+    height : 54px;
     margin-top : 20px;
     margin-bottom : 20px;
 }
@@ -139,6 +146,7 @@ tr {
     text-align:center;
 }
 .line{
+    height : 54px;
     padding-top:5px;
     padding-bottom:5px;
 }
@@ -283,6 +291,7 @@ div#position-field > div.position-slot.designated {
 }
 
 
+
 // 드래프트 페이지 css
 
 .white-bg .draft-icon {
@@ -295,5 +304,66 @@ div#position-field > div.position-slot.designated {
     
     padding-bottom: 0px !important;
     
+}
+
+//draft css 선수 팝업
+.pack{
+    padding : 10px 20px 10px 20px;
+}
+.emblem{
+    max-width : 100%;
+}
+.emblem > img{
+    max-width:100%;
+}
+.border_left{
+    border-left: solid;
+}
+.border-top{
+    border-top: solid;
+}
+.border-right{
+    border-right: solid;
+}
+.border-bottom{
+    border-bottom: solid;
+}
+.border{
+    border : solid;
+}
+.black-box{
+    text-align : center;
+    color : white;
+    background-color:black;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:150%;
+}
+
+.player-line{
+    overflow : auto;
+    height : auto;
+    border: solid 1px black;
+    font-size:130%;
+    margin:10px 0px;
+    margin-right : 0px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.player-line div{
+    height : 100%;
+    padding : auto;
+}
+.player{
+    text-align:center;
+    
+}
+.player > span{
+    color : blue;
+}
+
+.next > img {
+    
+    width : 100%;
     
 }
