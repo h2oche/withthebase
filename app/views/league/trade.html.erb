@@ -1,23 +1,46 @@
 <!--트레이드 진행 상황-->
-<div class = "row">
+<div class = "row" style = "padding-top:50px">
     <div class = "col-sm-2">
-        트레이드 제안
-        <div>Jason과 트레이드 중</div>
+        <div class = "padding">
+            <%=image_tag("search.png")%>
+            <div>Jason과 트레이드 중</div>
+        </div>
     </div>
     <div class = "col-sm-5">
-        나가는 선수
-        <div class = "position-slot">
+        <div class = "padding">
             
-            <div class = "position-slot-position">외야</div>
-            <div class = "position-slot-name">이명기</div>
-            <div class = "position-slot-team">
-                <%=image_tag("bird.png")%>
+                
+            <%=image_tag("left.png")%>
+                
+                
+            나가는 선수
+                
+            <div class = "trade-slot">
+                
+                <div class = "trade-slot-position">외야</div>
+                <div class = "trade-slot-name">이명기</div>
+                <div class = "trade-slot-team">
+                    <%=image_tag("bird.png")%>
+                </div>
             </div>
             
         </div>
     </div>
     <div class = "col-sm-5">
-        들어올 선수
+        <div class = "padding">
+            
+                <%=image_tag("right.png")%>
+                
+            
+                들어올 선수
+            <div class = "trade-slot">
+                <div class = "trade-slot-position">외야</div>
+                <div class = "trade-slot-name">이명기</div>
+                <div class = "trade-slot-team">
+                    <%=image_tag("bird.png")%>
+                </div>
+            </div>
+        </div>
     </div>
     
 </div>

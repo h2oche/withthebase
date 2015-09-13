@@ -5,7 +5,7 @@
             <ul class="nav navbar-top-links navbar-left">
                 <li>
                     <a href="<%= url_for :controller => '/home', :action => 'index' %>">
-                        <i class="fa fa-sign-out"></i> WTB홈
+                        <span class="glyphicons glyphicons-312-baseball"></span> WTB 홈
                     </a>
                 </li>
                 <li>
@@ -26,7 +26,6 @@
             </ul>
         </div>
         <ul class="nav navbar-top-links navbar-right">
-            
             <% if user_signed_in? %>
                 <li>
                     <span class="m-r-sm text-muted welcome-message"><%=current_user.username%>님 환영합니다.</span>
@@ -44,7 +43,6 @@
                     <a href="/users/sign_up">Register</a>
                 </li>
             <% end %>
-            
             
             <!-- 관리자 페이지 (실제 서비스시에는 없애기)-->
             <li>
