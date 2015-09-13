@@ -4,22 +4,22 @@
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#" style="<%= is_minibtn_league('league', 'dashboard') %>"><i class="fa fa-bars"></i> </a>
             <ul class="nav navbar-top-links navbar-left">
                 <li>
-                    <a href="<%= url_for :controller => 'home', :action => 'index' %>">
+                    <a href="<%= url_for :controller => '/home', :action => 'index' %>">
                         <span class="glyphicons glyphicons-312-baseball"></span> WTB 홈
                     </a>
                 </li>
                 <li>
-                    <a href="<%= url_for :controller => 'league', :action => 'dashboard' %>">
+                    <a href="<%= url_for :controller => '/league', :action => 'dashboard' %>">
                         <i class="fa fa-sign-out"></i> 나의리그
                     </a>
                 </li>
                 <li>
-                    <a href="<%= url_for :controller => 'howto', :action => 'index' %>">
+                    <a href="<%= url_for :controller => '/howto', :action => 'index' %>">
                         <i class="fa fa-sign-out"></i> 게임방법
                     </a>
                 </li>
                 <li>
-                    <a href="<%= url_for :controller => 'info', :action => 'index' %>">
+                    <a href="<%= url_for :controller => '/info', :action => 'index' %>">
                         <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> 정보
                     </a>
                 </li>
@@ -27,17 +27,23 @@
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <span class="m-r-sm text-muted welcome-message">윗더베에 오신 것을 환영합니다.</span>
-            </li>
-            <li>
-                <a href="<%= url_for :controller => 'home', :action => 'index' %>">
-                    <i class="fa fa-sign-out"></i> Log out
-                </a>
+                
+                <span class="m-r-sm text-muted welcome-message">
+                    <% if person_signed_in? %>
+                        Signed in as <%= current_person.email %>. This cannot be cheese?
+                        <a href="<%= url_for :controller => '/home', :action => 'index' %>">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
+                    <% else %>
+                        <%= link_to 'Register', new_person_registration_path %> or <%= link_to 'Sign in', new_person_session_path %>
+                    <% end %>
+                </span>
             </li>
             
             <!-- 관리자 페이지 (실제 서비스시에는 없애기)-->
             <li>
-                <a href="<%= url_for :controller => 'admin', :action => 'manage' %>">
+                <a href="<%= url_for :controller => '/admin', :action => 'manage' %>">
                     관리자 페이지
                 </a>
             </li>
