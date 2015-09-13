@@ -2,85 +2,32 @@
     <div class="animated fadeInRightBig">
         <div class = "row" id = "total">
             <div class = "col-md-5">
-            <!--First league-->
-            <div class="col-md-12 widget red-bg p-md" id = "league">
-                <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>
-                <button class = "btn btn-warning" onclick="location.href='/league/info';" style = "float:right;">리그 들어가기 </button>
-                <div class="m-b-md col-md-5 text-center">
-                    <strong id = "leaguename" >윗더베</strong><small style = "font-size:130%"> 리그</small><br>
-                    <strong id = "teamname"> 성하짱짱 팀</strong>
-                    <div>
-                        <img id = "emblem"
-                         src = "http://www.pngimage.com/wp-content/uploads/2014/10/real_madrid_logo.png">
+            <% @teams_info.each_with_index do |team_info, index| %>
+                <div class="col-md-12 widget p-md <%=@teams_classname[index]%>" id = "league">
+                    <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>
+                    <div class="m-b-md col-md-5 text-center">
+                        <strong id = "leaguename" ><%=team_info[:roomname]%></strong><small style = "font-size:130%"> 리그</small><br>
+                        <strong id = "teamname"> <%=team_info[:teamname]%> 팀</strong>
+                        <div>
+                            <img id = "emblem"
+                             src = "http://www.pngimage.com/wp-content/uploads/2014/10/real_madrid_logo.png">
+                        </div>
                     </div>
-                </div>
-                <div class = "col-md-7">
-                    <br>
-                    <div class = "visible-md">
-                        <p> 드래프트까지 10일 남았습니다.</p>
+                    <div class = "col-md-7">
                         <br>
-                        <p>모드 : 리그매치</p>
-                        <p>리그 기간 : 2주</p>
-                        <p>드래프트 : 시작전</p>
-                        <p>드래프트 일시 : 2015년 9월 10일 20시</p>
+                        <div class = "visible-md">
+                            <p> 드래프트까지 10일 남았습니다.</p>
+                            <br>
+                            <p>모드 : 리그매치</p>
+                            <p>리그 기간 : 2주</p>
+                            <p>드래프트 : 시작전</p>
+                            <p>드래프트 일시 : 2015년 9월 10일 20시</p>
+                        </div>
+                        
                     </div>
-                    
                 </div>
+            <% end %>
             </div>
-        
-            <!--Second League-->
-            <div class="col-md-12 widget yellow-bg p-md" id = "league">
-                <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>    
-                <div class="m-b-md col-md-5 text-center">
-                    <strong id = "leaguename" >윗더베</strong><small style = "font-size:130%"> 리그</small><br>
-                    <strong id = "teamname"> 성하짱짱 팀</strong>
-                    <div>
-                        <img id = "emblem"
-                         src = "https://attachment.namu.wiki/seongnamfclogo.png">
-                    </div>
-                </div>
-                
-                <div class = "col-md-7 visible-md">
-                    <br>
-                    <div>
-                        <p> 드래프트까지 10일 남았습니다.</p>
-                        <br>
-                        <p>모드 : 리그매치</p>
-                        <p>리그 기간 : 2주</p>
-                        <p>드래프트 : 시작전</p>
-                        <p>드래프트 일시 : 2015년 9월 10일 20시</p>
-                    </div>
-                </div>
-
-             </div>
-            
-            <!--Third League-->
-            <div class="col-md-12 widget blue-bg p-md" id = "league">
-                <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>
-                 
-                
-                <div class="m-b-md col-md-5 text-center">
-                    <strong id = "leaguename" >윗더베</strong><small style = "font-size:130%"> 리그</small><br>
-                    <strong id = "teamname"> 성하짱짱 팀</strong>
-                    <div>
-                        <img id = "emblem"
-                         src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH34GrRELZuKCHWVJHIsuNflwmE_B256eTHrzYPwg1Ni6YHOn_">
-                    </div>
-                </div>
-                
-                <div class = "col-md-7">
-                    <br>
-                    <div class = "visible-md">
-                        <p> 드래프트까지 10일 남았습니다.</p>
-                        <br>
-                        <p>모드 : 리그매치</p>
-                        <p>리그 기간 : 2주</p>
-                        <p>드래프트 : 시작전</p>
-                        <p>드래프트 일시 : 2015년 9월 10일 20시</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     
             
             <!-- search menu-->
@@ -143,23 +90,26 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% @rooms_info.each do |room| %>
                         <tr>
-                            <td class = "center"><i class = "fa fa-lock"></i></td>
-                            <td>성하 짱짱
+                            <td class = "center">
+                                <% unless room[:is_public_mode] %>
+                                <i class = "fa fa-lock"></i>
+                                <% end %>
                             </td>
-                            <td>한화 팬만</td>
-                            <td class="center">2015년 9월 10일 20시</td>
-                            <td class="center">3/10</td>
-                            <td class="center">리그 매치</td>
+                            <td><%=room[:admin]%></td>
+                            <td><%=room[:roomname]%></td>
+                            <td class="center"><%=room[:draft_time]%></td>
+                            <td class="center">3/<%=room[:size_limit]%></td>
+                            <td class="center">
+                                <% unless room[:is_classic_mode] %>
+                                리그 매치
+                                <% else %>
+                                클래식 매치
+                                <% end %>
+                            </td>
                         </tr>
-                        <tr>
-                            <td class = "center"><i class = "fa fa-lock"></i></td>
-                            <td>야알못</td>
-                            <td>야잘잘</td>
-                            <td class="center">2015년 9월 23일 20시</td>
-                            <td class="center">5/8</td></td>
-                            <td class="center">리그 매치</td>
-                        </tr>
+                        <% end %>
                     </tbody>
                 </table>
                 <div class="row">
@@ -364,9 +314,8 @@
                         </div>
                 </div>
             </div>
-        </div>
-        </div>
     </div>
+</div>
     
     
 <script>

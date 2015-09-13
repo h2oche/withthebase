@@ -1,6 +1,22 @@
 class LeagueController < ApplicationController
   def dashboard
     redirect_to '/users/sign_in' unless user_signed_in?
+    
+    @teams_info = []
+    @teams_classname = ["red-bg", "yellow-bg", "blue-bg"]
+    
+    User.find(current_user.id).teams.each do |t|
+      roomname = Room.find(t.room_id).name
+      @teams_info << {teamname: t.name, roomname: roomname}
+    end
+    
+    @rooms_info = []
+    Room.all.each do |room| 
+      #현재 이 room 에 몇명의 유저가 있는지 체크
+      username = User.find(room.admin_id).username
+      @rooms_info << {admin: username, roomname: room.name, draft_time: room.draft_time,
+                      size_limit: room.size_limit, is_classic_mode: room.is_classic_mode, is_public_mode: room.is_public_mode}
+    end
   end
 
   def info
@@ -29,6 +45,8 @@ class LeagueController < ApplicationController
   end
   
   def get_rooms _user_id
+    #user id로 등록된 팀 찾기
+    
   end
   
   def join_room _user_id, _room_id, _teamname
@@ -40,7 +58,7 @@ class LeagueController < ApplicationController
   end
   
   def create_new_league
-    #리그 이름 중복 검사
+    #리그 이름 중복 검사, 리그 3개 이상 못 참여 하게
     new_room = Room.new
     new_room.name = params[:league_name]
     new_room.admin_id = current_user.id
