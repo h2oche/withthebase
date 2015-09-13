@@ -6,12 +6,14 @@ class LeagueController < ApplicationController
   end
 
   def lineup
+    @yet_drafted = true
   end
 
   def trade
   end
 
   def draft
+    
   end
   
   def autopick
