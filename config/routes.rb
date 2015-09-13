@@ -16,6 +16,8 @@ Myapp::Application.routes.draw do
   get 'league/draft'
   get 'league/autopick'
   get 'league/result'
+  
+  post '/leauge/create', to: 'league#create_new_league'
 
   get 'admin/manage'
   get 'admin/make_user'
