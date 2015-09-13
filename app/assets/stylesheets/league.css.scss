@@ -180,13 +180,16 @@ div.position-slot {
     font-size:0.7em;
     
     transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+    
 }
 
 div.position-slot > div {
     float:left;
+    
     padding:5px 20px;
     text-align:center;
-    
+
 }
 
 div.position-slot-position {
@@ -210,10 +213,7 @@ div.position-slot-team {
     padding : 0px;
     
 }
-div.position-slot-team > img{
-    height : 100%;
-    width : 100%;
-}
+
 
 div.position-slot:after {
     content:"";
@@ -437,4 +437,81 @@ table > thead > tr > th{
 .gray-out{
     opacity : 0.5;
     background-color : black;
+}
+
+//trade css
+
+div.trade-slot {
+    clear:both;
+    width:200px;
+    padding:5px;
+    margin:10px;
+    
+    border-radius:5px;
+    background-color:rgb(47,64,80);
+    
+    color:white;
+    font-weight:3.0em;
+    font-size:0.7em;
+    
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+    display :table;
+    table-layout : fixed;
+    height : 100%;
+    width : 100%;
+}
+
+div.trade-slot > div {
+    float:left;
+    
+    padding:5px 5px;
+    text-align:center;
+    
+    display: table-cell;
+    height :100%;
+}
+
+div.trade-slot-position {
+    width:35%;
+    font-size:0.7em;
+    background-color:rgb(44,56,67);
+    
+    
+}
+
+div.trade-slot-name {
+    width:43%;
+    background-color:rgb(0,0,0);
+    
+}
+
+div.trade-slot-team {
+    width:17%;
+    background-color:rgb(44,56,67);
+    vertical-align : middle;
+    padding : 0px;
+    
+}
+div.trade-slot-team > img{
+    height : 100%;
+    width : 100%;
+}
+
+.padding{
+    padding:10px;
+    background-color: yellow;
+    border-radius : 3px;
+    border : 2px solid aquamarine;
+    background-color : white;
+    padding-right:20px;
+}
+
+
+.padding > img{
+    height : 100%;
+    max-height : 40px;
+    min-height : 30px;
+    max-width : 40px;
+    min-width : 30px;
 }
