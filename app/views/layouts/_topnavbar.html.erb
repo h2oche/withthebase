@@ -4,40 +4,51 @@
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#" style="<%= is_minibtn_league('league', 'dashboard') %>"><i class="fa fa-bars"></i> </a>
             <ul class="nav navbar-top-links navbar-left">
                 <li>
-                    <a href="<%= url_for :controller => 'home', :action => 'index' %>">
-                        <span class="glyphicons glyphicons-312-baseball"></span> WTB 홈
+                    <a href="<%= url_for :controller => '/home', :action => 'index' %>">
+                        <i class="fa fa-sign-out"></i> WTB홈
                     </a>
                 </li>
                 <li>
-                    <a href="<%= url_for :controller => 'league', :action => 'dashboard' %>">
+                    <a href="<%= url_for :controller => '/league', :action => 'dashboard' %>">
                         <i class="fa fa-sign-out"></i> 나의리그
                     </a>
                 </li>
                 <li>
-                    <a href="<%= url_for :controller => 'howto', :action => 'index' %>">
+                    <a href="<%= url_for :controller => '/howto', :action => 'index' %>">
                         <i class="fa fa-sign-out"></i> 게임방법
                     </a>
                 </li>
                 <li>
-                    <a href="<%= url_for :controller => 'info', :action => 'index' %>">
+                    <a href="<%= url_for :controller => '/info', :action => 'index' %>">
                         <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> 정보
                     </a>
                 </li>
             </ul>
         </div>
         <ul class="nav navbar-top-links navbar-right">
-            <li>
-                <span class="m-r-sm text-muted welcome-message">윗더베에 오신 것을 환영합니다.</span>
-            </li>
-            <li>
-                <a href="<%= url_for :controller => 'home', :action => 'index' %>">
-                    <i class="fa fa-sign-out"></i> Log out
-                </a>
-            </li>
+            
+            <% if user_signed_in? %>
+                <li>
+                    <span class="m-r-sm text-muted welcome-message"><%=current_user.username%>님 환영합니다.</span>
+                </li>
+                <li>
+                    <a href="/users/sign_out">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+            <% else %>
+                <li>
+                    <a href="/users/sign_in">Sign in</a>
+                </li>
+                <li>
+                    <a href="/users/sign_up">Register</a>
+                </li>
+            <% end %>
+            
             
             <!-- 관리자 페이지 (실제 서비스시에는 없애기)-->
             <li>
-                <a href="<%= url_for :controller => 'admin', :action => 'manage' %>">
+                <a href="<%= url_for :controller => '/admin', :action => 'manage' %>">
                     관리자 페이지
                 </a>
             </li>
