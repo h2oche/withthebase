@@ -1,4 +1,9 @@
-<div class="wrapper wrapper-content" ng-controller="AppController">
+<!--wrapper div 에 드래프트전에는 그레이아웃 되도록 설정해 놓음-->
+<div class="wrapper wrapper-content
+    <%if @yet_drafted%>
+    <%= "before_draft"%>
+    <% end %>" 
+    ng-controller="AppController">
     <div class="animated fadeInRightBig">
         <!-- content -->
         <div id="lineup-container" class="container" ng-controller="LineupController">
@@ -18,6 +23,14 @@
         </div>
     </div>
 </div>
+<!--드래프트하기 전에 보여주는 화면-->
+<%if @yet_drafted%>
+    <div class = "draft_please">
+        아직 드래프트 전입니다.<br><br>
+        드래프트까지 남은 시간 05:43:24
+    </div>
+<% end %>
+<!---->
 
 <script type="text/javascript">
     var test;

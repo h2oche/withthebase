@@ -76,6 +76,8 @@ ul > li > div{
 
 }
 .image_div > img{
+    max-height : 50px;
+    min-height : 40px;
     max-width : 100%;
 }
 
@@ -120,7 +122,9 @@ ul > li > div{
     padding-right: 0px;
 }
 .image_div2 > img{
-    width : 100%;
+    max-height : 50px;
+    min-height : 40px;
+    max-width : 100%;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -176,29 +180,40 @@ div.position-slot {
     font-size:0.7em;
     
     transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+    
 }
 
 div.position-slot > div {
     float:left;
+    
     padding:5px 20px;
     text-align:center;
+
 }
 
 div.position-slot-position {
     width:35%;
     font-size:0.7em;
     background-color:rgb(44,56,67);
+    
+    
 }
 
 div.position-slot-name {
     width:43%;
     background-color:rgb(0,0,0);
+    
 }
 
 div.position-slot-team {
     width:17%;
     background-color:rgb(44,56,67);
+    vertical-align : middle;
+    padding : 0px;
+    
 }
+
 
 div.position-slot:after {
     content:"";
@@ -278,6 +293,27 @@ div#position-field > div.position-slot.designated {
 #lineup-container .btn-default {
     background-color:#000;
 
+}
+
+//드래프트 전 라인업 view css
+
+.before_draft{
+    background-color:black;
+    opacity:0.4;
+}
+.draft_please{
+    z-index : 10000;
+    position : absolute;
+    transform :translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    top : 50%;
+    left : 50%;
+    opacity : 1;
+    text-align : center;
+    font-size:180%;
+    border-radius:3px;
+    padding : 10px;
 }
 //리그 생성 css
 .image{
@@ -398,3 +434,84 @@ table > thead > tr > th{
     text-align: center;
 }
 
+.gray-out{
+    opacity : 0.5;
+    background-color : black;
+}
+
+//trade css
+
+div.trade-slot {
+    clear:both;
+    width:200px;
+    padding:5px;
+    margin:10px;
+    
+    border-radius:5px;
+    background-color:rgb(47,64,80);
+    
+    color:white;
+    font-weight:3.0em;
+    font-size:0.7em;
+    
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+    display :table;
+    table-layout : fixed;
+    height : 100%;
+    width : 100%;
+}
+
+div.trade-slot > div {
+    float:left;
+    
+    padding:5px 5px;
+    text-align:center;
+    
+    display: table-cell;
+    height :100%;
+}
+
+div.trade-slot-position {
+    width:35%;
+    font-size:0.7em;
+    background-color:rgb(44,56,67);
+    
+    
+}
+
+div.trade-slot-name {
+    width:43%;
+    background-color:rgb(0,0,0);
+    
+}
+
+div.trade-slot-team {
+    width:17%;
+    background-color:rgb(44,56,67);
+    vertical-align : middle;
+    padding : 0px;
+    
+}
+div.trade-slot-team > img{
+    height : 100%;
+    width : 100%;
+}
+
+.padding{
+    padding:10px;
+    background-color: yellow;
+    border-radius : 3px;
+    border : 2px solid aquamarine;
+    background-color : white;
+    padding-right:20px;
+}
+
+
+.padding > img{
+    height : 100%;
+    max-height : 40px;
+    min-height : 30px;
+    max-width : 40px;
+    min-width : 30px;
+}
