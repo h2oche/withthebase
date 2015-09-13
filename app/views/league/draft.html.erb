@@ -22,6 +22,8 @@
 
 </div>
 
+<button type="button" class="pick" style="margin: 25px; font-size: 20px; padding: 15px;">선수 픽</button>
+
 <!--타자용 모달-->
 
 
@@ -228,10 +230,27 @@
 
 
 <script type="text/javascript">
-	var clock = $('.your-clock').FlipClock(30, {
-		countdown: true,
-		clockFace: 'MinuteCounter'
+	
+	
+	var clock;
+		
+	$(document).ready(function() {
+		
+		clock = $('.your-clock').FlipClock(30, {
+	        clockFace: 'MinuteCounter',
+	        countdown: true,
+	        autoStart: true,
+	    });
+
+	    $('.pick').click(function() {
+
+	    	
+	    	clock.setTime(30);
+	    	clock.start();
+	    });
+
 	});
+	
 </script>
 
 
