@@ -1,8 +1,9 @@
+<!--wrapper div 에 드래프트전에는 그레이아웃 되도록 설정해 놓음-->
 <div class="wrapper wrapper-content
     <%if @yet_drafted%>
     <%= "before_draft"%>
-    <% end %>
-    " ng-controller="AppController">
+    <% end %>" 
+    ng-controller="AppController">
     <div class="animated fadeInRightBig">
         <!-- content -->
         <div id="lineup-container" class="container" ng-controller="LineupController">
