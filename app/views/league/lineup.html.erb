@@ -384,7 +384,8 @@
             }
         }]);
         
-    angular.module('app',['lineup'])
+    <script>
+        angular.module('app',['lineup'])
         .controller('AppController',['$scope',function($scope){
             $scope.playerData = [
                                     {id:1, starting:true, name: '이용규', positionId:1, teamId:1,stats:{
@@ -529,4 +530,5 @@
                                 
             test = $scope.playerData;
         }]);
+    </script>
 </script>

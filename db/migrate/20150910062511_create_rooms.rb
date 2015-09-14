@@ -3,10 +3,15 @@ class CreateRooms < ActiveRecord::Migration
     create_table :rooms do |t|
       
       t.string :name
-      t.string :adminid
-      t.string :room_pw
-      t.string :mode
-      t.integer :size
+      t.string :admin_id
+      t.string :emblem
+      t.boolean :is_classic_mode
+      t.boolean :is_public_mode
+      t.string :password
+      t.integer :period
+      t.datetime :draft_time
+      t.integer :size_limit
+      t.integer :draft_time_limit
 
       t.timestamps null: false
     end

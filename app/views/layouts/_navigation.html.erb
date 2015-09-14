@@ -25,33 +25,37 @@
                 </div>
             </li>
             <li class="<%= is_active_action('info') %>">
-                <%= link_to league_info_path do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">리그설정</span>
-                <% end %>
+                <a href="/league/<%=params[:id]%>/info">
+                    <i class="fa fa-laptop"></i> <span class="nav-label">리그설정</span>
+                </a>
             </li>
             <li class="<%= is_active_action('lineup') %> <%= is_active_action('trade') %>">
                 <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">마이팀</span><span class="fa arrow"></a>
                 <ul class="nav nav-second-level collapse">
-                    <li class="<%= is_active_action('lineup') %>"><%= link_to "라인업", league_lineup_path %></li>
-                    <li class="<%= is_active_action('trade') %>"><%= link_to "트레이드", league_trade_path %></li>
+                    <li class="<%= is_active_action('lineup') %>">
+                        <a href="/league/<%=params[:id]%>/lineup">라인업</a>
+                    </li>
+                    <li class="<%= is_active_action('trade') %>">
+                        <a href="/league/<%=params[:id]%>/trade">트레이드</a>
+                    </li>
                 </ul>
             </li>
             <li class="<%= is_active_action('draft') %> <%= is_active_action('autopick') %>">
                 <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">드래프트</span><span class="fa arrow"></a>
                 <ul class="nav nav-second-level collapse ">
-                    <li class="<%= is_active_action('draft') %>"><%= link_to "드래프트", league_draft_path %></li>
-                    <li class="<%= is_active_action('autopick') %>"><%= link_to "오토픽", league_autopick_path %></li>
+                    <li class="<%= is_active_action('draft') %>">
+                        <a href="/league/<%=params[:id]%>/draft">드래프트</a>
+                    </li>
+                    <li class="<%= is_active_action('autopick') %>">
+                        <a href="/league/<%=params[:id]%>/autopick">오토픽</a>
+                    </li>
                 </ul>
             </li>
             <li class="<%= is_active_action('result') %>">
-                <%= link_to league_result_path do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">결과</span>
-                <% end %>
+                <a href="/league/<%=params[:id]%>/result"><span class="nav-label">결과</span></a>
             </li>
-            <li class="<%= is_active_action('info') %>">
-                <%= link_to league_info_path do %>
-                <i class=t"fa fa-laptop"></i> <span class="nav-label">인터리그</span>
-                <% end %>
+            <li class="<%= is_active_action('result') %>">
+                <a href="/league/<%=params[:id]%>/result"><span class="nav-label">인터리그</span></a>
             </li>
         </ul>
 

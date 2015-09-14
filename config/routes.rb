@@ -1,7 +1,5 @@
 Myapp::Application.routes.draw do
-  
-  devise_for :people
-  
+  devise_for :users
   root to: 'home#index'
   
   get "home/index"
@@ -12,12 +10,14 @@ Myapp::Application.routes.draw do
   get 'howto/index'
 
   get 'league/dashboard'
-  get 'league/info'
-  get 'league/lineup'
-  get 'league/trade'
-  get 'league/draft'
-  get 'league/autopick'
-  get 'league/result'
+  get 'league/:id/info', to: 'league#info'
+  get 'league/:id/lineup', to: 'league#lineup'
+  get 'league/:id/trade', to: 'league#trade'
+  get 'league/:id/draft', to: 'league#draft'
+  get 'league/:id/autopick', to: 'league#autopick'
+  get 'league/:id/result', to: 'league#result'
+  
+  post '/league/create', to: 'league#create_new_league'
 
   get 'admin/manage'
   get 'admin/make_user'
