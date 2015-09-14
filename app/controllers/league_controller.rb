@@ -28,7 +28,7 @@ class LeagueController < ApplicationController
 
   def lineup
     redirect_to '/users/sign_in' unless user_signed_in?
-    @yet_drafted = true
+    @yet_drafted = false
   end
 
   def trade
