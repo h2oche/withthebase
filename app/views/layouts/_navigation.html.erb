@@ -23,14 +23,17 @@
                         <!-- 여기에 더 추가 가능 -->
                     </ul>
                 </div>
+                <div class="logo-element">
+                    WTB
+                </div>    
             </li>
             <li class="<%= is_active_action('info') %>">
                 <a href="/league/<%=params[:id]%>/info">
-                    <i class="fa fa-laptop"></i> <span class="nav-label">리그설정</span>
+                    <i class="fa fa-info-circle"></i> <span class="nav-label">리그설정</span>
                 </a>
             </li>
             <li class="<%= is_active_action('lineup') %> <%= is_active_action('trade') %>">
-                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">마이팀</span><span class="fa arrow"></a>
+                <a href="#"><i class="fa fa-male"></i> <span class="nav-label">마이팀</span><span class="fa arrow"></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="<%= is_active_action('lineup') %>">
                         <a href="/league/<%=params[:id]%>/lineup">라인업</a>
@@ -52,10 +55,12 @@
                 </ul>
             </li>
             <li class="<%= is_active_action('result') %>">
-                <a href="/league/<%=params[:id]%>/result"><span class="nav-label">결과</span></a>
+                <a href="/league/<%=params[:id]%>/result">
+                    <i class="fa fa-newspaper-o"></i><span class="nav-label">결과</span></a>
             </li>
             <li class="<%= is_active_action('result') %>">
-                <a href="/league/<%=params[:id]%>/result"><span class="nav-label">인터리그</span></a>
+                <a href="/league/<%=params[:id]%>/result">
+                    <i class="fa fa-sitemap"></i><span class="nav-label">인터리그</span></a>
             </li>
         </ul>
 
