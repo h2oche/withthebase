@@ -5,6 +5,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :name
       t.string :pos
       t.string :team
+      t.float :war
 
       t.timestamps null: false
     end
