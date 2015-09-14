@@ -6,8 +6,10 @@ class LeagueController < ApplicationController
     @teams_classname = ["red-bg", "yellow-bg", "blue-bg"]
     
     User.find(current_user.id).teams.each do |t|
-      roomname = Room.find(t.room_id).name
-      @teams_info << {teamname: t.name, roomname: roomname}
+      room = Room.find(t.room_id)
+      roomname = room.name
+      roomid = room.id
+      @teams_info << {teamname: t.name, roomname: roomname, roomid: roomid}
     end
     
     @rooms_info = []
@@ -21,6 +23,7 @@ class LeagueController < ApplicationController
 
   def info
     redirect_to '/users/sign_in' unless user_signed_in?
+    @roomid = params[:id]
   end
 
   def lineup

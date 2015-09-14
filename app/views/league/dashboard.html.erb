@@ -3,7 +3,9 @@
         <div class = "row" id = "total">
             <div class = "col-md-5">
             <% @teams_info.each_with_index do |team_info, index| %>
+                <a href="/league/<%=team_info[:roomid]%>/info">
                 <div class="col-md-12 widget p-md <%=@teams_classname[index]%>" id = "league">
+                    
                     <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>
                     <div class="m-b-md col-md-5 text-center">
                         <strong id = "leaguename" ><%=team_info[:roomname]%></strong><small style = "font-size:130%"> 리그</small><br>
@@ -23,9 +25,9 @@
                             <p>드래프트 : 시작전</p>
                             <p>드래프트 일시 : 2015년 9월 10일 20시</p>
                         </div>
-                        
                     </div>
                 </div>
+                </a>
             <% end %>
             </div>
     
