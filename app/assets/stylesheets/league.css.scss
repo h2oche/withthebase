@@ -48,6 +48,9 @@ tr {
     padding-top:10px;
     padding-bottom:10px;
 }
+.ibox{
+    background-color: white;
+}
 #title-box{
     background-color:white;
     text-align : left;
@@ -63,6 +66,7 @@ tr {
 }
 
 //info action
+
 ul > li{
     display : inline;
 }
@@ -76,8 +80,8 @@ ul > li > div{
 
 }
 .image_div > img{
-    max-height : 50px;
-    min-height : 40px;
+    max-height : 40px;
+    min-height : 30px;
     max-width : 100%;
 }
 
@@ -100,13 +104,15 @@ ul > li > div{
     margin-bottom : 8px;
 }
 .special{
-    background-color:#9E0A39;
+    background-color: white;
     padding-bottom : 12px;
-    border-radius : 5px;
-    color : #ffffff;
+    
+    color : #676A6C;
 }
 .special2{
-    background-color:#FFF9D6;
+    margin : 10px;
+    padding : 10px;
+    background-color : #F3F3F4;
 }
 
 .name_div2{
