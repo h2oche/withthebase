@@ -104,7 +104,14 @@ ul > li > div{
     background-color : transparent;
 }
 #title-box{
+    width : 30%;
     font-size:150%;
+    color : white;
+    background-color: #2f4050;
+}
+#title-box-container{
+    padding : 10px;
+    padding-bottom : 0px;
 }
 .add{
     height : 54px;
@@ -158,7 +165,18 @@ ul > li > div{
     top: 50%;
     transform: translateY(-50%);
 }
-
+.box{
+    background-color : #BDD7EE;
+    height : 100%;
+}
+.box2{
+    background-color : #ffe699;
+    height : 100%;
+}
+.lastline{
+    margin : 0px 0px;
+    
+}
 //result action css
 .line > div > img{
     
