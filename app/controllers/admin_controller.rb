@@ -166,9 +166,22 @@ class AdminController < ApplicationController
     
     end
     
-    def get_data_random
+    
+    
+    def get_data_random_from_admin
         
-        pos = Player.find(params[:player_id]).pos
+        player = params[:player_id]
+        date = params[:date]
+        
+        get_data_random(player, date)
+        
+        redirect_to '/admin/manage'
+        
+    end
+    
+    def get_data_random player, date
+        
+        pos = Player.find(player).pos
         
         if (pos == '구원') or (pos == '선발')
             
@@ -177,7 +190,7 @@ class AdminController < ApplicationController
             savehold = rand(2)
             era = rand(2.50..8.00).round(2)
             
-            get_data(params[:player_id], 'pitch', params[:date], win, strikeout, savehold, era, nil)
+            get_data(player, 'pitch', date, win, strikeout, savehold, era, nil)
             
         else
             
@@ -187,11 +200,27 @@ class AdminController < ApplicationController
             steal = rand(2)
             error = rand(2)
             
-            get_data(params[:player_id], 'bat', params[:date], bat_avg, rbi, homerun, steal, error)
+            get_data(player, 'bat', date, bat_avg, rbi, homerun, steal, error)
             
         end
         
     end
+    
+    
+    def get_data_random_all_player
+        
+        date = params[:date]
+        
+        Player.all.each do |x|
+           
+           get_data_random(x.id, date)
+           
+        end
+        
+        redirect_to '/admin/manage'
+        
+    end
+    
     
     def get_data player, pos, date, a1, a2, a3, a4, a5
        
@@ -219,8 +248,6 @@ class AdminController < ApplicationController
             new_result.save
             
         end
-        
-        redirect_to '/admin/manage'
         
     end
     

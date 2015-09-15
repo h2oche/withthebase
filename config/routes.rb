@@ -42,6 +42,8 @@ Myapp::Application.routes.draw do
   get 'admin/unpick_player/:id', to: 'admin#unpick_player'
   get 'admin/get_data_random'
   get 'admin/get_data'
+  get 'admin/get_data_random_from_admin'
+  get 'admin/get_data_random_all_player'
   get 'admin/delete_data_pitch/:id', to: 'admin#delete_data_pitch'
   get 'admin/delete_data_bat/:id', to: 'admin#delete_data_bat'
   get 'admin/make_game'
