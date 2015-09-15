@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "top_nav" %>
 <div class="row border-bottom">
     <nav class="navbar navbar-fixed-top custom-bg1" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -5,34 +6,63 @@
             <ul class="nav navbar-top-links navbar-left">
                 <li>
                     <a href="<%= url_for :controller => '/home', :action => 'index' %>">
+<<<<<<< HEAD
                         <i class="fa fa-home"></i> WTB 홈
+=======
+                        <span class="glyphicons glyphicons-312-baseball"></span>
+                        
+                            WTB 홈
+                        
+>>>>>>> 01cff02c9e4c53a6e0132893baa68cdc9071d350
                     </a>
                 </li>
                 <li>
                     <a href="<%= url_for :controller => '/league', :action => 'dashboard' %>">
-                        <i class="fa fa-sign-out"></i> 나의리그
+                        <i class="fa fa-sign-out"></i>
+                        
+                            나의리그
+                        
                     </a>
                 </li>
                 <li>
                     <a href="<%= url_for :controller => '/howto', :action => 'index' %>">
+<<<<<<< HEAD
                         <i class="fa fa-gamepad"></i> 게임방법
+=======
+                        <i class="fa fa-sign-out"></i> 
+                        
+                            게임방법
+                        
+>>>>>>> 01cff02c9e4c53a6e0132893baa68cdc9071d350
                     </a>
                 </li>
                 <li>
                     <a href="<%= url_for :controller => '/info', :action => 'index' %>">
+<<<<<<< HEAD
                         <i class="fa fa-info-circle"></i> 정보
+=======
+                        <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> 
+                        
+                            정보    
+                        
+                        
+>>>>>>> 01cff02c9e4c53a6e0132893baa68cdc9071d350
                     </a>
                 </li>
             </ul>
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <% if user_signed_in? %>
+                
                 <li>
-                    <span class="m-r-sm text-muted welcome-message"><%=current_user.username%>님 환영합니다.</span>
+                    <span class="m-r-sm text-muted welcome-message">
+                        <%=current_user.username%>님 환영합니다.
+                    </span>
                 </li>
                 <li>
                     <a href="/users/sign_out">
-                        <i class="fa fa-sign-out"></i> Log out
+                        <i class="fa fa-sign-out"></i>
+                            Log out
                     </a>
                 </li>
             <% else %>

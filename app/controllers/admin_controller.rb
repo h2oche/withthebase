@@ -103,12 +103,13 @@ class AdminController < ApplicationController
     
     end
     
-    def create_player name, pos, team
+    def create_player name, pos, team, war
         
         new_player = Player.new
         new_player.name = name
         new_player.pos = pos
         new_player.team = team
+        new_player.war = war
         new_player.save
         
     end
@@ -117,11 +118,12 @@ class AdminController < ApplicationController
         
         10.times do
             name = [['이','김','최','오','상','윤','정','전','구','박','최','장'].sample,
-                    ['성하','병철','지우','나영','장섭','한솔','슬기','하늘','우람','한결','가람','다운','한별','한샘','으뜸','한얼','보람','한울','솔','어진'].sample].join
-            pos = ['외야','내야','선발','중견'].sample
-            team = ['삼성','헬지','졷데','아놔'].sample
+                    ['성하','병철','지우','나영','장섭','한솔','슬기','하늘','우람','한결','가람','다운','한별','한샘','으뜸','한얼','보람','한울','어진'].sample].join
+            pos = ['1루','2루','3루','포수','유격','좌익','우익','중견','지명','선발','선발','선발','선발','구원','구원','구원','구원'].sample
+            team = ['삼성','LG','롯데','KT','NC','KIA','넥센','한화','두산','SK'].sample
+            war = rand(1.00..4.00).round(2)
              
-            create_player(name, pos, team)
+            create_player(name, pos, team, war)
         end
         
         redirect_to '/admin/manage'
@@ -148,7 +150,7 @@ class AdminController < ApplicationController
        new_roster = Roster.new
        new_roster.team_id = team_id
        new_roster.player_id = player_id
-       new_roster.state = '선발'
+       
        new_roster.save
        
        redirect_to '/admin/manage'
@@ -168,7 +170,7 @@ class AdminController < ApplicationController
         
         pos = Player.find(params[:player_id]).pos
         
-        if (pos == '중견') or (pos == '선발')
+        if (pos == '구원') or (pos == '선발')
             
             win = rand(2)
             strikeout = rand(9)
@@ -177,7 +179,7 @@ class AdminController < ApplicationController
             
             get_data(params[:player_id], 'pitch', params[:date], win, strikeout, savehold, era, nil)
             
-        elsif (pos == '내야') or (pos == '외야')
+        else
             
             bat_avg = rand(0.100..0.350).round(3)
             rbi = rand(3)

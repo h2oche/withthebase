@@ -1,5 +1,5 @@
-<div class="row wrapper border-bottom white-bg page-heading bottom-zero">
-    
+
+<div class="row wrapper border-bottom white-bg page-heading bottom-zero" ng-controller="AppController">
     <div class="col-md-6">
         <div class="row">
             <div class="col-md-1 top-padding">
@@ -17,12 +17,41 @@
             </div>
         </div>
     </div>
-
-
-
 </div>
+<script>
+    angular.module('app',['draft'])
+        .controller('AppController',['$scope', '$http',function($scope, $http){
+            //get player data
+            $http({
+                method: 'POST',
+                url: '/data/getPlayers',
+                data: null
+            })
+            .success(function(_data, _status, _headers, _config){
+                if( _data ) {
+                    console.log(_data);
+                }
+                else {
+                    console.log('error!')
+                }
+            })
+            .error(function(_data, _status, _headers, _config){
+                console.log(status);
+            })
+            
+            //드래프트에 참여하는 유저 목록
+            
+        }]);
+    
+    angular.module('draft',[]);
+    angular.module('draft.controllers',[])
+    angular.module('draft.services',[])
+    angular.module('draft.filters',[])
+    angular.module('draft.directives',[])
+</script>
 
 <button type="button" class="pick" style="margin: 25px; font-size: 20px; padding: 15px;">선수 픽</button>
+
 
 <!--타자용 모달-->
 

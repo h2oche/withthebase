@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913154003) do
+ActiveRecord::Schema.define(version: 20150915043715) do
+
+  create_table "apick_settings", force: :cascade do |t|
+    t.integer  "order"
+    t.integer  "apick_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "apicks", force: :cascade do |t|
+    t.integer  "draft_setting_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "bats", force: :cascade do |t|
     t.integer  "player_id"
@@ -21,6 +34,22 @@ ActiveRecord::Schema.define(version: 20150913154003) do
     t.integer  "steal"
     t.integer  "error"
     t.date     "record_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "draft_settings", force: :cascade do |t|
+    t.integer  "order"
+    t.boolean  "applied"
+    t.integer  "draft_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drafts", force: :cascade do |t|
+    t.integer  "time_limit"
+    t.boolean  "is_complete"
+    t.integer  "room_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -50,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150913154003) do
     t.string   "name"
     t.string   "pos"
     t.string   "team"
+    t.float    "war"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

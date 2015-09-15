@@ -17,18 +17,22 @@ class LeagueController < ApplicationController
       #현재 이 room 에 몇명의 유저가 있는지 체크
       username = User.find(room.admin_id).username
       @rooms_info << {admin: username, roomname: room.name, draft_time: room.draft_time,
-                      size_limit: room.size_limit, is_classic_mode: room.is_classic_mode, is_public_mode: room.is_public_mode}
+                      size_limit: room.size_limit, is_classic_mode: room.is_classic_mode, is_public_mode: room.is_public_mode, room_id: room.id}
     end
   end
 
   def info
     redirect_to '/users/sign_in' unless user_signed_in?
-    @roomid = params[:id]
+    
+    room_id = params[:id]
+    
+    room = Room.find(room_id)
+    @testvar = room.teams
   end
 
   def lineup
     redirect_to '/users/sign_in' unless user_signed_in?
-    @yet_drafted = true
+    @yet_drafted = false
   end
 
   def trade
@@ -58,6 +62,8 @@ class LeagueController < ApplicationController
     new_team.room_id = _room_id
     new_team.name = _teamname
     new_team.save
+    
+    #draft 순서 table에 넣기
   end
   
   def create_new_league
@@ -76,7 +82,14 @@ class LeagueController < ApplicationController
     new_room.save
     
     join_room current_user.id, new_room.id, params[:league_admin_teamname]
+    redirect_to '/league/dashboard'
+  end
+  
+  def join_league
+    room = Room.find(params[:room_id])
+    #유저가 이미 그 리그에 있으면 진입하지 못하게
     
+    join_room current_user.id, params[:room_id], current_user.username + "의팀"
     redirect_to '/league/dashboard'
   end
 end

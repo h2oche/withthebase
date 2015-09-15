@@ -5,6 +5,9 @@ class CreateRooms < ActiveRecord::Migration
       t.string :name
       t.string :admin_id
       t.string :emblem
+      
+      
+      
       t.boolean :is_classic_mode
       t.boolean :is_public_mode
       t.string :password

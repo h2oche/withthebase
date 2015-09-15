@@ -163,6 +163,7 @@ DEPENDENCIES
   font-awesome-rails (= 4.3.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  json
   rails (= 4.2.3)
   sass-rails (~> 4.0.2)
   sdoc
