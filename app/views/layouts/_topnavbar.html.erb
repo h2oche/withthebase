@@ -6,35 +6,23 @@
             <ul class="nav navbar-top-links navbar-left">
                 <li>
                     <a href="<%= url_for :controller => '/home', :action => 'index' %>">
-                        <span class="glyphicons glyphicons-312-baseball"></span>
-                        
-                            WTB 홈
-                        
+                        <i class="fa fa-home"></i> WTB 홈
                     </a>
                 </li>
                 <li>
                     <a href="<%= url_for :controller => '/league', :action => 'dashboard' %>">
                         <i class="fa fa-sign-out"></i>
-                        
                             나의리그
-                        
                     </a>
                 </li>
                 <li>
                     <a href="<%= url_for :controller => '/howto', :action => 'index' %>">
-                        <i class="fa fa-sign-out"></i> 
-                        
-                            게임방법
-                        
+                        <i class="fa fa-gamepad"></i> 게임방법
                     </a>
                 </li>
                 <li>
                     <a href="<%= url_for :controller => '/info', :action => 'index' %>">
-                        <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> 
-                        
-                            정보    
-                        
-                        
+                        <i class="fa fa-info-circle"></i> 정보
                     </a>
                 </li>
             </ul>
