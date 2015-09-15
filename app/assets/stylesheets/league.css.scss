@@ -48,6 +48,9 @@ tr {
     padding-top:10px;
     padding-bottom:10px;
 }
+.ibox{
+    background-color: white;
+}
 #title-box{
     background-color:white;
     text-align : left;
@@ -63,6 +66,7 @@ tr {
 }
 
 //info action
+
 ul > li{
     display : inline;
 }
@@ -73,22 +77,41 @@ ul > li > div{
     padding-left : 0px;
     padding-right: 0px;
     
-
 }
+.partition-container{
+    padding : 10px;
+    background-color : white;
+}
+
 .image_div > img{
-    max-height : 50px;
-    min-height : 40px;
     max-width : 100%;
+    max-width : 40px;
+    min-width : 30px;
+    
 }
 
 .name_div{
     padding-top:12px;
     font-size:110%;
-   
     
 }
+.margin_name{
+    padding : 10px;
+    margin : 5px;
+    background-color: white;
+}
+.margin_name_none{
+    background-color : transparent;
+}
 #title-box{
+    width : 30%;
     font-size:150%;
+    color : white;
+    background-color: #2f4050;
+}
+#title-box-container{
+    padding : 10px;
+    padding-bottom : 0px;
 }
 .add{
     height : 54px;
@@ -99,14 +122,25 @@ ul > li > div{
     margin-top : 8px;
     margin-bottom : 8px;
 }
+.add3{
+    margin-top : 10px;
+}
 .special{
-    background-color:#9E0A39;
+    background-color: white;
     padding-bottom : 12px;
-    border-radius : 5px;
-    color : #ffffff;
+    
+    color : #676A6C;
 }
 .special2{
-    background-color:#FFF9D6;
+    margin : 10px;
+    padding : 10px;
+    background-color : #F3F3F4;
+}
+.small_image_div{
+}
+.small_image_div > img{
+    max-width : 30px;
+    min-width : 20px;
 }
 
 .name_div2{
@@ -124,14 +158,25 @@ ul > li > div{
     padding-right: 0px;
 }
 .image_div2 > img{
-    max-height : 50px;
-    min-height : 40px;
+    max-height : 40px;
+    min-height : 30px;
     max-width : 100%;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
-
+.box{
+    background-color : #BDD7EE;
+    height : 100%;
+}
+.box2{
+    background-color : #ffe699;
+    height : 100%;
+}
+.lastline{
+    margin : 0px 0px;
+    
+}
 //result action css
 .line > div > img{
     

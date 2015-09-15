@@ -1,18 +1,21 @@
+
 <%=@testvar.inspect%>
+
 <div class="wrapper wrapper-content">
     <div class="animated fadeInRightBig">
         <!--contents-->
+        
         <div class = "row">
             
-            <!-- league informations-->
-            <div class = "col-sm-6">
-                <div class = "ibox">
-                    <div>
+            <!-- 리그 정보-->
+            <div class = "col-md-6">
+                <div class = "box" style = "max-width : 610px">
+                    <div id = "title-box-container">
                         <div id = "title-box">
                             <strong>리그 정보</strong>
                         </div>    
                     </div>
-                    <div class = "ibox-content special2">
+                    <div class = "special2">
                         <div>
                             <div class = "row add">
                                 <div class = "line col-sm-2 hidden-sm hidden-xs image_div">
@@ -77,49 +80,83 @@
                                     <strong class = "col-sm-6 name_div special">오장섭 </strong>
                                 </div>
                             </div>
+                            <div class = "row lastline" style = "margin : 0px">
+                                <button class = "btn btn-default">리그 설정</button>        
+                            </div>
+                        
                         </div>
-                        <button class = "btn btn-default">리그 설정</button>
+                       
                     </div>
                 </div>
             </div>
             
             <!--participants list-->
-            <div class = "col-sm-6">
+            <div class = "col-md-6">
+                <div class = "box2">
+                <div id = "title-box-container">
+                    <div id = "title-box">
+                        <strong>참여 팀</strong>
+                    </div>
+                </div>
                 <div>
-
-                    <div>
-                        <div id = "title-box">
-                            <strong>참여 팀</strong>
-                        </div>
-                    </div>
-                    <div class = "ibox-content">
-                        <div>
-                            <div class = "row add">
-                                <div class = "col-sm-offset-1 col-sm-2 hidden-sm hidden-xs image_div">
-                                    <%= image_tag("team_name.png") %>
-                                </div>
-                                <label class = "col-sm-3 name_div" style ="font-size : 130%">팀 이름</label>
-                                
-                                <div class = "col-sm-offset-1 col-sm-2 hidden-sm hidden-xs image_div">
+                    <div class = "special2">
+                        <div class = "row add3">
+                            
+                            <div class = "col-md-offset-2 col-md-4 small_image_div">
+                                <%= image_tag("team_name.png") %>
+                                <strong>
+                                    팀 이름
+                                </strong>
+                            </div>
+                            
+                            
+                            <div class = "col-md-3">
+                            
+                                <div class = "small_image_div">
                                     <%= image_tag("emblem.png") %>
+                                
+                                    <strong >
+                                        감독
+                                    </strong>
                                 </div>
-                                <strong class = "col-sm-3 name_div" style ="font-size : 130%">감독 </strong>
                             </div>
-                            
-                            <div class = "row add2">
-                                <div class = "col-sm-2 hidden-sm hidden-xs image_div2">
-                                    <%= image_tag("user2.png") %>
-                                </div>
-                                <label class = "col-sm-3 name_div2">장섭 독수리</label>
-                                <strong class = "col-sm-2 name_div2">오장섭 </strong>
-                                <div class = "col-sm-4">
-                                    <i class = "fa fa-circle"></i>
-                                    접속중
+                            <div class = "col-md-3">
+                                <div class = "small_image_div">
+                                    <%= image_tag("emblem.png") %>
+                                
+                                    <strong >
+                                        감독
+                                    </strong>
                                 </div>
                             </div>
                             
                         </div>
+                        
+                        <div class = "row add2">
+                            <div class = "col-sm-2 hidden-sm hidden-xs image_div">
+                                <%= image_tag("user2.png") %>
+                            </div>
+                            <div class = "col-sm-4">
+                                <div class = "margin_name">
+                                    <strong>장섭 독수리</strong>
+                                </div>
+                            </div>
+                            <div class = "col-sm-3">
+                                <div class = "margin_name" style = "text-align :center">
+                                    <strong>오장섭</strong>
+                                </div>
+                            </div>
+                            <div class = "col-sm-3">
+                                <div class = "margin_name margin_name_none">
+                                    <i class = "fa fa-circle"></i>
+                                    <strong>접속중</strong>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
                     </div>
+                </div>
             </div>
         </div>
     </div>
