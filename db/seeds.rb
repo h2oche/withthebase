@@ -253,3 +253,11 @@ player_28.pos = '구원'
 player_28.team = 'SK'
 player_28.war = 2.38
 player_28.save
+
+
+player_29 = Player.new
+player_29.name = '김하성'
+player_29.pos = '유격'
+player_29.team = '넥센'
+player_29.war = 3.96
+player_29.save
