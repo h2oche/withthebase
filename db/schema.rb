@@ -125,9 +125,10 @@ ActiveRecord::Schema.define(version: 20150915043715) do
   create_table "teams", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "room_id"
+    t.integer  "draft_setting_id"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|
