@@ -1,6 +1,7 @@
 // Place all the styles related to the league controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//league dashboard
 #leaguename{
     
     font-size:200%;
@@ -18,7 +19,9 @@
 }
 
 #league{
+    border-radius : 21px;
     padding: 10px 10px 0px 10px;
+    margin-top : 0px;
 }
 #league:hover{
     opacity:0.8;
@@ -62,9 +65,13 @@ tr {
     margin : 0px;
     margin-top : 5px;
     margin-bottom : 5px;
-    
 }
-
+#leave-btn{
+    float:right;
+    margin-right : 3%;
+    padding-top: 3px;
+    padding-bottom : 3px;
+}
 //info action
 
 ul > li{
@@ -105,15 +112,17 @@ ul > li > div{
     background-color : transparent;
 }
 #title-box{
-    width : 30%;
-    font-size:150%;
-    color : white;
-    background-color: #2f4050;
+    text-align : center;
+    font-size:170%;
+    color : #676a6c;
+    
 }
-#title-box-container{
-    padding : 10px;
-    padding-bottom : 0px;
+#clock > img{
+    width : 35px;
+    margin-top : 5px;
+    margin-left : 5px;
 }
+
 .add{
     height : 54px;
     margin-top : 20px;
@@ -167,11 +176,11 @@ ul > li > div{
     transform: translateY(-50%);
 }
 .box{
-    background-color : #BDD7EE;
+    background-color : #ffffff;
     height : 100%;
 }
 .box2{
-    background-color : #ffe699;
+    background-color : #ffffff;
     height : 100%;
 }
 .lastline{
@@ -197,11 +206,12 @@ ul > li > div{
     color : #d9534f;
 }
 .draft_finished{
-    width : 25%;
+    text-align : center;
     background-color : #1ab394;
     color : white;
 }
 .private{
+    text-align : center;
     background-color : #d9534f;
     color : white;
 }
@@ -210,7 +220,28 @@ ul > li > div{
     
     height:50px;
     opacity: 0.5;
-}//이미지 크기 조절
+}
+.result-line{
+    padding-top : 10px;
+    padding-bottom : 10px;
+}
+.result-line-half{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.team-slot{
+    font-size : 130%;
+    position : relative;
+    top : 50%;
+    width : 40%;
+    text-align : center;
+}
+.versus{
+    width : 20%;
+    font-size : 130%;
+}
+
+//이미지 크기 조절
 .time{
     color:white;
     text-align:center;
@@ -525,12 +556,17 @@ div#position-field > div.position-slot.designated {
 //리그 생성 css
 .image{
     
-    height : 50px;
-    width : 50px;
+    height : 35px;
+    width : 35px;
     
 }
 .image > img{
+    margin-top : 10px;
+    margin-left : 5px;
     max-height:100%;
+}
+.image_lock > img {
+    margin-top : 5px;
 }
 
 
@@ -721,4 +757,8 @@ div.trade-slot-team > img{
     min-height : 30px;
     max-width : 40px;
     min-width : 30px;
+}
+
+.darkgray-bg{
+    background-color : #7a7a7b;
 }

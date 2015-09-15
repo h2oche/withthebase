@@ -10,11 +10,11 @@
             <!-- 리그 정보-->
             <div class = "col-lg-6">
                 <div class = "box" style = "max-width : 610px">
-                    <div id = "title-box-container">
-                        <div id = "title-box">
-                            <strong>리그 정보</strong>
-                        </div>    
-                    </div>
+                
+                    <div id = "title-box">
+                        <strong>리그 정보</strong>
+                    </div>    
+                    
                     <div class = "special2">
                         <div>
                             <div class = "row add">
@@ -47,11 +47,12 @@
                             <!--드래프트 시작 or not-->
                             <div class = "row add">
                                 <div class = "line col-sm-2 hidden-sm hidden-xs image_div">
-                                    <%= image_tag("unlock.png") %>
+                                    <%= image_tag("diary.png") %>
                                 </div>
                                 <div class = "line col-sm-10">
                                     <label class = "col-sm-6 name_div">드래프트 시작 여부</label>
-                                    <strong class = "col-sm-6 draft_finished name_div special " style = " width : 25%">
+                                    <strong class = "col-sm-6 draft_finished name_div special "
+                                    style = " width : 20%">
                                         완료
                                     </strong>
                                 </div>
@@ -59,18 +60,18 @@
                             <!--공개 & 비공개-->
                             <div class = "row add">
                                 <div class = "line col-sm-2 hidden-sm hidden-xs image_div">
-                                    <%= image_tag("diary.png") %>
+                                    <%= image_tag("unlock.png") %>
                                 </div>
                                 <div class = "line col-sm-10">
                                     <label class = "col-sm-6 name_div">공개 여부</label>
                                     <strong class = "col-sm-6 name_div special private"
-                                        style = "width : 25%">
+                                        style = "width : 20%">
                                         비공개 
                                     </strong>
                                 </div>
                             </div>
                             <div class = "row add">
-                                <div class = "line col-sm-2 hidden-sm hidden-xs image_div">
+                                <div class = "line col-sm-2 hidden-sm hidden-xs image_div" id = "clock">
                                     <%= image_tag("clock.png") %>
                                 </div>
                                 <div class = "line col-sm-10">
@@ -88,7 +89,7 @@
                                 </div>
                             </div>
                             <div class = "row lastline" style = "margin : 0px">
-                                <button class = "btn btn-info dim btn-outline">리그 설정</button>        
+                                <button class = "btn btn-info dim">리그 설정</button>        
                             </div>
                         
                         </div>
@@ -284,7 +285,7 @@
                         </div>
                         <!--마지막 라인-->
                         <div class = "row lastline2" style = "margin : 0px">
-                            <button class = "btn btn-danger dim btn-outline">드래프트 시작</button>        
+                            <button class = "btn btn-danger dim">드래프트 시작</button>        
                         </div>
                         
                     </div>
