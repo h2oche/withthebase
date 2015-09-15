@@ -84,6 +84,7 @@ ul > li > div{
 .name_div{
     padding-top:12px;
     font-size:110%;
+   
     
 }
 #title-box{
@@ -116,6 +117,7 @@ ul > li > div{
     background-color:#CC99FF;
     border-radius:5px;
     text-align:center;
+    
 }
 .image_div2{
     padding-left : 0px;
@@ -211,6 +213,10 @@ div.position-slot-team {
     background-color:rgb(44,56,67);
     vertical-align : middle;
     padding : 0px;
+    background-image: url(asset-path('bird.png'));
+    background-size: contain;
+    background-repeat : no-repeat; 
+    background-position: center; 
     
 }
 
