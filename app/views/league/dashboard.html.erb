@@ -4,9 +4,10 @@
             <div class = "col-md-5">
             <% @teams_info.each_with_index do |team_info, index| %>
                 <a href="/league/<%=team_info[:roomid]%>/info">
+                <button class = "btn btn-warning" id = "leave-btn">리그 나가기 </button>
                 <div class="col-md-12 widget p-md <%=@teams_classname[index]%>" id = "league">
                     
-                    <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>
+                    
                     <div class="m-b-md col-md-5 text-center">
                         <strong id = "leaguename" ><%=team_info[:roomname]%></strong><small style = "font-size:130%"> 리그</small><br>
                         <strong id = "teamname"> <%=team_info[:teamname]%> 팀</strong>
@@ -19,6 +20,7 @@
                         <br>
                         <div class = "hidden-md hidden-sm hidden-xs">
                             <p> 드래프트까지 10일 남았습니다.</p>
+                            <br>
                             <br>
                             <p>모드 : 리그매치</p>
                             <p>리그 기간 : 2주</p>

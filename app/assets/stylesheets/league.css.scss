@@ -1,6 +1,7 @@
 // Place all the styles related to the league controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//league dashboard
 #leaguename{
     
     font-size:200%;
@@ -18,7 +19,9 @@
 }
 
 #league{
+    border-radius : 21px;
     padding: 10px 10px 0px 10px;
+    margin-top : 0px;
 }
 #league:hover{
     opacity:0.8;
@@ -62,9 +65,13 @@ tr {
     margin : 0px;
     margin-top : 5px;
     margin-bottom : 5px;
-    
 }
-
+#leave-btn{
+    float:right;
+    margin-right : 3%;
+    padding-top: 3px;
+    padding-bottom : 3px;
+}
 //info action
 
 ul > li{
@@ -398,7 +405,7 @@ div#position-field > div.position-slot.designated {
 .image{
     
     height : 35px;
-    width : 35x;
+    width : 35px;
     
 }
 .image > img{
