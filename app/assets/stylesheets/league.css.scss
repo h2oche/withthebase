@@ -77,19 +77,31 @@ ul > li > div{
     padding-left : 0px;
     padding-right: 0px;
     
-
 }
+.partition-container{
+    padding : 10px;
+    background-color : white;
+}
+
 .image_div > img{
-    max-height : 40px;
-    min-height : 30px;
     max-width : 100%;
+    max-width : 40px;
+    min-width : 30px;
+    
 }
 
 .name_div{
     padding-top:12px;
     font-size:110%;
-   
     
+}
+.margin_name{
+    padding : 10px;
+    margin : 5px;
+    background-color: white;
+}
+.margin_name_none{
+    background-color : transparent;
 }
 #title-box{
     font-size:150%;
@@ -103,6 +115,9 @@ ul > li > div{
     margin-top : 8px;
     margin-bottom : 8px;
 }
+.add3{
+    margin-top : 10px;
+}
 .special{
     background-color: white;
     padding-bottom : 12px;
@@ -113,6 +128,12 @@ ul > li > div{
     margin : 10px;
     padding : 10px;
     background-color : #F3F3F4;
+}
+.small_image_div{
+}
+.small_image_div > img{
+    max-width : 30px;
+    min-width : 20px;
 }
 
 .name_div2{
@@ -130,8 +151,8 @@ ul > li > div{
     padding-right: 0px;
 }
 .image_div2 > img{
-    max-height : 50px;
-    min-height : 40px;
+    max-height : 40px;
+    min-height : 30px;
     max-width : 100%;
     position: relative;
     top: 50%;
