@@ -397,12 +397,17 @@ div#position-field > div.position-slot.designated {
 //리그 생성 css
 .image{
     
-    height : 50px;
-    width : 50px;
+    height : 35px;
+    width : 35x;
     
 }
 .image > img{
+    margin-top : 10px;
+    margin-left : 5px;
     max-height:100%;
+}
+.image_lock > img {
+    margin-top : 5px;
 }
 
 
