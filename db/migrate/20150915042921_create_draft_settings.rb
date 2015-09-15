@@ -3,6 +3,7 @@ class CreateDraftSettings < ActiveRecord::Migration
     create_table :draft_settings do |t|
       t.integer :order
       t.boolean :applied
+      t.integer :draft_id
 
       t.timestamps null: false
     end
