@@ -83,12 +83,13 @@
                 <table class="table table-striped table-bordered table-hover" id="editable" >
                     <thead>
                         <tr>
-                            <th style = "width : 8%">공개</th>
+                            <th style = "width : 5%">공개</th>
                             <th style = "width : 10%">방장</th>
                             <th style = "width : 20%">리그 이름</th>
-                            <th style = "width : 34%">드래프트 시작 일시</th>
+                            <th style = "width : 30%">드래프트 시작 일시</th>
                             <th style = "width : 8%">인원</th>
-                            <th style = "width : 20%">리그 모드</th>
+                            <th style = "width : 17%">리그 모드</th>
+                            <th style = "width : 10%">참가</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -108,6 +109,14 @@
                                 리그 매치
                                 <% else %>
                                 클래식 매치
+                                <% end %>
+                            </td>
+                            <td class="center">
+                                <%= form_tag '/league/join', method: 'post' do |f| %>
+                                    <div class="form-group">
+                                        <%= submit_tag "참가", class:"btn btn-primary"%>
+                                        <%= hidden_field_tag "room_id", room[:room_id]%>
+                                    </div>
                                 <% end %>
                             </td>
                         </tr>

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json'
 gem 'devise'
 gem 'flipclockjs-rails'
 gem 'jquery-rails'
