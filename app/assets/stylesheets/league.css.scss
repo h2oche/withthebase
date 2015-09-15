@@ -101,6 +101,7 @@ ul > li > div{
     background-color: white;
 }
 .margin_name_none{
+    text-align : center;
     background-color : transparent;
 }
 #title-box{
@@ -176,6 +177,13 @@ ul > li > div{
 .lastline{
     margin : 0px 0px;
     
+}
+#padding-5px{
+    padding-left : 5px;
+    padding-right : 5px;
+}
+.autopick{
+    color : lawngreen;
 }
 //result action css
 .line > div > img{
