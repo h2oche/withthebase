@@ -176,14 +176,25 @@ ul > li > div{
 }
 .lastline{
     margin : 0px 0px;
-    
+}
+.lastline2{
+    text-align : center;
+}
+.lastline2 > button{
+    float : none;
 }
 #padding-5px{
     padding-left : 5px;
     padding-right : 5px;
 }
 .autopick{
-    color : lawngreen;
+    color : #f8ac59;
+}
+.accessed{
+    color : #4db6ac;
+}
+.non-accessed{
+    color : #d9534f;
 }
 //result action css
 .line > div > img{
