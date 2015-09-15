@@ -64,7 +64,6 @@
                 <th>리그 이름</th>
                 <th>방장 ID</th>
                 <th>비밀번호</th>
-                <th>모드</th>
                 <th>인원</th>
                 <th>[x]</th>
             </tr>
@@ -72,10 +71,9 @@
             <tr>
                 <td><%= x.id %></td>
                 <td><%= x.name %></td>
-                <td><%= x.adminid %></td>
-                <td><%= x.room_pw %></td>
-                <td><%= x.mode %></td>
-                <td><%= x.size %></td>
+                <td><%= x.admin_id %></td>
+                <td><%= x.password %></td>
+                <td><%= x.size_limit %></td>
                 <td><a href="/admin/delete_room/<%= x.id %>">[x]</a></td>
             </tr>
             <% end %>
@@ -145,6 +143,7 @@
                 <th>선수이름</th>
                 <th>포지션</th>
                 <th>소속팀</th>
+                <th>WAR</th>
                 <th>[x]</th>
             </tr>
             <% @all_player.each do |x| %>
@@ -153,6 +152,7 @@
                 <td><%= x.name %></td>
                 <td><%= x.pos %></td>
                 <td><%= x.team %></td>
+                <td><%= x.war %></td>
                 <td><a href="/admin/delete_player/<%= x.id %>">[x]</a></td>
             </tr>
             <% end %>

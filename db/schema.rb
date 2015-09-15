@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150913154003) do
     t.string   "name"
     t.string   "pos"
     t.string   "team"
+    t.float    "war"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

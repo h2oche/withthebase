@@ -1,4 +1,5 @@
-<div class="row wrapper border-bottom white-bg page-heading bottom-zero">
+
+<div class="row wrapper border-bottom white-bg page-heading bottom-zero" ng-controller="AppController">
     <div class="col-md-6">
         <div class="row">
             <div class="col-md-1 top-padding">
@@ -17,33 +18,20 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
+<script>
+    angular.module('app',['draft'])
+        .controller('AppController',['$scope',function($scope){
+            
+        }]);
+    
+    angular.module('draft',[]);
+    angular.module('draft.controllers',[])
+    angular.module('draft.services',[])
+    angular.module('draft.filters',[])
+    angular.module('draft.directives',[])
+</script>
 
 <button type="button" class="pick" style="margin: 25px; font-size: 20px; padding: 15px;">선수 픽</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!--타자용 모달-->
