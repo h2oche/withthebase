@@ -18,6 +18,11 @@ Myapp::Application.routes.draw do
   get 'league/:id/result', to: 'league#result'
   
   post '/league/create', to: 'league#create_new_league'
+  post '/league/join', to: 'league#join_league'
+  
+  
+  get '/data/getPlayers', to: 'data#get_all_players'
+  post '/data/getPlayers', to: 'data#get_all_players'
 
   get 'admin/manage'
   get 'admin/make_user'
