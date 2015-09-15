@@ -15,6 +15,43 @@ admin_user.password_confirmation = 'goodsmile'
 admin_user.save!
 
 
+first_room = Room.new
+first_room.name = '멋사리그'
+first_room.admin_id = 1
+first_room.is_classic_mode = true
+first_room.is_public_mode = true
+first_room.period = 3
+first_room.draft_time =  "2015-9-10 20:00:00"
+first_room.size_limit = 4
+first_room.draft_time_limit = 45
+first_room.save
+
+first_room_team_1 = Team.new
+first_room_team_1.user_id = 1
+first_room_team_1.room_id = 1
+first_room_team_1.name = "Admin의 팀"
+first_room_team_1.save
+
+
+
+second_room = Room.new
+second_room.name = '사자리그'
+second_room.admin_id = 1
+second_room.is_classic_mode = true
+second_room.is_public_mode = true
+second_room.period = 4
+second_room.draft_time =  "2015-7-30 20:00:00"
+second_room.size_limit = 3
+second_room.draft_time_limit = 15
+second_room.save
+
+second_room_team_1 = Team.new
+second_room_team_1.user_id = 1
+second_room_team_1.room_id = 2
+second_room_team_1.name = "나는라이언"
+second_room_team_1.save
+
+
 
 player_1 = Player.new
 player_1.name = '테임즈'
