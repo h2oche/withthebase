@@ -127,43 +127,53 @@
         
         <div class="col-md-5">
             <div class="col-md-12">
-                <h3>오토픽</h3>
-                <button class="btn btn-warning" style="margin:7px;">완료된 선수 제거</button>
-                <button class="btn btn-danger" style="margin:7px;" ng-hide="!isAutopickOn" ng-click="isAutopickOn=false">오토픽 끄기</button>
-                <button class="btn btn-success" style="margin:7px;" ng-hide="isAutopickOn" ng-click="isAutopickOn=true">오토픽 켜기</button>
-                <div id="autopick-container" style="clear:both;">
-                    <div ng-repeat="player in autopickPlayers" class="autopick-player-container">
-                        <span class="autopick-player-pos">{{player.pos}}</span>
-                        <span class="autopick-player-name">{{player.name}}</span>
-                        <span class="autopick-player-team">( {{player.team}} )</span>
-                        <a class="btn btn-sm btn-default">위</a>
-                        <a class="btn btn-sm btn-default">아래</a>
-                        <a class="btn btn-danger">X</a>
-                        <a class="btn btn-primary">픽</a>
+                <div class = "black-box">
+                    <h3>오토픽</h3>
+                </div>
+                <div class = "border-box" id = "autopick-bottom">
+                    <button class="btn btn-warning" style="margin:7px;">완료된 선수 제거</button>
+                    <button class="btn btn-danger" style="margin:7px;" ng-hide="!isAutopickOn" ng-click="isAutopickOn=false">오토픽 끄기</button>
+                    <button class="btn btn-success" style="margin:7px;" ng-hide="isAutopickOn" ng-click="isAutopickOn=true">오토픽 켜기</button>
+                    <div id="autopick-container" style="clear:both;">
+                        <div ng-repeat="player in autopickPlayers" class="autopick-player-container">
+                            <span class="autopick-player-pos">{{player.pos}}</span>
+                            <span class="autopick-player-name">{{player.name}}</span>
+                            <span class="autopick-player-team">( {{player.team}} )</span>
+                            <a class="btn btn-sm btn-default">위</a>
+                            <a class="btn btn-sm btn-default">아래</a>
+                            <a class="btn btn-danger">X</a>
+                            <a class="btn btn-primary">픽</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-12">
-                <h3>포지션 보기</h3>
-                <div class="col-md-12">
-                    <div class="col-md-9" id="draft-position-map">
-                        지도
-                    </div>
-                    <div class="col-md-3">
-                        주전투수
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            타자
-                        </div>
-                        <div class="col-md-5">
-                            
-                        </div>
-                        <div class="col-md-1">
-                            투수
-                        </div>
-                        <div class="col-md-5">
-                            
+                <div class = "black-box">
+                    <h3>포지션 보기</h3>
+                </div>
+                <div class = "border-box">
+                    <div class = "row">
+                        <div class="col-md-12">
+                            <div class="col-md-9" id="draft-position-map">
+                                지도
+                            </div>
+                            <div class="col-md-3">
+                                주전투수
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-1">
+                                    타자
+                                </div>
+                                <div class="col-md-5">
+                                    
+                                </div>
+                                <div class="col-md-1">
+                                    투수
+                                </div>
+                                <div class="col-md-5">
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

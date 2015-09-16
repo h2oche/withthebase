@@ -594,7 +594,7 @@ div#position-field > div.position-slot.designated {
     clear : both;
 }
 .black-box{
-    width : 20%;
+    width : 25%;
     background-color : black;
     color : white;
     padding : 0px;
@@ -789,8 +789,11 @@ div.trade-slot-team > img{
 }
 
 #autopick-container {
-    height:40vh;
+    height:20vh;
     overflow-y:auto;
+}
+#autopick-bottom{
+    margin-bottom : 20px;
 }
 
 #draft-position-map {
