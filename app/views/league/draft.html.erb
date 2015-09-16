@@ -121,7 +121,7 @@
                         <span class="autopick-player-team">( {{player.team}} )</span>
                         <a class="btn btn-sm btn-default">위</a>
                         <a class="btn btn-sm btn-default">아래</a>
-                        <a class="btn btn-danger">X</a>
+                        <a class="btn btn-danger" ng-click="removeAutopickPlayer(player.id)">X</a>
                         <a class="btn btn-primary">픽</a>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
     
     Array.prototype.indexOfId = function(id) {
         for (var i = 0; i < this.length; i++)
-            if (this[i].id === id)
+            if (this[i] && this[i].id === id)
                 return i;
         return -1;
     };
@@ -216,15 +216,30 @@
             
             var requestPick = function(_playerObj) {
                 var userId = $scope.teams[$scope.currentPickOrder].user_id;
+                var teamId = $scope.teams[$scope.currentPickOrder].id;
                 
                 //현재 pick order인 사람이 request
                 console.log(userId + ' pick!');
                 
                 if( _playerObj == null ) {
                     //random pick
+                    $http({
+                        method: 'POST',
+                        url:'/proc/draftRandomPick',
+                        data: {
+                            team_id:teamId,
+                            room_id:<%=params[:id]%>
+                        }
+                    })
+                    .success(function(_data, _status, _headers, _config){
+                        console.log(_data);
+                    })
+                    .error(function(_data, _status, _headers, _config){
+                        
+                    });
                 }
                 else {
-                    
+                    //pick selected player
                 }
             }
             
@@ -258,8 +273,11 @@
             $scope.isAutopickOn = false;
             $scope.autopickPlayers = [];
             $scope.addAutopickPlayers = function(_player) {
-                console.log('autopick test', _player);
                 $scope.autopickPlayers.push(_player);
+            }
+            $scope.removeAutopickPlayer = function(_playerId) {
+                var index = $scope.autopickPlayers.indexOfId(_playerId)
+                if(~index) $scope.autopickPlayers.splice(index,1);
             }
             $scope.getAutopickClass = function(_playerId) {
                 return $scope.autopickPlayers.indexOfId(_playerId) > -1 ? "disabled" : "";

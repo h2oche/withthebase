@@ -4,7 +4,6 @@ class CreateTeams < ActiveRecord::Migration
       
       t.integer :user_id
       t.integer :room_id
-      t.integer :draft_setting_id
       t.string :name
 
       t.timestamps null: false
