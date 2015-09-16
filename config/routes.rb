@@ -23,6 +23,7 @@ Myapp::Application.routes.draw do
   
   post '/data/getPlayers', to: 'data#get_all_players'
   post '/data/getDraftTeams', to: 'data#get_draft_teams'
+  post '/proc/draftRandomPick', to: 'proc#draft_random_pick'
 
   get 'admin/manage'
   get 'admin/make_user'
