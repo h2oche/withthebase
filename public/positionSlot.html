@@ -1,5 +1,5 @@
 <div class="position-slot" ng-class="[isSelected(), isHighlited(), getPositionClassName()]" ng-mousedown="dragStart($event)">
-    <div class="position-slot-position fixed_height_40 slot_font">{{player.positionId | positionName:player.isSpecial}}</div>
-    <div class="position-slot-name fixed_height_40 slot_font">{{player.name}}</div>
-    <div class="position-slot-team fixed_height_40">{{player.teamId}}</div>
+    <div class="position-slot-position slot_font">{{player.positionId | positionName:player.isSpecial}}</div>
+    <div class="position-slot-name slot_font">{{player.name}}</div>
+    <div class="position-slot-team">{{player.teamId}}</div>
 </div>

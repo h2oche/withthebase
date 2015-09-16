@@ -33,6 +33,10 @@ class LeagueController < ApplicationController
   def lineup
     redirect_to '/users/sign_in' unless user_signed_in?
     @yet_drafted = false
+    
+    room_id = params[:id]
+    room = Room.find(room_id)
+    
   end
 
   def trade
