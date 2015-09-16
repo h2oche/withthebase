@@ -508,31 +508,6 @@ div#position-field > div.position-slot.designated {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //드래프트 전 라인업 view css
 
 .before_draft{
@@ -569,8 +544,6 @@ div#position-field > div.position-slot.designated {
     margin-top : 5px;
 }
 
-
-
 // 드래프트 페이지 css
 
 .white-bg .draft-icon {
@@ -595,6 +568,62 @@ div#position-field > div.position-slot.designated {
   color: white !important;
 }
 
+.draft-top-line{
+    border-bottom : solid 1px gray;
+    padding-top : 20px;
+    padding-bottom : 5px;
+}
+.draft-top-line > div > img{
+    width : 100%;
+}
+.draft-middle-line{
+    margin-top : 30px;
+}
+.pick-order{
+    margin-top : 10px;
+}
+.sorting-container{
+    clear : both;
+    height : 100%;
+    margin-bottom: 20px;
+}
+.sorting-container > div{
+    height : 100%;
+}
+.player-list{
+    clear : both;
+}
+.black-box{
+    width : 20%;
+    background-color : black;
+    color : white;
+    padding : 0px;
+}
+.black-box > h3{
+    margin : 0px;
+    padding : 0px;
+}
+.border-box{
+    padding : 10px 5px;
+    border : solid 1px;
+}
+.ordering{
+    float : left;
+    padding-left : 5px;
+    padding-right : 5px;
+}
+#ordering1{
+    width : 24%;
+}
+#ordering2{
+    width : 18%;
+}
+#ordering3{
+    width : 18%;
+}
+#search-player{
+    width : 40%;
+}
 //draft css 선수 팝업
 .pack{
     padding : 10px 20px 10px 20px;
@@ -795,6 +824,11 @@ div.trade-slot-team > img{
     font-weight:bolder;
 }
 
+}    
+
 .darkgray-bg{
     background-color : #7a7a7b;
+}
+#editable > tbody > tr > td{
+    vertical-align : middle;
 }
