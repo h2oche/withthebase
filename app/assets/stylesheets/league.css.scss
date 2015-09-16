@@ -796,7 +796,6 @@ div.trade-slot-team > img{
 #draft-position-map {
     position:relative;
     min-height:30vh;
-    background-color:#000;
 }
 
 .autopick-player-container {
@@ -824,9 +823,107 @@ div.trade-slot-team > img{
     font-weight:bolder;
 }
 
+#draft-position-map .firstbase {
+    position:absolute;
+    top:70%;
+    right:8%;
+}
+
+#draft-position-map .secondbase {
+    position:absolute;
+    top:55%;
+    left:50%;
+}
+
+#draft-position-map .thirdbase {
+    position:absolute;
+    top:70%;
+    left:8%;
+}
+
+#draft-position-map .shortstop {
+    position:absolute;
+    top:55%;
+    left:20%;
+}
+
+#draft-position-map .designated {
+    position:absolute;
+    bottom:2%;
+    right:7%;
+}
+
+#draft-position-map .catcher {
+    position:absolute;
+    bottom:2%;
+    left:35%;
+}
+
+#draft-position-map .leftfielder {
+    position:absolute;
+    top:30%;
+    left:7%;
+}
+
+#draft-position-map .centerfielder {
+    position:absolute;
+    top:23%;
+    left:35%;
+}
+
+#draft-position-map .rightfielder {
+    position:absolute;
+    top:30%;
+    right:7%;
+}
+
+
 .darkgray-bg{
     background-color : #7a7a7b;
 }
 #editable > tbody > tr > td{
     vertical-align : middle;
+}
+
+.drafted-player-container {
+    width:100px;
+    font-size:7px;
+    
+    background-color:rgb(47,64,80);
+    border-radius:2px;
+    padding:2px;
+    
+    -webkit-text-size-adjust:none;
+}
+
+.drafted-player-container:after {
+    content:"";
+    clear:both;
+    display:block;
+}
+
+.drafted-player-container > div {
+    float:left;
+    margin:2px;
+    font-weight:bold;
+    padding:1px;
+}
+
+.drafted-player-container div.name {
+    background-color:rgb(44,56,67);
+    color:white;
+}
+
+.drafted-player-container div.team {
+    background-color:rgb(0,0,0);
+    color:white;
+}
+
+.drafted-player-container div.pos {
+    background-color:rgb(44,56,67);
+    color:white;
+}
+
+* {
+    -webkit-text-size-adjust: none;
 }

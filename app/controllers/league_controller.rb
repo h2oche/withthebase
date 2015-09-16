@@ -41,6 +41,10 @@ class LeagueController < ApplicationController
 
   def draft
     redirect_to '/users/sign_in' unless user_signed_in?
+    
+    room_id = params[:id]
+    draft_id = Room.find(room_id).draft.id
+    DraftResult.where(draft_id: draft_id).destroy_all
   end
   
   def autopick
