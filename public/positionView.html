@@ -8,7 +8,10 @@
     <div class="row" style="display:table;">
         
         <div class="col-md-9" id="position-field" style="display:table-cell; float:none;">
+            
+            <div class="field_image"></div>
             <wtb-position-slot ng-repeat="player in startingBatters()"></wtb-position-slot>
+            
         </div>
         <div class="col-md-3 background_dark pitch_height content_centered" style="display:table-cell; float:none;">
             <div class="badge badge_dark_more badge_bench">
@@ -31,7 +34,7 @@
         
         <div class="col-md-8 background_dark">
             
-            <div class="col-md-1">
+            <div class="col-md-1 top_padding">
                 <div class="badge badge_dark_more badge_bench_sub content_centered">
                     <p>타자</p>
                 </div>
@@ -40,7 +43,7 @@
                 <wtb-position-slot class = 'fixed_height_50' ng-repeat="player in benchBatters()"></wtb-position-slot>
             </div>
             
-            <div class="col-md-1">
+            <div class="col-md-1 top_padding">
                 <div class="badge badge_dark_more badge_bench_sub content_centered">
                     <p>투수</p>
                 </div>
