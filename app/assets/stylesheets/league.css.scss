@@ -566,3 +566,39 @@ div.trade-slot-team > img{
     max-width : 40px;
     min-width : 30px;
 }
+
+#autopick-container {
+    height:40vh;
+    overflow-y:auto;
+}
+
+#draft-position-map {
+    position:relative;
+    min-height:30vh;
+    background-color:#000;
+}
+
+.autopick-player-container {
+    background-color:#fff;
+    margin:10px 0;
+}
+
+.autopick-player-container > span {
+    display:inline-block;
+    text-align:center;
+}
+
+.autopick-player-name {
+    color:rgb(111,131,150);
+    font-weight:bolder;
+    width:22%;
+}
+
+.autopick-player-team {
+    width:15%;
+}
+
+.autopick-player-pos {
+    width:10%;
+    font-weight:bolder;
+}

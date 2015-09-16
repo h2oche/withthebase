@@ -21,8 +21,8 @@ Myapp::Application.routes.draw do
   post '/league/join', to: 'league#join_league'
   
   
-  get '/data/getPlayers', to: 'data#get_all_players'
   post '/data/getPlayers', to: 'data#get_all_players'
+  post '/data/getDraftTeams', to: 'data#get_draft_teams'
 
   get 'admin/manage'
   get 'admin/make_user'
