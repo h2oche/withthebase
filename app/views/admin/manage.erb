@@ -204,7 +204,7 @@
     <!-- Data -->
     <div class="col-md-4">
         <h1>선수 기록 관리창</h1>
-        <form action='/admin/get_data_random'>
+        <form action='/admin/get_data_random_from_admin'>
             선수
             <select name='player_id'>
                 <% @all_player.each do |x| %>
@@ -219,6 +219,18 @@
             <input type='submit' value='데이터 랜덤 생성'></input>
         </form>
         
+        <form action='/admin/get_data_random_all_player'>
+            
+            <select name='date'>
+                <option value='<%= Date.today() %>'><%= Date.today() %></option>
+                <option value='<%= Date.today() + 1 %>'><%= Date.today() + 1 %></option>
+            </select>
+            <input type='submit' value='모든 선수 데이터 생성'></input>
+            
+        </form>
+        
+        
+        
         <h3>투수</h3>
         <table border='1'>
             <tr>
@@ -232,7 +244,7 @@
             </tr>
             <% @all_pitch.each do |x| %>
             <tr>
-                <td><%= x.player_id %></td>
+                <td><%= x.player_id %> (<%= Player.find(x.player_id).name %>)</td>
                 <td><%= x.record_date %></td>
                 <td><%= x.win %></td>
                 <td><%= x.strikeout %></td>
@@ -257,7 +269,7 @@
             </tr>
             <% @all_bat.each do |x| %>
             <tr>
-                <td><%= x.player_id %></td>
+                <td><%= x.player_id %> (<%= Player.find(x.player_id).name %>)</td>
                 <td><%= x.record_date %></td>
                 <td><%= x.bat_avg %></td>
                 <td><%= x.rbi %></td>

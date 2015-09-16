@@ -14,6 +14,21 @@ admin_user.password = 'goodsmile'
 admin_user.password_confirmation = 'goodsmile'
 admin_user.save!
 
+admin_user2 = User.new
+admin_user2.email = 'admin2@wtb.com'
+admin_user2.username = 'admin'
+admin_user2.password = 'goodsmile'
+admin_user2.password_confirmation = 'goodsmile'
+admin_user2.save!
+
+admin_user3 = User.new
+admin_user3.email = 'admin3@wtb.com'
+admin_user3.username = 'admin'
+admin_user3.password = 'goodsmile'
+admin_user3.password_confirmation = 'goodsmile'
+admin_user3.save!
+
+
 
 first_room = Room.new
 first_room.name = '멋사리그'
@@ -253,3 +268,11 @@ player_28.pos = '구원'
 player_28.team = 'SK'
 player_28.war = 2.38
 player_28.save
+
+
+player_29 = Player.new
+player_29.name = '김하성'
+player_29.pos = '유격'
+player_29.team = '넥센'
+player_29.war = 3.96
+player_29.save

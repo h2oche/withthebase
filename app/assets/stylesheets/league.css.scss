@@ -1,6 +1,7 @@
 // Place all the styles related to the league controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//league dashboard
 #leaguename{
     
     font-size:200%;
@@ -18,7 +19,9 @@
 }
 
 #league{
+    border-radius : 21px;
     padding: 10px 10px 0px 10px;
+    margin-top : 0px;
 }
 #league:hover{
     opacity:0.8;
@@ -62,9 +65,13 @@ tr {
     margin : 0px;
     margin-top : 5px;
     margin-bottom : 5px;
-    
 }
-
+#leave-btn{
+    float:right;
+    margin-right : 3%;
+    padding-top: 3px;
+    padding-bottom : 3px;
+}
 //info action
 
 ul > li{
@@ -101,18 +108,21 @@ ul > li > div{
     background-color: white;
 }
 .margin_name_none{
+    text-align : center;
     background-color : transparent;
 }
 #title-box{
-    width : 30%;
-    font-size:150%;
-    color : white;
-    background-color: #2f4050;
+    text-align : center;
+    font-size:170%;
+    color : #676a6c;
+    
 }
-#title-box-container{
-    padding : 10px;
-    padding-bottom : 0px;
+#clock > img{
+    width : 35px;
+    margin-top : 5px;
+    margin-left : 5px;
 }
+
 .add{
     height : 54px;
     margin-top : 20px;
@@ -166,23 +176,72 @@ ul > li > div{
     transform: translateY(-50%);
 }
 .box{
-    background-color : #BDD7EE;
+    background-color : #ffffff;
     height : 100%;
 }
 .box2{
-    background-color : #ffe699;
+    background-color : #ffffff;
     height : 100%;
 }
 .lastline{
     margin : 0px 0px;
-    
+}
+.lastline2{
+    text-align : center;
+}
+.lastline2 > button{
+    float : none;
+}
+#padding-5px{
+    padding-left : 5px;
+    padding-right : 5px;
+}
+.autopick{
+    color : #f8ac59;
+}
+.accessed{
+    color : #4db6ac;
+}
+.non-accessed{
+    color : #d9534f;
+}
+.draft_finished{
+    text-align : center;
+    background-color : #1ab394;
+    color : white;
+}
+.private{
+    text-align : center;
+    background-color : #d9534f;
+    color : white;
 }
 //result action css
 .line > div > img{
     
     height:50px;
     opacity: 0.5;
-}//이미지 크기 조절
+}
+.result-line{
+    padding-top : 10px;
+    padding-bottom : 10px;
+}
+.result-line-half{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.team-slot{
+    font-size : 130%;
+    position : relative;
+    top : 50%;
+    width : 40%;
+    text-align : center;
+}
+.versus{
+    width : 20%;
+    font-size : 130%;
+}
+
+//이미지 크기 조절
 .time{
     color:white;
     text-align:center;
@@ -290,6 +349,7 @@ div#position-slot-mirror {
 
 div#position-field {
     position:relative;
+    background-color: #E6E6E6;
 }
 
 div#position-field > div.position-slot {
@@ -346,6 +406,133 @@ div#position-field > div.position-slot.designated {
 
 }
 
+
+/* //jae-seo css part */
+
+#position-field {
+    
+    background-image: url(asset-path('field.jpg'));
+    
+    background-size: contain;
+    background-repeat : no-repeat; 
+    background-position: center; 
+    
+}
+
+.background_dark {
+    
+    background-color: #2F4050;
+    
+}
+
+.background_dark_more {
+    
+    background-color: #2C3843;
+    
+}
+
+.badge_dark_more {
+    
+  background-color: #2C3843 !important;
+  color: white !important;
+  
+}
+
+.badge_bench {
+    
+    line-height: 40px !important;
+    width: 150px;
+    font-size: 20px !important;
+    margin: 10px;
+    
+}
+
+.badge_bench_sub {
+    
+    line-height: 100px !important;
+    width: 60px;
+    font-size: 20px !important;
+    margin: 10px auto;
+
+}
+
+.margin_auto {
+    
+    margin: 10px auto;
+}
+
+.content_centered {
+    text-align: center;    
+}
+
+
+
+.badge {
+    
+    display: inline-block;
+    
+}
+
+.badge p {
+    
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0px;
+    
+}
+
+.pitch_height {
+    
+    height: 500px;
+    
+}
+
+.fixed_height_50 {
+    
+    height: 50px !important;
+    
+}
+
+.fixed_height_40 {
+    
+    height: 35px !important;
+    
+}
+
+.slot_font {
+    
+    font-size: 12px !important;
+    vertical-align: middle;
+    padding-top: 8px !important;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //드래프트 전 라인업 view css
 
 .before_draft{
@@ -369,12 +556,17 @@ div#position-field > div.position-slot.designated {
 //리그 생성 css
 .image{
     
-    height : 50px;
-    width : 50px;
+    height : 35px;
+    width : 35px;
     
 }
 .image > img{
+    margin-top : 10px;
+    margin-left : 5px;
     max-height:100%;
+}
+.image_lock > img {
+    margin-top : 5px;
 }
 
 
@@ -601,4 +793,7 @@ div.trade-slot-team > img{
 .autopick-player-pos {
     width:10%;
     font-weight:bolder;
+    
+.darkgray-bg{
+    background-color : #7a7a7b;
 }

@@ -4,9 +4,10 @@
             <div class = "col-md-5">
             <% @teams_info.each_with_index do |team_info, index| %>
                 <a href="/league/<%=team_info[:roomid]%>/info">
+                <button class = "btn btn-warning" id = "leave-btn">리그 나가기 </button>
                 <div class="col-md-12 widget p-md <%=@teams_classname[index]%>" id = "league">
                     
-                    <button class = "btn btn-warning" style = "float:right;">리그 나가기 </button>
+                    
                     <div class="m-b-md col-md-5 text-center">
                         <strong id = "leaguename" ><%=team_info[:roomname]%></strong><small style = "font-size:130%"> 리그</small><br>
                         <strong id = "teamname"> <%=team_info[:teamname]%> 팀</strong>
@@ -18,7 +19,8 @@
                     <div class = "col-md-7">
                         <br>
                         <div class = "hidden-md hidden-sm hidden-xs">
-                            <p> 드래프트까지 10일 남았습니다.</p>
+                            <p><strong> 드래프트까지 10일 남았습니다.</strong></p>
+                            <br>
                             <br>
                             <p>모드 : 리그매치</p>
                             <p>리그 기간 : 2주</p>
@@ -53,14 +55,14 @@
                     
                     <div class = "col-md-4">
                         <select class = "form-control">
-                            <option>리그 모드?</option>
+                            <option>리그 모드</option>
                             <option>리그 매치</option>
                         </select>
                     </div>
                     
                     <div class = "col-md-4">
                     <select class = "form-control">
-                        <option>최대 인원수?</option>
+                        <option>최대 인원수</option>
                         <option>5명</option>
                         <option>6명</option>
                         <option>7명</option>
@@ -70,7 +72,7 @@
                     
                     <div class = "col-md-4">
                     <select class = "form-control">
-                        <option>리그 기간?</option>
+                        <option>리그 기간</option>
                         <option>5명</option>
                         <option>6명</option>
                         <option>7명</option>
@@ -83,12 +85,12 @@
                 <table class="table table-striped table-bordered table-hover" id="editable" >
                     <thead>
                         <tr>
-                            <th style = "width : 5%">공개</th>
+                            <th style = "width : 8%">공개</th>
                             <th style = "width : 10%">방장</th>
                             <th style = "width : 20%">리그 이름</th>
                             <th style = "width : 30%">드래프트 시작 일시</th>
                             <th style = "width : 8%">인원</th>
-                            <th style = "width : 17%">리그 모드</th>
+                            <th style = "width : 14%">리그 모드</th>
                             <th style = "width : 10%">참가</th>
                         </tr>
                     </thead>
@@ -200,7 +202,7 @@
                                         
                                         <!-- league is public -->
                                         <div class="row form-group">
-                                            <div class = "col-md-1 image" style = "padding-left:0px">
+                                            <div class = "col-md-1 image image_lock" style = "padding-left:0px">
                                                 <%= image_tag("Lock.png")%>
                                             </div>
                                             <div class = "col-md-5">

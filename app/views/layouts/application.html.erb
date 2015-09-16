@@ -29,7 +29,11 @@
             <%= render 'layouts/navigation' %>
         <% end %>
         <!-- Page wraper -->
-        <div id="page-wrapper" class="gray-bg">
+        <div id="page-wrapper" class="gray-bg
+        <% if params[:controller] == "league" && params[:action] == "info" %>
+            darkgray-bg
+        <% end %>
+        ">
 
             <!-- Page wrapper -->
             <%= render 'layouts/topnavbar' %>

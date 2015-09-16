@@ -8,13 +8,13 @@
         <div class = "row">
             
             <!-- 리그 정보-->
-            <div class = "col-md-6">
+            <div class = "col-lg-6">
                 <div class = "box" style = "max-width : 610px">
-                    <div id = "title-box-container">
-                        <div id = "title-box">
-                            <strong>리그 정보</strong>
-                        </div>    
-                    </div>
+                
+                    <div id = "title-box">
+                        <strong>리그 정보</strong>
+                    </div>    
+                    
                     <div class = "special2">
                         <div>
                             <div class = "row add">
@@ -41,29 +41,37 @@
                                 </div>
                                 <div class = "line col-sm-10">
                                     <label class = "col-sm-6 name_div">참여 인원</label>
-                                    <strong class = "col-sm-6 name_div special">리그 기간 </strong>
+                                    <strong class = "col-sm-6 name_div special">6/10팀 </strong>
                                 </div>
                             </div>
-                            <div class = "row add">
-                                <div class = "line col-sm-2 hidden-sm hidden-xs image_div">
-                                    <%= image_tag("unlock.png") %>
-                                </div>
-                                <div class = "line col-sm-10">
-                                    <label class = "col-sm-6 name_div">드래프트 시작 여부</label>
-                                    <strong class = "col-sm-6 name_div special">완료</strong>
-                                </div>
-                            </div>
+                            <!--드래프트 시작 or not-->
                             <div class = "row add">
                                 <div class = "line col-sm-2 hidden-sm hidden-xs image_div">
                                     <%= image_tag("diary.png") %>
                                 </div>
                                 <div class = "line col-sm-10">
+                                    <label class = "col-sm-6 name_div">드래프트 시작 여부</label>
+                                    <strong class = "col-sm-6 draft_finished name_div special "
+                                    style = " width : 20%">
+                                        완료
+                                    </strong>
+                                </div>
+                            </div>
+                            <!--공개 & 비공개-->
+                            <div class = "row add">
+                                <div class = "line col-sm-2 hidden-sm hidden-xs image_div">
+                                    <%= image_tag("unlock.png") %>
+                                </div>
+                                <div class = "line col-sm-10">
                                     <label class = "col-sm-6 name_div">공개 여부</label>
-                                    <strong class = "col-sm-6 name_div special">비공개 </strong>
+                                    <strong class = "col-sm-6 name_div special private"
+                                        style = "width : 20%">
+                                        비공개 
+                                    </strong>
                                 </div>
                             </div>
                             <div class = "row add">
-                                <div class = "line col-sm-2 hidden-sm hidden-xs image_div">
+                                <div class = "line col-sm-2 hidden-sm hidden-xs image_div" id = "clock">
                                     <%= image_tag("clock.png") %>
                                 </div>
                                 <div class = "line col-sm-10">
@@ -81,7 +89,7 @@
                                 </div>
                             </div>
                             <div class = "row lastline" style = "margin : 0px">
-                                <button class = "btn btn-default">리그 설정</button>        
+                                <button class = "btn btn-info dim">리그 설정</button>        
                             </div>
                         
                         </div>
@@ -91,7 +99,7 @@
             </div>
             
             <!--participants list-->
-            <div class = "col-md-6">
+            <div class = "col-lg-6">
                 <div class = "box2">
                 <div id = "title-box-container">
                     <div id = "title-box">
@@ -102,7 +110,7 @@
                     <div class = "special2">
                         <div class = "row add3">
                             
-                            <div class = "col-md-offset-2 col-md-4 small_image_div">
+                            <div class = "col-xs-offset-2 col-xs-4 small_image_div">
                                 <%= image_tag("team_name.png") %>
                                 <strong>
                                     팀 이름
@@ -110,49 +118,174 @@
                             </div>
                             
                             
-                            <div class = "col-md-3">
+                            <div class = "col-xs-3">
                             
                                 <div class = "small_image_div">
-                                    <%= image_tag("emblem.png") %>
+                                    <%= image_tag("coach.png") %>
                                 
                                     <strong >
                                         감독
                                     </strong>
                                 </div>
                             </div>
-                            <div class = "col-md-3">
+                            <div class = "col-xs-3">
                                 <div class = "small_image_div">
-                                    <%= image_tag("emblem.png") %>
+                                    <%= image_tag("accessed.png") %>
                                 
                                     <strong >
-                                        감독
+                                        접속여부
                                     </strong>
                                 </div>
                             </div>
                             
                         </div>
-                        
+                        <!--참가원1 (방장) 오토픽중-->
                         <div class = "row add2">
                             <div class = "col-sm-2 hidden-sm hidden-xs image_div">
-                                <%= image_tag("user2.png") %>
+                                <%= image_tag("host_league.png") %>
                             </div>
-                            <div class = "col-sm-4">
+                            <div class = "col-sm-4" id = "padding-5px">
                                 <div class = "margin_name">
                                     <strong>장섭 독수리</strong>
                                 </div>
                             </div>
-                            <div class = "col-sm-3">
+                            <div class = "col-sm-3" id = "padding-5px">
                                 <div class = "margin_name" style = "text-align :center">
                                     <strong>오장섭</strong>
                                 </div>
                             </div>
-                            <div class = "col-sm-3">
-                                <div class = "margin_name margin_name_none">
+                            <!--오토픽중 css-->
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name margin_name_none autopick">
+                                    <i class = "fa fa-circle"></i>
+                                    <strong>오토픽</strong>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!--참가원 2-->
+                        <div class = "row add2">
+                            <div class = "col-sm-2 hidden-sm hidden-xs image_div">
+                                <%= image_tag("user2.png") %>
+                            </div>
+                            <div class = "col-sm-4" id = "padding-5px">
+                                <div class = "margin_name">
+                                    <strong>장섭 독수리</strong>
+                                </div>
+                            </div>
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name" style = "text-align :center">
+                                    <strong>오장섭</strong>
+                                </div>
+                            </div>
+                            <!--접속중 css-->
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name margin_name_none accessed">
                                     <i class = "fa fa-circle"></i>
                                     <strong>접속중</strong>
                                 </div>
                             </div>
                             
+                        </div>
+                        <!--참가원3-->
+                        <div class = "row add2">
+                            <div class = "col-sm-2 hidden-sm hidden-xs image_div">
+                                <%= image_tag("user2.png") %>
+                            </div>
+                            <div class = "col-sm-4" id = "padding-5px">
+                                <div class = "margin_name">
+                                    <strong>장섭 독수리</strong>
+                                </div>
+                            </div>
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name" style = "text-align :center">
+                                    <strong>오장섭</strong>
+                                </div>
+                            </div>
+                            <!--접속중 아님 css-->
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name margin_name_none non-accessed">
+                                    <i class = "fa fa-circle"></i>
+                                    <strong>오프라인</strong>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!--참가원4-->
+                        <div class = "row add2">
+                            <div class = "col-sm-2 hidden-sm hidden-xs image_div">
+                                <%= image_tag("user2.png") %>
+                            </div>
+                            <div class = "col-sm-4" id = "padding-5px">
+                                <div class = "margin_name">
+                                    <strong>장섭 독수리</strong>
+                                </div>
+                            </div>
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name" style = "text-align :center">
+                                    <strong>오장섭</strong>
+                                </div>
+                            </div>
+                            <!--접속중 아님 css-->
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name margin_name_none non-accessed">
+                                    <i class = "fa fa-circle"></i>
+                                    <strong>오프라인</strong>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!--참가원5-->
+                        <div class = "row add2">
+                            <div class = "col-sm-2 hidden-sm hidden-xs image_div">
+                                <%= image_tag("user2.png") %>
+                            </div>
+                            <div class = "col-sm-4" id = "padding-5px">
+                                <div class = "margin_name">
+                                    <strong>장섭 독수리</strong>
+                                </div>
+                            </div>
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name" style = "text-align :center">
+                                    <strong>오장섭</strong>
+                                </div>
+                            </div>
+                            <!--접속중 아님 css-->
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name margin_name_none non-accessed">
+                                    <i class = "fa fa-circle"></i>
+                                    <strong>오프라인</strong>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!--참가원6-->
+                        <div class = "row add2">
+                            <div class = "col-sm-2 hidden-sm hidden-xs image_div">
+                                <%= image_tag("user2.png") %>
+                            </div>
+                            <div class = "col-sm-4" id = "padding-5px">
+                                <div class = "margin_name">
+                                    <strong>장섭 독수리</strong>
+                                </div>
+                            </div>
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name" style = "text-align :center">
+                                    <strong>오장섭</strong>
+                                </div>
+                            </div>
+                            <!--접속중 아님 css-->
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name margin_name_none non-accessed">
+                                    <i class = "fa fa-circle"></i>
+                                    <strong>오프라인</strong>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!--마지막 라인-->
+                        <div class = "row lastline2" style = "margin : 0px">
+                            <button class = "btn btn-danger dim">드래프트 시작</button>        
                         </div>
                         
                     </div>
