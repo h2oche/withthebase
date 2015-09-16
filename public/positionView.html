@@ -6,27 +6,51 @@
     </div>
     
     <div class="row" style="display:table;">
+        
         <div class="col-md-9" id="position-field" style="display:table-cell; float:none;">
             <wtb-position-slot ng-repeat="player in startingBatters()"></wtb-position-slot>
         </div>
-        <div class="col-md-3" style="display:table-cell; float:none;">
-            <h1>주전 투수</h1>
-            <wtb-position-slot ng-repeat="player in startingPitchers()"></wtb-position-slot>
+        <div class="col-md-3 background_dark pitch_height content_centered" style="display:table-cell; float:none;">
+            <div class="badge badge_dark_more badge_bench">
+                <p>주전 투수</p>
+            </div>
+            <wtb-position-slot class = 'fixed_height_50' ng-repeat="player in startingPitchers()"></wtb-position-slot>
         </div>
+        
     </div>
+    
     <div class="row">
-        <h1 class="col-md-12">벤치</h1>
-        <div class="col-md-9">
-            <div class="col-md-1">타자</div>
-            <div class="col-md-5">
-                <wtb-position-slot ng-repeat="player in benchBatters()"></wtb-position-slot>
+        
+        <div class="col-md-12">
+            
+            <div class="badge badge_dark_more badge_bench">
+                <p>벤치</p>
             </div>
-            <div class="col-md-1">투수</div>
-            <div class="col-md-5">
-                <wtb-position-slot ng-repeat="player in benchPitchers()"></wtb-position-slot>
-            </div>
+            
         </div>
-        <div class="col-md-3">
+        
+        <div class="col-md-8 background_dark">
+            
+            <div class="col-md-1">
+                <div class="badge badge_dark_more badge_bench_sub content_centered">
+                    <p>타자</p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <wtb-position-slot class = 'fixed_height_50' ng-repeat="player in benchBatters()"></wtb-position-slot>
+            </div>
+            
+            <div class="col-md-1">
+                <div class="badge badge_dark_more badge_bench_sub content_centered">
+                    <p>투수</p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <wtb-position-slot class = 'fixed_height_50' ng-repeat="player in benchPitchers()"></wtb-position-slot>
+            </div>
+            
+        </div>
+        <div class="col-md-4">
             team
         </div>
     </div>

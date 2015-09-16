@@ -349,6 +349,7 @@ div#position-slot-mirror {
 
 div#position-field {
     position:relative;
+    background-color: #E6E6E6;
 }
 
 div#position-field > div.position-slot {
@@ -404,6 +405,133 @@ div#position-field > div.position-slot.designated {
     background-color:#000;
 
 }
+
+
+/* //jae-seo css part */
+
+#position-field {
+    
+    background-image: url(asset-path('field.jpg'));
+    
+    background-size: contain;
+    background-repeat : no-repeat; 
+    background-position: center; 
+    
+}
+
+.background_dark {
+    
+    background-color: #2F4050;
+    
+}
+
+.background_dark_more {
+    
+    background-color: #2C3843;
+    
+}
+
+.badge_dark_more {
+    
+  background-color: #2C3843 !important;
+  color: white !important;
+  
+}
+
+.badge_bench {
+    
+    line-height: 40px !important;
+    width: 150px;
+    font-size: 20px !important;
+    margin: 10px;
+    
+}
+
+.badge_bench_sub {
+    
+    line-height: 100px !important;
+    width: 60px;
+    font-size: 20px !important;
+    margin: 10px auto;
+
+}
+
+.margin_auto {
+    
+    margin: 10px auto;
+}
+
+.content_centered {
+    text-align: center;    
+}
+
+
+
+.badge {
+    
+    display: inline-block;
+    
+}
+
+.badge p {
+    
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0px;
+    
+}
+
+.pitch_height {
+    
+    height: 500px;
+    
+}
+
+.fixed_height_50 {
+    
+    height: 50px !important;
+    
+}
+
+.fixed_height_40 {
+    
+    height: 35px !important;
+    
+}
+
+.slot_font {
+    
+    font-size: 12px !important;
+    vertical-align: middle;
+    padding-top: 8px !important;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //드래프트 전 라인업 view css
 
@@ -631,6 +759,41 @@ div.trade-slot-team > img{
     min-width : 30px;
 }
 
+#autopick-container {
+    height:40vh;
+    overflow-y:auto;
+}
+
+#draft-position-map {
+    position:relative;
+    min-height:30vh;
+    background-color:#000;
+}
+
+.autopick-player-container {
+    background-color:#fff;
+    margin:10px 0;
+}
+
+.autopick-player-container > span {
+    display:inline-block;
+    text-align:center;
+}
+
+.autopick-player-name {
+    color:rgb(111,131,150);
+    font-weight:bolder;
+    width:22%;
+}
+
+.autopick-player-team {
+    width:15%;
+}
+
+.autopick-player-pos {
+    width:10%;
+    font-weight:bolder;
+    
 .darkgray-bg{
     background-color : #7a7a7b;
 }
