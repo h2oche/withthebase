@@ -7,7 +7,7 @@
     
     <div class="row" style="display:table;">
         
-        <div class="col-md-9" id="position-field" style="display:table-cell; float:none;">
+        <div class="col-md-9 black-border" id="position-field" style="display:table-cell; float:none;">
             
             <div class="field_image"></div>
             <wtb-position-slot ng-repeat="player in startingBatters()"></wtb-position-slot>
@@ -32,7 +32,7 @@
             
         </div>
         
-        <div class="col-md-8 background_dark">
+        <div class="col-md-8 background_dark bottom_fixed_height bottom_width_fix">
             
             <div class="col-md-1 top_padding">
                 <div class="badge badge_dark_more badge_bench_sub content_centered">
@@ -53,8 +53,23 @@
             </div>
             
         </div>
-        <div class="col-md-4">
-            team
+        <div class="col-md-3 black-border bottom_fixed_height bottom_width_fix_2">
+            
+            <div class='row'>
+                
+                <div class="col-md-4 team_fixed_height_1">
+                    <img alt="image" src="https://withthebase-dokkodev-1.c9.io/assets/profile_small2.png" height="70" width="60"/>
+                </div>
+                <div class="col-md-8 team_fixed_height_2 team_font">
+                    <p><span>오장섭 감독</span>의</p> <br>
+                    <p><span>장섭독수리</span> 팀</p>
+                </div>
+                
+            </div>
+            
+            
+            
+            
         </div>
     </div>
 </div>
