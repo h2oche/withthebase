@@ -1,7 +1,8 @@
 
-<div class="wrapper border-bottom white-bg page-heading bottom-zero" ng-controller="AppController">
-    <div class="row">
+<div class="wrapper border-bottom gray-bg page-heading bottom-zero" ng-controller="AppController">
+    <div class="row draft-top-line">
         <div class="col-md-1">
+            <%=image_tag("period.png")%>
             <h4>제한시간</h4>
         </div>
         
@@ -10,10 +11,11 @@
         </div>
         
         <div class="col-md-1">
+            <%=image_tag("draftpick2.png")%>
             <h4>픽 순서</h4>
         </div>
         
-        <div class="col-md-8">
+        <div class="col-md-8 pick-order">
             <button type="button" class="btn" style="float:left; margin:5px;"
                     ng-repeat="team in teams"
                     ng-class="getPickButtonClass($index)">{{team.name}}</button>
@@ -21,81 +23,96 @@
         </div>
     </div>
     
-    <div class="row" style="margin-bottom:100px;">
+    <div class="row draft-middle-line" style="margin-bottom:100px;">
         <div class="col-md-7">
-            <h3>정렬 기준</h3>
-            <div class="col-md-12">
-                <select class="form-control" style="float:left; width:25%; margin:5px;" ng-model="playerFilter.pos">
-                    <option value="0">모든 포지션</option>
-                    <option ng-repeat="pos in positions" value="{{pos}}">{{pos}}</option>
-                </select>
-                
-                <select class="form-control" style="float:left; width:15%; margin:5px;" ng-model="playerFilter.team">
-                    <option value="0">모든 팀</option>
-                    <option ng-repeat="rteam in realTeams" value="{{rteam}}">{{rteam}}</option>
-                </select>
-                
-                
-                <select class="form-control" style="float:left; width:15%; margin:5px;" ng-model="playerFilter.stat">
-                    <option value="0">전체</option>
-                    <option ng-repeat="stat in stats" value="{{stat}}">{{stat}}</option>
-                </select>
-                
-                <div class="input-group" style="float:left; width:30%; margin:5px;">
-                  <input type="text" class="form-control" placeholder="선수 이름" ng-model="playerFilter.playerName">
-                  
-                  <span class="input-group-btn">
-                    <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                  </span>
+            <div class = "row sorting-container" style = "margin-left : 0px;
+    margin-right : 0px;">
+                <div class = "black-box">
+                    <h3>정렬 기준</h3>
                 </div>
-            </div>
-            
-            <h3>선수 리스트</h3>
-            <table class="table table-condensed">
-                <thead style="background-color:rgb(109,123,139); color:rgb(255,255,255); font-weight:3.0em;">
-                    <th style="width:10%;">포지션</th>
-                    <th style="width:30%;">선수</th>
-                    <th style="width:10%;"></th>
-                    <th style="width:10%;">WAR</th>
-                    <th style="width:20%;">소유 감독</th>
-                    <th style="width:10%;">오토픽</th>
-                    <th style="width:10%;">픽</th>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="player in players | filter: playerFilter.filter | filter: playerFilter.indexFilter:$index | filter: playerFilter.nameFilter">
-                        <td>{{player.pos}}</td>
-                        <td>{{player.name}} ({{player.team}})</td>
-                        <td> - </td>
-                        <td>{{player.war}}</td>
-                        <td> - </td>
-                        <td>
-                            <a class="btn btn-warning" ng-click="addAutopickPlayers(player)" ng-class="getAutopickClass(player.id)">
-                                추가
-                            </a>
-                        </td>
-                        <td><a class="btn btn-info">픽</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="col-md-12">
-                페이지당 선수 수 : 
-                <select class="form-control" style="display:inline-block; width:30%;" ng-model="playerFilter.displayCount" ng-init="playerFilter.displayCount = 5">
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                </select>
-                <div style="float:right;">
-                    <div class="btn-group" role="group" ng-init="playerFilter.currentPage=1">
-                        <button class="btn btn-default" ng-click="playerFilter.currentPage=1">1</button>
-                        <button class="btn btn-default" ng-click="playerFilter.currentPage=2">2</button>
-                        <button class="btn btn-default" ng-click="playerFilter.currentPage=3">3</button>
-                        <button class="btn btn-default" ng-click="playerFilter.currentPage=4">4</button>
-                        <button class="btn btn-default" ng-click="playerFilter.currentPage=5">5</button>
+                <div class = "col-md-12 border-box">
+                    <div class = "ordering" id = "ordering1">
+                        <select class="form-control" ng-model="playerFilter.pos" >
+                            <option value="0">모든 포지션</option>
+                            <option ng-repeat="pos in positions" value="{{pos}}">{{pos}}</option>
+                        </select>
+                    </div>
+                    <div class = "ordering" id = "ordering2">
+                        <select class="form-control" ng-model="playerFilter.team">
+                            <option value="0">모든 팀</option>
+                            <option ng-repeat="rteam in realTeams" value="{{rteam}}">{{rteam}}</option>
+                        </select>
+                    </div>
+                    <div class = "ordering" id = "ordering3">
+                        <select class="form-control" ng-model="playerFilter.stat" >
+                            <option value="0">전체</option>
+                            <option ng-repeat="stat in stats" value="{{stat}}">{{stat}}</option>
+                        </select>
+                    </div>
+                    <div class="input-group ordering" id = "search-player">
+                      <input type="text" class="form-control" placeholder="선수 이름" ng-model="playerFilter.playerName">
+                      
+                      <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                      </span>
                     </div>
                 </div>
             </div>
-            
+            <div class = "player-list">
+                <div class = "black-box">
+                    <h3>선수 리스트</h3>
+                </div>
+                <div class = "border-box">
+                    <table class="table table-condensed">
+                        <thead style="background-color:rgb(109,123,139); color:rgb(255,255,255); font-weight:3.0em;">
+                            <th style="width:10%;">포지션</th>
+                            <th style="width:30%;">선수</th>
+                            <th style="width:10%;"></th>
+                            <th style="width:10%;">WAR</th>
+                            <th style="width:20%;">소유 감독</th>
+                            <th style="width:10%;">오토픽</th>
+                            <th style="width:10%;">픽</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="player in players | filter: playerFilter.filter | filter: playerFilter.indexFilter:$index | filter: playerFilter.nameFilter">
+                                <td>{{player.pos}}</td>
+                                <td>{{player.name}} ({{player.team}})</td>
+                                <td> - </td>
+                                <td>{{player.war}}</td>
+                                <td> - </td>
+                                <td>
+                                    <a class="btn btn-warning" ng-click="addAutopickPlayers(player)" ng-class="getAutopickClass(player.id)">
+                                        추가
+                                    </a>
+                                </td>
+                                <td><a class="btn btn-info">픽</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class = "border-box">
+                    <div class = "row">
+                        <div class="col-md-12">
+                            페이지당 선수 수 : 
+                            <select class="form-control" style="display:inline-block; width:30%;" ng-model="playerFilter.displayCount" ng-init="playerFilter.displayCount = 5">
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                            <div style="float:right;">
+                                <div class="btn-group" role="group" ng-init="playerFilter.currentPage=1">
+                                    <button class="btn btn-default" ng-click="playerFilter.currentPage=1">1</button>
+                                    <button class="btn btn-default" ng-click="playerFilter.currentPage=2">2</button>
+                                    <button class="btn btn-default" ng-click="playerFilter.currentPage=3">3</button>
+                                    <button class="btn btn-default" ng-click="playerFilter.currentPage=4">4</button>
+                                    <button class="btn btn-default" ng-click="playerFilter.currentPage=5">5</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <h3>드래프트 기록</h3>
             <table class="table">
                 <thead>
