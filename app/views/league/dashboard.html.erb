@@ -18,7 +18,7 @@
                     </div>
                     <div class = "col-md-7">
                         <br>
-                        <div class = "hidden-md hidden-sm hidden-xs">
+                        <div class = "hidden-sm hidden-xs">
                             <p><strong> 드래프트까지 10일 남았습니다.</strong></p>
                             <br>
                             <br>
@@ -115,7 +115,7 @@
                             </td>
                             <td class="center">
                                 <%= form_tag '/league/join', method: 'post' do |f| %>
-                                    <div class="form-group">
+                                    <div class="form-group" style = "margin : auto">
                                         <%= submit_tag "참가", class:"btn btn-primary"%>
                                         <%= hidden_field_tag "room_id", room[:room_id]%>
                                     </div>
