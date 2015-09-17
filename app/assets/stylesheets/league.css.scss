@@ -147,6 +147,9 @@ ul > li > div{
     
     color : #676A6C;
 }
+.is_private{
+    
+}
 .special2{
     margin : 10px;
     padding : 10px;
@@ -212,14 +215,18 @@ ul > li > div{
     color : #d9534f;
 }
 .draft_finished{
+    border:#19B293 1px solid;
+    background-color : white;
+    color : #19B293;
+    border-radius : 5px;
     text-align : center;
-    background-color : #1ab394;
-    color : white;
 }
 .private{
+    border: #D8524E 1px solid;
+    color : #D8524E;
+    border-radius : 5px;
     text-align : center;
-    background-color : #d9534f;
-    color : white;
+    background-color : #ffffff;
 }
 //result action css
 .line > div > img{
