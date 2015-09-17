@@ -2,6 +2,7 @@ class DataController < ApplicationController
     skip_before_action :verify_authenticity_token
     
     def get_all_players 
+        
        players = Player.all
        render :json => players
     end

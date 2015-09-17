@@ -4,6 +4,7 @@ class CreateDraftSettings < ActiveRecord::Migration
       t.integer :order
       t.boolean :applied
       t.integer :draft_id
+      t.integer :team_id
 
       t.timestamps null: false
     end

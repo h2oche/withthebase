@@ -1,7 +1,13 @@
 // Place all the styles related to the league controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
 //league dashboard
+
 #leaguename{
     
     font-size:200%;
@@ -267,6 +273,7 @@ ul > li > div{
 }
 
 
+
 /* lineup css */
 div#lineup-pview-container > div#position-slot-container {
     position:relative;
@@ -281,12 +288,15 @@ div.position-slot {
     border-radius:5px;
     background-color:rgb(47,64,80);
     
+    position: relative;
+    
     color:white;
     font-weight:3.0em;
     font-size:0.7em;
     
     transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-
+    
+    z-index:5;
     
 }
 
@@ -295,26 +305,47 @@ div.position-slot > div {
     
     padding:5px 20px;
     text-align:center;
+    
+    
 
 }
 
 div.position-slot-position {
-    width:35%;
+    width:25%;
     font-size:0.7em;
     background-color:rgb(44,56,67);
     
     
+    
+    border-radius: 10px;
+    height: 45px !important;
+    font-size: 18px !important;
+    vertical-align: middle;
+    padding-top: 10px !important;
+    font-weight: bold !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;    
 }
 
 div.position-slot-name {
-    width:43%;
+    width:50%;
     background-color:rgb(0,0,0);
+    
+    
+    border-radius: 10px;
+    height: 45px !important;
+    font-size: 18px !important;
+    vertical-align: middle;
+    padding-top: 10px !important;
+    font-weight: bold !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
     
 }
 
 div.position-slot-team {
-    width:17%;
-    background-color:rgb(44,56,67);
+    width:25%;
+    background-color:white;
     vertical-align : middle;
     padding : 0px;
     background-image: url(asset-path('bird.png'));
@@ -322,6 +353,14 @@ div.position-slot-team {
     background-repeat : no-repeat; 
     background-position: center; 
     
+    border-radius: 10px;
+    height: 45px !important;
+    font-size: 12px !important;
+    vertical-align: middle;
+    padding-top: 15px !important;
+    font-weight: bold !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 
@@ -339,11 +378,12 @@ div.position-slot.selected {
 div.position-slot.highlited {
     transform:scale(1.1);
     border: 3px rgb(248,172,89) solid;
+    z-index:20 !important;
 }
 
 div#position-slot-mirror {
     position:absolute;
-    z-index:-1;
+    z-index:10;
     margin:0px;
 }
 
@@ -409,14 +449,23 @@ div#position-field > div.position-slot.designated {
 
 /* //jae-seo css part */
 
+
 #position-field {
+    
+}
+
+.field_image {
     
     background-image: url(asset-path('field.jpg'));
     
     background-size: contain;
     background-repeat : no-repeat; 
     background-position: center; 
-    
+    position: absolute;
+    height:100% !important;
+    width:100% !important;
+    right: 0px;
+    z-index: 0;
 }
 
 .background_dark {
@@ -442,7 +491,7 @@ div#position-field > div.position-slot.designated {
     
     line-height: 40px !important;
     width: 150px;
-    font-size: 20px !important;
+    font-size: 18px !important;
     margin: 10px;
     
 }
@@ -451,8 +500,9 @@ div#position-field > div.position-slot.designated {
     
     line-height: 100px !important;
     width: 60px;
-    font-size: 20px !important;
+    font-size: 18px !important;
     margin: 10px auto;
+    vertical-align: middle;
 
 }
 
@@ -466,7 +516,6 @@ div#position-field > div.position-slot.designated {
 }
 
 
-
 .badge {
     
     display: inline-block;
@@ -478,7 +527,9 @@ div#position-field > div.position-slot.designated {
     display: inline-block;
     vertical-align: middle;
     margin-bottom: 0px;
-    
+    font-weight: bold !important;
+    font-size: 20px !important;
+
 }
 
 .pitch_height {
@@ -489,23 +540,86 @@ div#position-field > div.position-slot.designated {
 
 .fixed_height_50 {
     
-    height: 50px !important;
+    height: 60px !important;
     
 }
 
 .fixed_height_40 {
     
-    height: 35px !important;
+    height: 45px !important;
     
 }
 
 .slot_font {
     
-    font-size: 12px !important;
+    font-size: 20px !important;
     vertical-align: middle;
-    padding-top: 8px !important;
-    
+    padding-top: 15px !important;
+    font-weight: bold !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
+
+.top_padding {
+    
+    padding-top: 10px;
+}
+
+
+.background_white {
+    
+    background-color: white !important;
+}
+
+.black-border {
+    
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}
+
+
+.bottom_fixed_height {
+    
+    height: 150px;
+}
+
+.bottom_width_fix {
+    
+    width: 750px !important;
+}
+
+.bottom_width_fix_2 {
+    
+    width: 250px !important;
+}
+
+.team_fixed_height_1 {
+    
+    padding-top: 40px;
+}
+
+.team_fixed_height_2 {
+    
+    padding-top: 30px;
+}
+
+.team_font p {
+    
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.team_font span{
+    
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+
+
+
+
 
 
 //드래프트 전 라인업 view css
@@ -799,7 +913,6 @@ div.trade-slot-team > img{
 #draft-position-map {
     position:relative;
     min-height:30vh;
-    background-color:#000;
 }
 
 .autopick-player-container {
@@ -825,10 +938,109 @@ div.trade-slot-team > img{
 .autopick-player-pos {
     width:10%;
     font-weight:bolder;
-}    
+}
+
+#draft-position-map .firstbase {
+    position:absolute;
+    top:70%;
+    right:8%;
+}
+
+#draft-position-map .secondbase {
+    position:absolute;
+    top:55%;
+    left:50%;
+}
+
+#draft-position-map .thirdbase {
+    position:absolute;
+    top:70%;
+    left:8%;
+}
+
+#draft-position-map .shortstop {
+    position:absolute;
+    top:55%;
+    left:20%;
+}
+
+#draft-position-map .designated {
+    position:absolute;
+    bottom:2%;
+    right:7%;
+}
+
+#draft-position-map .catcher {
+    position:absolute;
+    bottom:2%;
+    left:35%;
+}
+
+#draft-position-map .leftfielder {
+    position:absolute;
+    top:30%;
+    left:7%;
+}
+
+#draft-position-map .centerfielder {
+    position:absolute;
+    top:23%;
+    left:35%;
+}
+
+#draft-position-map .rightfielder {
+    position:absolute;
+    top:30%;
+    right:7%;
+}
+
+
 .darkgray-bg{
     background-color : #7a7a7b;
 }
 #editable > tbody > tr > td{
     vertical-align : middle;
+}
+
+.drafted-player-container {
+    width:100px;
+    font-size:7px;
+    
+    background-color:rgb(47,64,80);
+    border-radius:2px;
+    padding:2px;
+    
+    -webkit-text-size-adjust:none;
+}
+
+.drafted-player-container:after {
+    content:"";
+    clear:both;
+    display:block;
+}
+
+.drafted-player-container > div {
+    float:left;
+    margin:2px;
+    font-weight:bold;
+    padding:1px;
+}
+
+.drafted-player-container div.name {
+    background-color:rgb(44,56,67);
+    color:white;
+}
+
+.drafted-player-container div.team {
+    background-color:rgb(0,0,0);
+    color:white;
+}
+
+.drafted-player-container div.pos {
+    background-color:rgb(44,56,67);
+    color:white;
+}
+
+* {
+    -webkit-text-size-adjust: none;
 }

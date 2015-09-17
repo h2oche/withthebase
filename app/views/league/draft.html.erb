@@ -6,8 +6,16 @@
             <h4>제한시간</h4>
         </div>
         
-        <div class="col-md-2">
+        <div class="col-md-1">
             <span>{{leftTime}}</span>
+        </div>
+        
+        <div class="col-md-1">
+            <h4>라운드</h4>
+        </div>
+        
+        <div class="col-md-1">
+            <span>{{round}}</span>
         </div>
         
         <div class="col-md-1">
@@ -15,11 +23,10 @@
             <h4>픽 순서</h4>
         </div>
         
-        <div class="col-md-8 pick-order">
+        <div class="col-md-7 pick-order">
             <button type="button" class="btn" style="float:left; margin:5px;"
                     ng-repeat="team in teams"
                     ng-class="getPickButtonClass($index)">{{team.name}}</button>
-            <button type="button" class="btn btn-danger" ng-click="getNextPick()">Next Pick</button>
         </div>
     </div>
     
@@ -69,7 +76,7 @@
                             <th style="width:30%;">선수</th>
                             <th style="width:10%;"></th>
                             <th style="width:10%;">WAR</th>
-                            <th style="width:20%;">소유 감독</th>
+                            <th style="width:20%;">소속 팀</th>
                             <th style="width:10%;">오토픽</th>
                             <th style="width:10%;">픽</th>
                         </thead>
@@ -79,13 +86,13 @@
                                 <td>{{player.name}} ({{player.team}})</td>
                                 <td> - </td>
                                 <td>{{player.war}}</td>
-                                <td> - </td>
+                                <td>{{getTeamnameOfPlayer(player.id)}}</td>
                                 <td>
                                     <a class="btn btn-warning" ng-click="addAutopickPlayers(player)" ng-class="getAutopickClass(player.id)">
                                         추가
                                     </a>
                                 </td>
-                                <td><a class="btn btn-info">픽</a></td>
+                                <td><a class="btn btn-info" ng-click="clickPickButton(player)" ng-class="getPickClass(player.id)">픽</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -116,17 +123,23 @@
             <h3>드래프트 기록</h3>
             <table class="table">
                 <thead>
-                    <th>라운드</th>
-                    <th ng-repeat="team in teams">{{team.name}}</th>
+                    <tr>
+                        <th>라운드</th>
+                        <th ng-repeat="team in teams">{{team.name}}</th>    
+                    </tr>
                 </thead>
                 <tbody>
-                    
+                    <tr ng-repeat="draftResultRow in draftResults">
+                        <td>{{$index+1}} R</td>
+                        <td ng-repeat="draftResult in draftResultRow">{{getPlayerName(draftResult.playerId)}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
         
         <div class="col-md-5">
             <div class="col-md-12">
+<<<<<<< HEAD
                 <div class = "black-box">
                     <h3>오토픽</h3>
                 </div>
@@ -144,10 +157,25 @@
                             <a class="btn btn-danger">X</a>
                             <a class="btn btn-primary">픽</a>
                         </div>
+=======
+                <h3>오토픽</h3>
+                <button class="btn btn-danger" style="margin:7px;" ng-hide="!isAutopickOn" ng-click="isAutopickOn=false">오토픽 끄기</button>
+                <button class="btn btn-success" style="margin:7px;" ng-hide="isAutopickOn" ng-click="isAutopickOn=true">오토픽 켜기</button>
+                <div id="autopick-container" style="clear:both;">
+                    <div ng-repeat="player in autopickPlayers" class="autopick-player-container">
+                        <span class="autopick-player-pos">{{player.pos}}</span>
+                        <span class="autopick-player-name">{{player.name}}</span>
+                        <span class="autopick-player-team">( {{player.team}} )</span>
+                        <a class="btn btn-sm btn-default">위</a>
+                        <a class="btn btn-sm btn-default">아래</a>
+                        <a class="btn btn-danger" ng-click="removeAutopickPlayer(player.id)">X</a>
+                        <a class="btn btn-primary" ng-click="clickPickButton(player)" ng-class="getPickClass(player.id)">픽</a>
+>>>>>>> a8ba333367a4530e5dd47d7df1b73bee1156d21d
                     </div>
                 </div>
             </div>
             <div class="col-md-12">
+<<<<<<< HEAD
                 <div class = "black-box">
                     <h3>포지션 보기</h3>
                 </div>
@@ -173,6 +201,43 @@
                                 <div class="col-md-5">
                                     
                                 </div>
+=======
+                <h3>포지션 보기</h3>
+                <div class="col-md-12">
+                    <div class="col-md-9" id="draft-position-map">
+                        <div class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:batterFilter | filter:startingFilter" ng-class="getPlayerPosClass(player.pos)">
+                            <div class="pos">{{player.pos}}</div>
+                            <div class="name">{{player.name}}</div>
+                            <div class="team">{{player.team}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:pitcherFilter | filter:startingFilter">
+                            <div class="pos">{{player.pos}}</div>
+                            <div class="name">{{player.name}}</div>
+                            <div class="team">{{player.team}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-1">
+                            타자
+                        </div>
+                        <div class="col-md-4">
+                            <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:batterFilter | filter:benchFilter">
+                                <div class="pos">{{player.pos}}</div>
+                                <div class="name">{{player.name}}</div>
+                                <div class="team">{{player.team}}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            투수
+                        </div>
+                        <div class="col-md-4">
+                            <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:pitcherFilter | filter:benchFilter">
+                                <div class="pos">{{player.pos}}</div>
+                                <div class="name">{{player.name}}</div>
+                                <div class="team">{{player.team}}</div>
+>>>>>>> a8ba333367a4530e5dd47d7df1b73bee1156d21d
                             </div>
                         </div>
                     </div>
@@ -186,7 +251,7 @@
     
     Array.prototype.indexOfId = function(id) {
         for (var i = 0; i < this.length; i++)
-            if (this[i].id === id)
+            if (this[i] && this[i].id === id)
                 return i;
         return -1;
     };
@@ -214,6 +279,20 @@
             $scope.getNextPick = function() {
                 if( $scope.currentPickOrder == $scope.nextPickOrder) {
                     $scope.round += 1;
+                    
+                    if($scope.round == 20) {
+                        console.log('draft ended!')
+                        $scope.draftDone = true;
+                        $scope.leftTime = 100000000;
+                        return;
+                    }
+                    
+                    var tempArray = [];
+                    var loopCount = $scope.teams.length;
+                    for(var i = 0 ; i < loopCount ; i += 1) {
+                        tempArray.push({});
+                    }
+                    $scope.draftResults.push(tempArray);
                 }
                 $scope.currentPickOrder = $scope.nextPickOrder;
                 
@@ -242,16 +321,124 @@
             }
             
             var requestPick = function(_playerObj) {
-                var userId = $scope.teams[$scope.currentPickOrder].user_id;
-                
-                //현재 pick order인 사람이 request
-                console.log(userId + ' pick!');
+                var pickOrder = $scope.currentPickOrder;
+                var userId = $scope.teams[pickOrder].user_id;
+                var teamId = $scope.teams[pickOrder].id;
                 
                 if( _playerObj == null ) {
                     //random pick
+                    $http({
+                        method: 'POST',
+                        url:'/proc/draftRandomPick',
+                        data: {
+                            team_id:teamId,
+                            room_id:<%=params[:id]%>,
+                            round:$scope.round
+                        }
+                    })
+                    .success(function(_data, _status, _headers, _config){
+                        if(_data == 'draft done!'){
+                            $scope.draftDone = true;
+                            return;
+                        }
+                        var index = $scope.teams.indexOfId(_data.team_id);
+                        $scope.draftResults[_data.round-1][index] = {teamId: _data.team_id, playerId: _data.player_id};
+                        
+                        var draftedPlayer = $scope.players[$scope.players.indexOfId(_data.player_id)];
+                        draftedPlayer.ownedTeam = $scope.teams[pickOrder];
+                        draftedPlayer.starting = true;
+                        
+                        $scope.draftedPlayers.push(draftedPlayer);
+                        
+                        var startingPitcherCount = 0;
+                        var reliefPitcherCount = 0;
+                        
+                        if($scope.teams[index].user_id == currentUserId) {
+                            $scope.myDraftedPlayer.forEach(function(_player){
+                                if(_player.pos == draftedPlayer.pos) {
+                                    draftedPlayer.starting = false;
+                                    
+                                    if(_player.pos == "선발") {
+                                        startingPitcherCount += 1;
+                                        
+                                        if(startingPitcherCount < 3) {
+                                            draftedPlayer.starting = true;
+                                        }
+                                    }
+                                    else if(_player.pos == "구원") {
+                                        reliefPitcherCount += 1;
+                                        
+                                        if(reliefPitcherCount < 3) {
+                                            draftedPlayer.starting = true;
+                                        }
+                                    }
+                                }
+                            });
+                            
+                            $scope.myDraftedPlayer.push(draftedPlayer);
+                        }
+                        canRequest = true;
+                    })
+                    .error(function(_data, _status, _headers, _config){
+                        console.log('error!');
+                    });
                 }
                 else {
-                    
+                    //pick selected player
+                    $http({
+                        method:'POST',
+                        url:'/proc/draftPick',
+                        data:{
+                            team_id:teamId,
+                            room_id:<%=params[:id]%>,
+                            round:$scope.round,
+                            player_id:_playerObj.id
+                        }
+                    })
+                    .success(function(_data,_status,_headers,_config){
+                        
+                        var index = $scope.teams.indexOfId(_data.team_id);
+                        $scope.draftResults[_data.round-1][index] = {teamId: _data.team_id, playerId: _data.player_id};
+                        
+                        var draftedPlayer = $scope.players[$scope.players.indexOfId(_data.player_id)];
+                        draftedPlayer.ownedTeam = $scope.teams[pickOrder];
+                        draftedPlayer.starting = true;
+                        
+                        $scope.draftedPlayers.push(draftedPlayer);
+                        
+                        var startingPitcherCount = 0;
+                        var reliefPitcherCount = 0;
+                        
+                        if($scope.teams[index].user_id == currentUserId) {
+                            $scope.myDraftedPlayer.forEach(function(_player){
+                                if(_player.pos == draftedPlayer.pos) {
+                                    draftedPlayer.starting = false;
+                                    
+                                    if(_player.pos == "선발") {
+                                        startingPitcherCount += 1;
+                                        
+                                        if(startingPitcherCount < 3) {
+                                            draftedPlayer.starting = true;
+                                        }
+                                    }
+                                    else if(_player.pos == "구원") {
+                                        reliefPitcherCount += 1;
+                                        
+                                        if(reliefPitcherCount < 3) {
+                                            draftedPlayer.starting = true;
+                                        }
+                                    }
+                                }
+                            });
+                            
+                            $scope.myDraftedPlayer.push(draftedPlayer);
+                            
+                        }
+                        canRequest = true;
+                    })
+                    .error(function(_data,_status,_headers,_config){
+                        
+                    })
                 }
             }
             
@@ -260,36 +447,119 @@
                 
                 $scope.leftTime -= 1;
                 if( $scope.leftTime == 0) {
+                    //드래프트가 끝났는지 검사
+                    if($scope.draftDone) return;
+                    
                     //오토픽이 켜져있는지
                     if( $scope.teams[$scope.currentPickOrder].user_id == currentUserId && $scope.isAutopickOn ) {
                         //켜져있으면 autopick list에 있는 선수들 뽑아옴
-                        //playerObj = $scope.autopickPlayers.pop()
+                        playerObj = $scope.autopickPlayers.shift()
                     }
                     
-                    requestPick(playerObj);
-                    $scope.getNextPick();
-                    $scope.leftTime = 10;
+                    if( canRequest) {
+                        canRequest = false;
+                        requestPick(playerObj);
+                        $scope.getNextPick();
+                    }
+                    $scope.leftTime = resetTime;
                 }
                 //내 차례가 아니면 1초마다 픽했는지 request
             }
             
-            var checkPick = function() {
-                //$http를 사용해서 pick이 바뀌었는지 검사
-                //pick이 바뀌었다면 전체 draft result 테이블에 추가
-                console.log('check if draft results changed');
+            $scope.clickPickButton = function(_playerObj){
+                if( $scope.teams[$scope.currentPickOrder].user_id == currentUserId ) {
+                    requestPick(_playerObj);
+                    $scope.getNextPick();
+                    $scope.leftTime = resetTime;
+                }
             }
             
+            var canRequest = true;
+            
             var cancelTick = $interval(tick, 1000);
-            var cancelCheckPick = $interval(checkPick, 1000);
+            var resetTime = 3;
+            
+            $scope.draftDone = false;
+            $scope.myDraftedPlayer = [];
+            $scope.draftedPlayers = [];
+            $scope.draftResults = [[]];
+            
+            var batterPositions = ["1루","2루","3루","좌익","중견","지명","우익","유격","포수"];
+            var pitcherPositions = ["선발","구원"];
+            
+            $scope.batterFilter = function(_player){
+                return batterPositions.indexOf(_player.pos) > -1;
+            }
+            $scope.pitcherFilter = function(_player){
+                return pitcherPositions.indexOf(_player.pos) > -1;
+            }
+            $scope.startingFilter = function(_player){
+                return _player.starting;
+            }
+            $scope.benchFilter = function(_player){
+                return !_player.starting;
+            }
+                                    
+            $scope.getTeamnameOfPlayer = function(_playerId) {
+                var teamname = "-";
+                var index = $scope.draftedPlayers.indexOfId(_playerId);
+                return ( index > -1 ) ? $scope.draftedPlayers[index].ownedTeam.name : " - ";
+            }
+            
+            $scope.getPlayerName = function(_playerId){
+                var index = $scope.players.indexOfId(_playerId);
+                return index > -1 ? $scope.players[index].name : " - ";
+            }
             
             $scope.isAutopickOn = false;
             $scope.autopickPlayers = [];
             $scope.addAutopickPlayers = function(_player) {
-                console.log('autopick test', _player);
                 $scope.autopickPlayers.push(_player);
             }
+            $scope.removeAutopickPlayer = function(_playerId) {
+                var index = $scope.autopickPlayers.indexOfId(_playerId)
+                if(~index) $scope.autopickPlayers.splice(index,1);
+            }
             $scope.getAutopickClass = function(_playerId) {
-                return $scope.autopickPlayers.indexOfId(_playerId) > -1 ? "disabled" : "";
+                return $scope.autopickPlayers.indexOfId(_playerId) > -1 ? "disabled" : $scope.getPickClass(_playerId);
+            }
+            $scope.getPickClass = function(_playerId) {
+                return $scope.draftedPlayers.indexOfId(_playerId) > -1 ? "disabled" : "";
+            }
+            $scope.getPlayerPosClass = function(_playerPos){
+                var ret = "";
+                
+                switch(_playerPos){
+                    case "1루":
+                        ret = "firstbase";
+                        break;
+                    case "2루":
+                        ret = "secondbase";
+                        break;
+                    case "3루":
+                        ret = "thirdbase";
+                        break;
+                    case "유격":
+                        ret = "shortstop";
+                        break;
+                    case "지명":
+                        ret = "designated";
+                        break;
+                    case "우익":
+                        ret = "rightfielder";
+                        break;
+                    case "좌익":
+                        ret = "leftfielder";
+                        break;
+                    case "중견":
+                        ret = "centerfielder"
+                        break;
+                    case "포수":
+                        ret = "catcher";
+                        break;
+                }
+                
+                return ret;
             }
             
             $scope.players = null;
@@ -342,6 +612,11 @@
                     }
                     else {
                         indexFilter = false;
+                    }
+                    
+                    //if name is on
+                    if( $scope.playerFilter.playerName != null && $scope.playerFilter.playerName != '' ) {
+                        indexFilter = true;
                     }
                     
                     return indexFilter
