@@ -319,9 +319,9 @@ div.position-slot-position {
     
     border-radius: 10px;
     height: 45px !important;
-    font-size: 18px !important;
+    font-size: 15px !important;
     vertical-align: middle;
-    padding-top: 10px !important;
+    padding-top: 12px !important;
     font-weight: bold !important;
     padding-left: 0px !important;
     padding-right: 0px !important;    
@@ -442,12 +442,24 @@ div#position-field > div.position-slot.designated {
 }
 
 #lineup-container .btn-default {
+    
     background-color:#000;
+    
+}
+
+#lineup-container .btn-danger {
+    
+    border-color: white !important;
+}
+
+#lineup-container .btn {
+
+    font-weight: bold;
 
 }
 
 
-/* //jae-seo css part */
+/* //jae-seo css part draft-page */
 
 
 #position-field {
@@ -512,6 +524,7 @@ div#position-field > div.position-slot.designated {
 }
 
 .content_centered {
+    
     text-align: center;    
 }
 
@@ -529,6 +542,7 @@ div#position-field > div.position-slot.designated {
     margin-bottom: 0px;
     font-weight: bold !important;
     font-size: 20px !important;
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 
@@ -596,7 +610,8 @@ div#position-field > div.position-slot.designated {
 
 .team_fixed_height_1 {
     
-    padding-top: 40px;
+    padding-top: 30px;
+    padding-left: 25px !important;
 }
 
 .team_fixed_height_2 {
@@ -608,6 +623,7 @@ div#position-field > div.position-slot.designated {
     
     font-size: 15px;
     margin-bottom: 0px;
+    text-align: center;
 }
 
 .team_font span{
@@ -660,11 +676,7 @@ div#position-field > div.position-slot.designated {
 
 // 드래프트 페이지 css
 
-.white-bg .draft-icon {
-    
-    font-size: 60px;
-    
-}
+
 
 .bottom-zero {
     
@@ -678,9 +690,6 @@ div#position-field > div.position-slot.designated {
     
 }
 
-.flip-clock-divider .flip-clock-label {
-  color: white !important;
-}
 
 .draft-top-line{
     border-bottom : solid 1px gray;
@@ -706,6 +715,7 @@ div#position-field > div.position-slot.designated {
 }
 .player-list{
     clear : both;
+    margin-bottom: 20px;
 }
 .black-box{
     width : 25%;
@@ -902,6 +912,12 @@ div.trade-slot-team > img{
     min-width : 30px;
 }
 
+
+
+
+
+// draft css
+
 #autopick-container {
     height:20vh;
     overflow-y:auto;
@@ -1043,4 +1059,87 @@ div.trade-slot-team > img{
 
 * {
     -webkit-text-size-adjust: none;
+}
+
+
+// draft css jae-seo part
+
+.draft-top-line i {
+    
+    text-align: center !important;
+    font-size: 60px !important;
+    
+}
+
+.draft-top-line {
+    
+    text-align: center !important;
+    
+}
+
+
+.pick-order .btn-group {
+    
+    margin-top: 10px;
+    float: left;
+}
+
+.pick-order .btn-group .btn {
+    
+    border-radius: 0px !important;
+    border: solid 3px black;
+    margin-left: -3px !important;
+}
+
+
+.left_time_container {
+    
+    margin-top: 15px;
+}
+
+.left_time {
+
+    border: solid 3px black !important;
+    height: 45px;
+    width: 120px;
+}
+
+.border-box_view_position {
+    
+    padding : 10px 5px;
+    border : solid 1px;
+    height: 400px;
+    
+}
+
+.auto_pick_container {
+    
+    margin-bottom: 20px;
+}
+
+.player-list td {
+    
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.draft_player_list {
+    
+    padding-left: 90px !important;
+    text-align: left;
+    
+}
+
+.border_box_player_list {
+    
+    padding-bottom: 0px;
+}
+
+.field_image_mini {
+    
+    background-image: url(asset-path('field.jpg'));
+    
+    background-size: contain;
+    background-repeat : no-repeat; 
+    background-position: center;
 }

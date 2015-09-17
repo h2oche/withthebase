@@ -2,12 +2,12 @@
 <div class="wrapper border-bottom gray-bg page-heading bottom-zero" ng-controller="AppController">
     <div class="row draft-top-line">
         <div class="col-md-1">
-            <%=image_tag("period.png")%>
+            <i class="fa fa-clock-o"></i>
             <h4>제한시간</h4>
         </div>
         
-        <div class="col-md-1">
-            <span>{{leftTime}}</span>
+        <div class="col-md-1 left_time_container">
+            <button type="button" class="btn-white left_time">{{leftTime}}</button>
         </div>
         
         <div class="col-md-1">
@@ -19,21 +19,23 @@
         </div>
         
         <div class="col-md-1">
-            <%=image_tag("draftpick2.png")%>
-            <h4>픽 순서</h4>
+            <i class="fa fa-refresh"></i>
+            <h4>드래프트 순서</h4>
         </div>
         
         <div class="col-md-7 pick-order">
-            <button type="button" class="btn" style="float:left; margin:5px;"
+            <div class="btn-group">
+            <button type="button" class="btn"
                     ng-repeat="team in teams"
                     ng-class="getPickButtonClass($index)">{{team.name}}</button>
+                    
+            </div>
         </div>
     </div>
     
     <div class="row draft-middle-line" style="margin-bottom:100px;">
         <div class="col-md-7">
-            <div class = "row sorting-container" style = "margin-left : 0px;
-    margin-right : 0px;">
+            <div class = "row sorting-container" style = "margin-left : 0px; margin-right : 0px;">
                 <div class = "black-box">
                     <h3>정렬 기준</h3>
                 </div>
@@ -69,7 +71,7 @@
                 <div class = "black-box">
                     <h3>선수 리스트</h3>
                 </div>
-                <div class = "border-box">
+                <div class = "border-box border_box_player_list">
                     <table class="table table-condensed">
                         <thead style="background-color:rgb(109,123,139); color:rgb(255,255,255); font-weight:3.0em;">
                             <th style="width:10%;">포지션</th>
@@ -83,7 +85,7 @@
                         <tbody>
                             <tr ng-repeat="player in players | filter: playerFilter.filter | filter: playerFilter.indexFilter:$index | filter: playerFilter.nameFilter">
                                 <td>{{player.pos}}</td>
-                                <td>{{player.name}} ({{player.team}})</td>
+                                <td class="draft_player_list">{{player.name}} ({{player.team}})</td>
                                 <td> - </td>
                                 <td>{{player.war}}</td>
                                 <td>{{getTeamnameOfPlayer(player.id)}}</td>
@@ -120,80 +122,92 @@
                     </div>
                 </div>
             </div>
-            <h3>드래프트 기록</h3>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>라운드</th>
-                        <th ng-repeat="team in teams">{{team.name}}</th>    
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="draftResultRow in draftResults">
-                        <td>{{$index+1}} R</td>
-                        <td ng-repeat="draftResult in draftResultRow">{{getPlayerName(draftResult.playerId)}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+                <div class = "black-box">
+                    <h3>드래프트 기록</h3>
+                </div>
+                <div class="border-box">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>라운드</th>
+                                <th ng-repeat="team in teams">{{team.name}}</th>    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="draftResultRow in draftResults">
+                                <td>{{$index+1}} R</td>
+                                <td ng-repeat="draftResult in draftResultRow">{{getPlayerName(draftResult.playerId)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         
         <div class="col-md-5">
-            <div class="col-md-12">
-
-                <h3>오토픽</h3>
+            <div class="col-md-12 auto_pick_container">
+                <div class = "black-box">
+                    <h3>오토픽</h3>
+                </div>
                 <button class="btn btn-danger" style="margin:7px;" ng-hide="!isAutopickOn" ng-click="isAutopickOn=false">오토픽 끄기</button>
                 <button class="btn btn-success" style="margin:7px;" ng-hide="isAutopickOn" ng-click="isAutopickOn=true">오토픽 켜기</button>
-                <div id="autopick-container" style="clear:both;">
-                    <div ng-repeat="player in autopickPlayers" class="autopick-player-container">
-                        <span class="autopick-player-pos">{{player.pos}}</span>
-                        <span class="autopick-player-name">{{player.name}}</span>
-                        <span class="autopick-player-team">( {{player.team}} )</span>
-                        <a class="btn btn-sm btn-default">위</a>
-                        <a class="btn btn-sm btn-default">아래</a>
-                        <a class="btn btn-danger" ng-click="removeAutopickPlayer(player.id)">X</a>
-                        <a class="btn btn-primary" ng-click="clickPickButton(player)" ng-class="getPickClass(player.id)">픽</a>
-
+                <div class="border-box">
+                    <div id="autopick-container border-box" style="clear:both;">
+                        <div ng-repeat="player in autopickPlayers" class="autopick-player-container">
+                            <span class="autopick-player-pos">{{player.pos}}</span>
+                            <span class="autopick-player-name">{{player.name}}</span>
+                            <span class="autopick-player-team">( {{player.team}} )</span>
+                            <a class="btn btn-sm btn-default">위</a>
+                            <a class="btn btn-sm btn-default">아래</a>
+                            <a class="btn btn-danger" ng-click="removeAutopickPlayer(player.id)">X</a>
+                            <a class="btn btn-primary" ng-click="clickPickButton(player)" ng-class="getPickClass(player.id)">픽</a>
+    
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-12">
-
-                <h3>포지션 보기</h3>
-                <div class="col-md-12">
-                    <div class="col-md-9" id="draft-position-map">
-                        <div class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:batterFilter | filter:startingFilter" ng-class="getPlayerPosClass(player.pos)">
-                            <div class="pos">{{player.pos}}</div>
-                            <div class="name">{{player.name}}</div>
-                            <div class="team">{{player.team}}</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:pitcherFilter | filter:startingFilter">
-                            <div class="pos">{{player.pos}}</div>
-                            <div class="name">{{player.name}}</div>
-                            <div class="team">{{player.team}}</div>
-                        </div>
-                    </div>
+                <div class = "black-box">
+                    <h3>포지션 보기</h3>
+                </div>
+                <div class="border-box_view_position">
                     <div class="col-md-12">
-                        <div class="col-md-1">
-                            타자
-                        </div>
-                        <div class="col-md-4">
-                            <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:batterFilter | filter:benchFilter">
+                        <div class="col-md-9 field_image_mini" id="draft-position-map">
+                            <div class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:batterFilter | filter:startingFilter" ng-class="getPlayerPosClass(player.pos)">
                                 <div class="pos">{{player.pos}}</div>
                                 <div class="name">{{player.name}}</div>
                                 <div class="team">{{player.team}}</div>
                             </div>
                         </div>
-                        <div class="col-md-1">
-                            투수
-                        </div>
-                        <div class="col-md-4">
-                            <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:pitcherFilter | filter:benchFilter">
+                        <div class="col-md-3">
+                            <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:pitcherFilter | filter:startingFilter">
                                 <div class="pos">{{player.pos}}</div>
                                 <div class="name">{{player.name}}</div>
                                 <div class="team">{{player.team}}</div>
-
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1">
+                                타자
+                            </div>
+                            <div class="col-md-4">
+                                <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:batterFilter | filter:benchFilter">
+                                    <div class="pos">{{player.pos}}</div>
+                                    <div class="name">{{player.name}}</div>
+                                    <div class="team">{{player.team}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                투수
+                            </div>
+                            <div class="col-md-4">
+                                <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:pitcherFilter | filter:benchFilter">
+                                    <div class="pos">{{player.pos}}</div>
+                                    <div class="name">{{player.name}}</div>
+                                    <div class="team">{{player.team}}</div>
+    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -202,6 +216,9 @@
         </div>
     </div>
 </div>
+
+
+
 <script>
     var currentUserId = <%=current_user.id%> * 1;
     
@@ -520,7 +537,7 @@
             
             $scope.players = null;
             $scope.teams = null;
-            $scope.leftTime = 10;
+            $scope.leftTime = 100000000;
             
             $scope.positions = ["선발","구원","1루","2루","유격","3루","우익","좌익","중견","포수"]
             $scope.realTeams = ["삼성","롯데","NC","SK","두산","넥센","LG","kt","한화","KIA"]
@@ -643,7 +660,6 @@
     angular.module('draft.directives',[])
 </script>
 
-<button type="button" class="pick" style="margin: 25px; font-size: 20px; padding: 15px;">선수 픽</button>
 
 
 <!--타자용 모달-->
