@@ -1,15 +1,20 @@
 class LeagueController < ApplicationController
   def dashboard
-    redirect_to '/users/sign_in' unless user_signed_in?
+    redirect_to '/users/sign_in' unless user_signed_in? 
     
     @teams_info = []
-    @teams_classname = ["red-bg", "yellow-bg", "blue-bg"]
+    @teams_classname = ["red-bg", "white-bg", "blue-bg"]
     
     User.find(current_user.id).teams.each do |t|
       room = Room.find(t.room_id)
       roomname = room.name
       roomid = room.id
-      @teams_info << {teamname: t.name, roomname: roomname, roomid: roomid}
+      @teams_info << {teamname: t.name, roomname: roomname, roomid: roomid,
+                      is_classic_mode: room.is_classic_mode,
+                      is_public_mode: room.is_public_mode,
+                      period: room.period,
+                      draft_time:room.draft_time
+      }
     end
     
     @rooms_info = []
@@ -23,11 +28,10 @@ class LeagueController < ApplicationController
 
   def info
     redirect_to '/users/sign_in' unless user_signed_in?
-    
+    #room_id와 my_team을 잘 찾아서 한다.
     room_id = params[:id]
-    
-    room = Room.find(room_id)
-    @testvar = room.teams
+    @room = Room.find(room_id)
+    @my_team = @room.teams.where(:user_id => current_user.id)
   end
 
   def lineup
@@ -35,28 +39,41 @@ class LeagueController < ApplicationController
     @yet_drafted = false
     
     room_id = params[:id]
-    room = Room.find(room_id)
+    @room = Room.find(room_id)
+    @my_team = @room.teams.where(:user_id => current_user.id)
+    
     
   end
 
   def trade
     redirect_to '/users/sign_in' unless user_signed_in?
+    room_id = params[:id]
+    @room = Room.find(room_id)
+    @my_team = @room.teams.where(:user_id => current_user.id)
   end
 
   def draft
     redirect_to '/users/sign_in' unless user_signed_in?
     
     room_id = params[:id]
+    @room = Room.find(room_id)
+    @my_team = @room.teams.where(:user_id => current_user.id)
     draft_id = Room.find(room_id).draft.id
     DraftResult.where(draft_id: draft_id).destroy_all
   end
   
   def autopick
     redirect_to '/users/sign_in' unless user_signed_in?
+    room_id = params[:id]
+    @room = Room.find(room_id)
+    @my_team = @room.teams.where(:user_id => current_user.id)
   end
   
   def result
     redirect_to '/users/sign_in' unless user_signed_in?
+    room_id = params[:id]
+    @room = Room.find(room_id)
+    @my_team = @room.teams.where(:user_id => current_user.id)
   end
   
   def get_rooms _user_id
@@ -116,5 +133,11 @@ class LeagueController < ApplicationController
     join_room current_user.id, new_room.id, params[:league_admin_teamname]
     redirect_to '/league/dashboard'
   end
+  def interleague
+     room_id = params[:id]
+    @room = Room.find(room_id)
+    @my_team = @room.teams.where(:user_id => current_user.id)
+  end
+  
   
 end

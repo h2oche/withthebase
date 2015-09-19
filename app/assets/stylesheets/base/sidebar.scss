@@ -7,8 +7,9 @@
 }
 
 .sidebard-panel .feed-element img.img-circle {
-  width: 32px;
-  height: 32px;
+  max-width: 32px;
+  max-height: 32px;
+  
 }
 
 .sidebard-panel .feed-element, .media-body, .sidebard-panel p {

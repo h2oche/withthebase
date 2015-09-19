@@ -16,7 +16,7 @@ Myapp::Application.routes.draw do
   get 'league/:id/draft', to: 'league#draft'
   get 'league/:id/autopick', to: 'league#autopick'
   get 'league/:id/result', to: 'league#result'
-  
+  get 'league/:id/interleague', to: 'league#interleague'
   post '/league/create', to: 'league#create_new_league'
   post '/league/join', to: 'league#join_league'
   
