@@ -105,13 +105,14 @@ ActiveRecord::Schema.define(version: 20150916123017) do
     t.integer  "homerun"
     t.integer  "steal"
     t.integer  "error"
+    t.date     "game_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
-    t.string   "admin_id"
+    t.integer  "admin_id"
     t.string   "emblem"
     t.boolean  "is_classic_mode"
     t.boolean  "is_public_mode"

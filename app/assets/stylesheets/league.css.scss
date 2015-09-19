@@ -327,9 +327,9 @@ div.position-slot-position {
     
     border-radius: 10px;
     height: 45px !important;
-    font-size: 18px !important;
+    font-size: 15px !important;
     vertical-align: middle;
-    padding-top: 10px !important;
+    padding-top: 12px !important;
     font-weight: bold !important;
     padding-left: 0px !important;
     padding-right: 0px !important;    
@@ -450,12 +450,24 @@ div#position-field > div.position-slot.designated {
 }
 
 #lineup-container .btn-default {
+    
     background-color:#000;
+    
+}
+
+#lineup-container .btn-danger {
+    
+    border-color: white !important;
+}
+
+#lineup-container .btn {
+
+    font-weight: bold;
 
 }
 
 
-/* //jae-seo css part */
+/* //jae-seo css part draft-page */
 
 
 #position-field {
@@ -520,6 +532,7 @@ div#position-field > div.position-slot.designated {
 }
 
 .content_centered {
+    
     text-align: center;    
 }
 
@@ -537,6 +550,7 @@ div#position-field > div.position-slot.designated {
     margin-bottom: 0px;
     font-weight: bold !important;
     font-size: 20px !important;
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 
@@ -604,7 +618,8 @@ div#position-field > div.position-slot.designated {
 
 .team_fixed_height_1 {
     
-    padding-top: 40px;
+    padding-top: 30px;
+    padding-left: 25px !important;
 }
 
 .team_fixed_height_2 {
@@ -616,6 +631,7 @@ div#position-field > div.position-slot.designated {
     
     font-size: 15px;
     margin-bottom: 0px;
+    text-align: center;
 }
 
 .team_font span{
@@ -668,11 +684,7 @@ div#position-field > div.position-slot.designated {
 
 // 드래프트 페이지 css
 
-.white-bg .draft-icon {
-    
-    font-size: 60px;
-    
-}
+
 
 .bottom-zero {
     
@@ -686,9 +698,6 @@ div#position-field > div.position-slot.designated {
     
 }
 
-.flip-clock-divider .flip-clock-label {
-  color: white !important;
-}
 
 .draft-top-line{
     border-bottom : solid 1px gray;
@@ -714,6 +723,7 @@ div#position-field > div.position-slot.designated {
 }
 .player-list{
     clear : both;
+    margin-bottom: 20px;
 }
 .black-box{
     width : 25%;
@@ -910,6 +920,12 @@ div.trade-slot-team > img{
     min-width : 30px;
 }
 
+
+
+
+
+// draft css
+
 #autopick-container {
     height:20vh;
     overflow-y:auto;
@@ -951,37 +967,37 @@ div.trade-slot-team > img{
 #draft-position-map .firstbase {
     position:absolute;
     top:70%;
-    right:8%;
+    right:12%;
 }
 
 #draft-position-map .secondbase {
     position:absolute;
     top:55%;
-    left:50%;
+    left:52%;
 }
 
 #draft-position-map .thirdbase {
     position:absolute;
     top:70%;
-    left:8%;
+    left:12%;
 }
 
 #draft-position-map .shortstop {
     position:absolute;
     top:55%;
-    left:20%;
+    left:25%;
 }
 
 #draft-position-map .designated {
     position:absolute;
-    bottom:2%;
-    right:7%;
+    bottom:7%;
+    right:12%;
 }
 
 #draft-position-map .catcher {
     position:absolute;
-    bottom:2%;
-    left:35%;
+    bottom:7%;
+    left:40%;
 }
 
 #draft-position-map .leftfielder {
@@ -993,7 +1009,7 @@ div.trade-slot-team > img{
 #draft-position-map .centerfielder {
     position:absolute;
     top:23%;
-    left:35%;
+    left:40%;
 }
 
 #draft-position-map .rightfielder {
@@ -1017,6 +1033,8 @@ div.trade-slot-team > img{
     background-color:rgb(47,64,80);
     border-radius:2px;
     padding:2px;
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
     
     -webkit-text-size-adjust:none;
 }
@@ -1037,18 +1055,155 @@ div.trade-slot-team > img{
 .drafted-player-container div.name {
     background-color:rgb(44,56,67);
     color:white;
+    width: 39%;
+    text-align: center;
 }
 
 .drafted-player-container div.team {
     background-color:rgb(0,0,0);
     color:white;
+    width: 24%;
+    text-align: center;
 }
 
 .drafted-player-container div.pos {
     background-color:rgb(44,56,67);
     color:white;
+    width: 24%;
+    text-align: center;
 }
 
 * {
     -webkit-text-size-adjust: none;
+}
+
+
+// draft css jae-seo part
+
+.draft-top-line i {
+    
+    text-align: center !important;
+    font-size: 60px !important;
+    
+}
+
+.draft-top-line {
+    
+    text-align: center !important;
+    
+}
+
+
+.pick-order .btn-group {
+    
+    margin-top: 10px;
+    float: left;
+}
+
+.pick-order .btn-group .btn {
+    
+    border-radius: 0px !important;
+    border: solid 3px black;
+    margin-left: -3px !important;
+}
+
+
+.left_time_container {
+    
+    margin-top: 15px;
+}
+
+.left_time {
+
+    border: solid 3px black !important;
+    height: 45px;
+    width: 120px;
+}
+
+.border-box_view_position {
+    
+    padding : 10px 5px;
+    border : solid 1px;
+    height: 400px;
+    
+}
+
+.auto_pick_container {
+    
+    margin-bottom: 20px;
+}
+
+.player-list td {
+    
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.draft_player_list {
+    
+    padding-left: 90px !important;
+    text-align: left;
+    
+}
+
+.border_box_player_list {
+    
+    padding-bottom: 0px;
+}
+
+.field_image_mini {
+    
+    background-image: url(asset-path('field.jpg'));
+    
+    background-size: contain;
+    background-repeat : no-repeat; 
+    background-position: center;
+    height: 100%;
+    background-color: #E6E6E6;
+    border: solid 1px black;
+    height: 291px !important;
+}
+
+.pitchers_mini {
+    background-color: #2F4050;
+    height: 291px !important;
+    text-align: center;
+    
+}
+
+.badge_mini {
+    
+    border-radius: 0px !important;
+}
+
+.badge_pitch {
+    
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.badge_mini_bench {
+    
+    z-index: 5 !important;
+    margin-left: 5px;
+    margin-top: 25px;
+    border-radius: 0px !important;
+}
+
+.background_dark_mini {
+    
+    
+    height: 80px !important;
+    background-color: #2F4050;
+}
+
+.no_margin_mini_1 {
+    
+    padding: 0px !important;
+}
+
+
+.no_margin_mini_2 {
+    
+    padding: 0px 15px !important;
 }

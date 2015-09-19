@@ -46,6 +46,12 @@ class ProcController < ApplicationController
         render :json => new_draft_result
     end
     
+    def draft_end 
+        draft = Room.find(params[:room_id]).draft
+        draft.is_complete = true;
+        draft.save
+    end
+    
     def is_available_position _positions, _add_position
         count = _positions.count(_add_position)
         

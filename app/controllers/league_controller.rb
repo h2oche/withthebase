@@ -69,11 +69,274 @@ class LeagueController < ApplicationController
     @my_team = @room.teams.where(:user_id => current_user.id)
   end
   
+  
+  ## SCHEDULE PLANNER + RESULT MAKER by Jae-Seo ## START
+  
+  ## MAKE_NEW_SCHEDULE
+  def make_new_schedule room, date, t1, t2, result
+    new_game = Game.new
+    new_game.room_id = room
+    new_game.game_date = date
+    new_game.team1 = t1
+    new_game.team2 = t2
+    new_game.result = result
+    new_game.save
+  end
+  
+  ## MAKE_SCHEDULE_FOR_4_TEAMS
+  def make_new_schedule_for_4teams_3days league_id, date
+    league = Room.find(league_id)
+    teams = league.teams
+    t1 = teams.first.id
+    t2 = teams.second.id
+    t3 = teams.third.id
+    t4 = teams.fourth.id
+    make_new_schedule(league_id, date, t1, t2, 'TBD')
+    make_new_schedule(league_id, date, t3, t4, 'TBD')
+    make_new_schedule(league_id, date+1, t1, t3, 'TBD')
+    make_new_schedule(league_id, date+1, t2, t4, 'TBD')
+    make_new_schedule(league_id, date+2, t1, t4, 'TBD')
+    make_new_schedule(league_id, date+2, t2, t3, 'TBD')
+  end
+  
+  ## SAVE_1DAY_RESULT 
+  def generate_result player, pos, date, a1, a2, a3, a4, a5
+      if pos == 'pitch'
+          new_result = Pitch.new
+          new_result.player_id = player
+          new_result.win = a1
+          new_result.strikeout = a2 
+          new_result.savehold = a3
+          new_result.era = a4
+          new_result.record_date = date
+          new_result.save
+      elsif pos == 'bat'
+          new_result = Bat.new
+          new_result.player_id = player
+          new_result.bat_avg = a1
+          new_result.rbi = a2
+          new_result.homerun = a3
+          new_result.steal = a4
+          new_result.error = a5
+          new_result.record_date = date
+          new_result.save
+      end
+  end
+  
+  ## GENERATE_RAMDOM_DATA
+  def get_data_random player, date
+      pos = Player.find(player).pos
+      if (pos == '구원') or (pos == '선발')
+          win = rand(2)
+          strikeout = rand(9)
+          savehold = rand(2)
+          era = rand(2.50..8.00).round(2)
+          generate_result(player, 'pitch', date, win, strikeout, savehold, era, nil)
+      else
+          bat_avg = rand(0.100..0.350).round(3)
+          rbi = rand(3)
+          homerun = rand(2)
+          steal = rand(2)
+          error = rand(2)
+          generate_result(player, 'bat', date, bat_avg, rbi, homerun, steal, error)
+      end
+  end
+  
+  ## RANDOM_RESULT_ALL_PLAYERS
+  def generate_data_all_player_3days league, date
+    Room.find(league).teams.each do |team|
+      team.players.each do |player|
+        get_data_random(player.id, date)
+        get_data_random(player.id, date+1)
+        get_data_random(player.id, date+2)
+      end
+    end
+  end
+  
+  ## SAVE_TEAM_RESULTS
+  def add_result team_id, win, strikeout, savehold, era, bat_avg, rbi, homerun, steal, error, game_date
+    result = Result.new
+    result.team_id = team_id
+    result.win = win
+    result.strikeout = strikeout
+    result.savehold = savehold
+    result.era = era
+    result.bat_avg = bat_avg
+    result.rbi = rbi
+    result.homerun = homerun
+    result.steal = steal
+    result.error = error
+    result.game_date = game_date
+    result.save
+  end
+  
+  ## CALCULATE_TEAM_RESULTS_AND_SAVE
+  def play_game game_id
+        
+        game = Game.find(game_id)
+        team1 = Team.find(game.team1)
+        team2 = Team.find(game.team2)
+        game_date = game.game_date
+        
+        pitch_count_1 = 0
+        bat_count_1 = 0
+        win_1 = 0
+        strikeout_1 = 0
+        savehold_1 = 0
+        era_1 = 0
+        bat_avg_1 = 0
+        rbi_1 = 0
+        homerun_1 = 0
+        steal_1 = 0
+        error_1 = 0
+        
+        team1.players.each do |x|
+            
+            if (x.pos == '구원') or (x.pos == '선발')
+                
+                pitch_count_1 += 1
+                result = x.pitches.find_by_record_date(game_date)
+                
+                win_1 += result.win
+                strikeout_1 += result.strikeout
+                savehold_1 += result.savehold
+                era_1 += result.era
+                
+            else
+                
+                bat_count_1 += 1
+                result = x.bats.find_by_record_date(game_date)
+                
+                bat_avg_1 += result.bat_avg
+                rbi_1 += result.rbi
+                homerun_1 += result.homerun
+                steal_1 += result.steal
+                error_1 += result.error
+                
+            end
+        end
+            
+        pitch_count_2 = 0
+        bat_count_2 = 0
+        win_2 = 0
+        strikeout_2 = 0
+        savehold_2 = 0
+        era_2 = 0
+        bat_avg_2 = 0
+        rbi_2 = 0
+        homerun_2 = 0
+        steal_2 = 0
+        error_2 = 0
+            
+        team2.players.each do |y|
+            
+            if (y.pos == '구원') or (y.pos == '선발')
+                
+                pitch_count_2 += 1
+                result = y.pitches.find_by_record_date(game_date)
+                
+                win_2 += result.win
+                strikeout_2 += result.strikeout
+                savehold_2 += result.savehold
+                era_2 += result.era
+                
+            else
+                
+                bat_count_2 += 1
+                result = y.bats.find_by_record_date(game_date)
+                
+                bat_avg_2 += result.bat_avg
+                rbi_2 += result.rbi
+                homerun_2 += result.homerun
+                steal_2 += result.steal
+                error_2 += result.error
+                
+            end
+        end
+        
+        unless pitch_count_1 == 0
+            era_1 = era_1 / pitch_count_1
+        end
+        
+        unless pitch_count_2 == 0
+            era_2 = era_2 / pitch_count_2
+        end
+        
+        unless bat_count_1 == 0
+            bat_avg_1 = bat_avg_1 / bat_count_1
+        end
+        
+        unless bat_count_2 == 0
+            bat_avg_2 = bat_avg_2 / bat_count_2
+        end
+        
+        add_result(game.team1, win_1, strikeout_1, savehold_1, era_1, bat_avg_1, rbi_1, homerun_1, steal_1, error_1, game_date)
+        add_result(game.team2, win_2, strikeout_2, savehold_2, era_2, bat_avg_2, rbi_2, homerun_2, steal_2, error_2, game_date)
+        
+  end
+  
+  ## CALCULATE RESULTS
+  
+  def calculate_result game_id
+    
+    game = Game.find(game_id)
+    game_date = game.game_date
+    team1 = Team.find(game.team1)
+    result1 = team1.results.find_by_game_date(game_date)
+    team2 = Team.find(game.team2)
+    result2 = team2.results.find_by_game_date(game_date)
+    
+    t1_wins = 0
+    
+  end
+  
+  ## DRAFT RESULT INTO ROSTERS
+  
+  def put_draft_results_into_teams room_id
+    
+    room = Room.find(room_id)
+    room.draft.draft_results.each do |x|
+      new_roster = Roster.new
+      new_roster.team_id = x.team_id
+      new_roster.player_id = x.player_id
+      new_roster.save
+    end
+    
+  end
+  
+  
+  ## DRAFT RESULTS 적용 + SCHEDULE PLANNER + RESULT MAKER by Jse-Seo ## END
+  
+  
   def result
     redirect_to '/users/sign_in' unless user_signed_in?
+
     room_id = params[:id]
     @room = Room.find(room_id)
     @my_team = @room.teams.where(:user_id => current_user.id)
+
+    #redirect_to '/leagues/'+params[:id]+'/info' unless Room.find(params[:id]).draft.is_complete
+    
+    
+    
+    
+    ## 재서코드 ## START
+    room_id = Room.find(params[:id])
+    date = Date.today()
+    put_draft_results_into_teams(room_id)                       ## DRAFT RESULT 적용
+    make_new_schedule_for_4teams_3days(room_id, date)           ## SCHEDULE MAKER
+    generate_data_all_player_3days(room_id, date)               ## RESULT GENERATOR
+    ## 재서코드 ## END
+    
+    
+    #해당 리그에 있는 스케쥴 모두 로드
+    Room.find(params[:id]).games.each do |game|
+      #스케줄에 해당하는 매치 진행
+      
+    end
+    
+    #승패 결과 저장
+
   end
   
   def get_rooms _user_id
