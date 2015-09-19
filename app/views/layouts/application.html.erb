@@ -17,10 +17,14 @@
     <!-- Main javascript files -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    
+    <style>
+        #page-wrapper {
+            padding:0px;
+        }
+    </style>
 </head>
 
-<body class="fixed-nav <%= is_navbar_league('league','dashboard') %>" oncontextmenu="return false;">
+<body class="fixed-nav <%= is_navbar_league('league','dashboard') %>">
 
     <!-- Wrapper-->
     <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
