@@ -74,11 +74,28 @@ first_room.size_limit = 4
 first_room.draft_time_limit = 45
 first_room.save
 
+first_room_draft = Draft.new
+first_room_draft.time_limit = 30
+first_room_draft.is_complete = false
+first_room_draft.room_id = 1
+
 first_room_team_1 = Team.new
 first_room_team_1.user_id = 1
 first_room_team_1.room_id = 1
 first_room_team_1.name = "라이언투"
 first_room_team_1.save
+
+first_room_team_2 = Team.new
+first_room_team_2.user_id = 2
+first_room_team_2.room_id = 1
+first_room_team_2.name = "치느님"
+first_room_team_2.save
+
+first_room_team_3 = Team.new
+first_room_team_3.user_id = 3
+first_room_team_3.room_id = 1
+first_room_team_3.name = "두희찡"
+first_room_team_3.save
 
 second_room = Room.new
 second_room.name = '야알못'
@@ -91,10 +108,27 @@ second_room.size_limit = 3
 second_room.draft_time_limit = 15
 second_room.save
 
+second_room_draft = Draft.new
+second_room_draft.time_limit = 30
+second_room_draft.is_complete = false
+second_room_draft.room_id = 2
+
 second_room_team_1 = Team.new
 second_room_team_1.user_id = 1
 second_room_team_1.room_id = 2
 second_room_team_1.name = "야신"
+second_room_team_1.save
+
+second_room_team_1 = Team.new
+second_room_team_1.user_id = 2
+second_room_team_1.room_id = 2
+second_room_team_1.name = "배고플땐야식"
+second_room_team_1.save
+
+second_room_team_1 = Team.new
+second_room_team_1.user_id = 3
+second_room_team_1.room_id = 2
+second_room_team_1.name = "이판만할께"
 second_room_team_1.save
 
     ## room_list ROOMS ##
@@ -109,6 +143,11 @@ dummy_room_1.draft_time =  "2015-9-10 20:00:00"
 dummy_room_1.size_limit = 4
 dummy_room_1.draft_time_limit = 45
 dummy_room_1.save
+
+dummy_room_1_draft = Draft.new
+dummy_room_1_draft.time_limit = 30
+dummy_room_1_draft.is_complete = false
+dummy_room_1_draft.room_id = 3
 
 dummy_room_1_team_1 = Team.new
 dummy_room_1_team_1.user_id = 4
@@ -128,6 +167,11 @@ dummy_room_2.size_limit = 10
 dummy_room_2.draft_time_limit = 30
 dummy_room_2.save
 
+dummy_room_2_draft = Draft.new
+dummy_room_2_draft.time_limit = 30
+dummy_room_2_draft.is_complete = false
+dummy_room_2_draft.room_id = 4
+
 dummy_room_2_team_1 = Team.new
 dummy_room_2_team_1.user_id = 4
 dummy_room_2_team_1.room_id = 4
@@ -146,6 +190,11 @@ dummy_room_3.size_limit = 10
 dummy_room_3.draft_time_limit = 30
 dummy_room_3.save
 
+dummy_room_3_draft = Draft.new
+dummy_room_3_draft.time_limit = 30
+dummy_room_3_draft.is_complete = false
+dummy_room_3_draft.room_id = 5
+
 dummy_room_3_team_1 = Team.new
 dummy_room_3_team_1.user_id = 4
 dummy_room_3_team_1.room_id = 5
@@ -162,6 +211,11 @@ dummy_room_4.draft_time =  "2015-9-15 20:00:00"
 dummy_room_4.size_limit = 5
 dummy_room_4.draft_time_limit = 15
 dummy_room_4.save
+
+dummy_room_4_draft = Draft.new
+dummy_room_4_draft.time_limit = 30
+dummy_room_4_draft.is_complete = false
+dummy_room_4_draft.room_id = 6
 
 dummy_room_4_team_1 = Team.new
 dummy_room_4_team_1.user_id = 4
@@ -180,6 +234,11 @@ dummy_room_5.size_limit = 5
 dummy_room_5.draft_time_limit = 15
 dummy_room_5.save
 
+dummy_room_5_draft = Draft.new
+dummy_room_5_draft.time_limit = 30
+dummy_room_5_draft.is_complete = false
+dummy_room_5_draft.room_id = 7
+
 dummy_room_5_team_1 = Team.new
 dummy_room_5_team_1.user_id = 4
 dummy_room_5_team_1.room_id = 7
@@ -196,6 +255,11 @@ dummy_room_6.draft_time =  "2015-10-1 20:00:00"
 dummy_room_6.size_limit = 8
 dummy_room_6.draft_time_limit = 60
 dummy_room_6.save
+
+dummy_room_6_draft = Draft.new
+dummy_room_6_draft.time_limit = 30
+dummy_room_6_draft.is_complete = false
+dummy_room_6_draft.room_id = 8
 
 dummy_room_6_team_1 = Team.new
 dummy_room_6_team_1.user_id = 4

@@ -425,4 +425,18 @@ class LeagueController < ApplicationController
   end
   
   
+  def leave_league
+  
+    to_del = Team.find(params[:id])
+    to_del.destroy
+    redirect_to '/league/dashboard'
+  
+  end
+  
+  def join_dummy_users
+  
+    
+  
+  end
+  
 end
