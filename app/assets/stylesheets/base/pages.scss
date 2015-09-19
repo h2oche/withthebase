@@ -122,6 +122,9 @@
   font-weight: 800;
   letter-spacing: -10px;
   margin-bottom: 0px;
+  
+  position: relative;
+  left: -25px;
 }
 
 .middle-box h1 {
@@ -1314,5 +1317,15 @@ del {
 
 body.body-small .vote-icon {
   display: none;
+}
+
+.wtb-logo {
+    margin: auto;
+    height: 200px !important;
+    width: 200px !important;
+    background-image: url(asset-path('로고1.gif'));
+    background-size: contain;
+    background-repeat : no-repeat; 
+    background-position: center; 
 }
 

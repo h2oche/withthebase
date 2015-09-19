@@ -20,6 +20,8 @@ Myapp::Application.routes.draw do
   post '/league/create', to: 'league#create_new_league'
   post '/league/join', to: 'league#join_league'
   
+  get 'league/leave_league/:id', to: 'league#leave_league'
+  
   
   post '/data/getPlayers', to: 'data#get_all_players'
   post '/data/getDraftTeams', to: 'data#get_draft_teams'
@@ -54,6 +56,7 @@ Myapp::Application.routes.draw do
   get 'admin/make_game_from_admin'
   get 'admin/delete_game/:id', to: 'admin#delete_game'
   get 'admin/play_game/:id', to: 'admin#play_game'
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
