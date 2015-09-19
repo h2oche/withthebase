@@ -28,7 +28,7 @@ class LeagueController < ApplicationController
       #현재 이 room 에 몇명의 유저가 있는지 체크
       username = User.find(room.admin_id).username
       @rooms_info << {admin: username, roomname: room.name, draft_time: room.draft_time,
-                      size_limit: room.size_limit, is_classic_mode: room.is_classic_mode, is_public_mode: room.is_public_mode, room_id: room.id}
+                      size_limit: room.size_limit, is_classic_mode: room.is_classic_mode, is_public_mode: room.is_public_mode, room_id: room.id, room_count: room.teams.count}
     end
   end
 

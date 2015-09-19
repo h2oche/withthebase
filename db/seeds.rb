@@ -201,6 +201,18 @@ dummy_room_3_team_1.room_id = 5
 dummy_room_3_team_1.name = "후라이드만"
 dummy_room_3_team_1.save
 
+dummy_room_3_team_2 = Team.new
+dummy_room_3_team_2.user_id = 5
+dummy_room_3_team_2.room_id = 5
+dummy_room_3_team_2.name = "양념반"
+dummy_room_3_team_2.save
+
+dummy_room_3_team_3 = Team.new
+dummy_room_3_team_3.user_id = 6
+dummy_room_3_team_3.room_id = 5
+dummy_room_3_team_3.name = "치킨"
+dummy_room_3_team_3.save
+
 dummy_room_4 = Room.new
 dummy_room_4.name = '빠른게임ㄱ'
 dummy_room_4.admin_id = 4
@@ -266,6 +278,28 @@ dummy_room_6_team_1.user_id = 4
 dummy_room_6_team_1.room_id = 8
 dummy_room_6_team_1.name = "야식먹자"
 dummy_room_6_team_1.save
+
+dummy_room_7 = Room.new
+dummy_room_7.name = '해커톤'
+dummy_room_7.admin_id = 4
+dummy_room_7.is_classic_mode = true
+dummy_room_7.is_public_mode = false
+dummy_room_7.period = 8
+dummy_room_7.draft_time =  "2015-10-1 20:00:00"
+dummy_room_7.size_limit = 7
+dummy_room_7.draft_time_limit = 60
+dummy_room_7.save
+
+dummy_room_7_draft = Draft.new
+dummy_room_7_draft.time_limit = 30
+dummy_room_7_draft.is_complete = false
+dummy_room_7_draft.room_id = 9
+
+dummy_room_7_team_1 = Team.new
+dummy_room_7_team_1.user_id = 4
+dummy_room_7_team_1.room_id = 9
+dummy_room_7_team_1.name = "야식먹자"
+dummy_room_7_team_1.save
 
 
 
