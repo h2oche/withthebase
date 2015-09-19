@@ -274,10 +274,10 @@
                                 </div>
                             </div>
                             <!--접속중 아님 css-->
-                            <div class = "col-sm-3" id = "padding-5px">
-                                <div class = "margin_name margin_name_none non-accessed">
+                            <div class = "col-sm-3" id = "padding-5px" ng-controller="AppController">
+                                <div class = "margin_name margin_name_none" ng-class="getClassName()">
                                     <i class = "fa fa-circle"></i>
-                                    <strong>오프라인</strong>
+                                    <strong>{{msg}}</strong>
                                 </div>
                             </div>
                             
@@ -295,3 +295,21 @@
     </div>
 
 </div>
+
+<script>
+    angular.module('app',[])
+        .controller('AppController',['$scope','$timeout',function($scope,$timeout){
+            $scope.msg = "오프라인";
+            $scope.online = false;
+            
+            $timeout(function(){
+                $scope.msg = "접속중";
+                $scope.online = true;
+            },5000);
+            
+            $scope.getClassName = function(){
+                if($scope.online) return "accessed";
+                else return "non-accessed";
+            }
+        }]);
+</script>

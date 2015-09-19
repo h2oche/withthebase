@@ -78,11 +78,11 @@
                             <tbody>
                             <% @teams.each do |t| %>
                                 <tr>
-                                    <td>t.name(t.user.username)</td>
+                                    <td><%=t.name%>(<%=t.user.username%>)</td>
                                     <td>3</td>
-                                    <td></td>
+                                    <td><%=t.win%></td>
                                     <td>0</td>
-                                    <td></td>
+                                    <td><%=t.lose%></td>
                                     <td></td>
                                 </tr>
                             <% end %>

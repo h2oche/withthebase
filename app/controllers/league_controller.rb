@@ -336,10 +336,22 @@ class LeagueController < ApplicationController
     
     count = 0
     @game_results = Array.new
-    @teams = Room.find(params[:id]).teams
+    @teams = Room.find(params[:id]).teams.each do |t|
+      t.win = 0
+      t.lose = 0
+      t.save
+    end
     temp = Array.new
     
     parts = [:bat_avg, :rbi, :homerun, :steal, :error, :win, :era, :strikeout, :savehold]
+    
+    team1Count = 0
+    team2Count = 0
+    
+    team1Win = 0
+    team1Lose = 0
+    team2Win = 0
+    team2Lose = 0
     
     #해당 리그에 있는 스케쥴 모두 로드
     Room.find(params[:id]).games.each do |game|
@@ -350,18 +362,96 @@ class LeagueController < ApplicationController
       team1 = Team.find(game.team1)
       team2 = Team.find(game.team2)
       
+      #team1.win = 0 if team1.win == nil
+      #team1.lose = 0 if team1.lose == nil
+      
+      #team2.win = 0 if team2.win == nil
+      #team2.lose = 0 if team2.lose == nil
+      
       result1 = team1.results.find_by_game_date(date)
       result2 = team2.results.find_by_game_date(date)
+      
+      if result1.bat_avg > result2.bat_avg
+        team1Count += 1
+      elsif result1.bat_avg < result2.bat_avg
+        team2Count += 1
+      end
+      
+      if result1.rbi > result2.rbi
+        team1Count += 1
+      elsif result1.rbi < result2.rbi
+        team2Count += 1
+      end
+      
+      if result1.homerun > result2.homerun
+        team1Count += 1
+      elsif result1.homerun < result2.homerun
+        team2Count += 1
+      end
+      
+      if result1.steal > result2.steal
+        team1Count += 1
+      elsif result1.steal < result2.steal
+        team2Count += 1
+      end
+      
+      if result1.error > result2.error
+        team1Count += 1
+      elsif result1.error < result2.error
+        team2Count += 1
+      end
+      
+      if result1.win > result2.win
+        team1Count += 1
+      elsif result1.win < result2.win
+        team2Count += 1
+      end
+      
+      if result1.era > result2.era
+        team1Count += 1
+      elsif result1.era < result2.era
+        team2Count += 1
+      end
+      
+      if result1.strikeout > result2.strikeout
+        team1Count += 1
+      elsif result1.strikeout < result2.strikeout
+        team2Count += 1
+      end
+      
+      if result1.savehold > result2.savehold
+        team1Count += 1
+      elsif result1.savehold < result2.savehold
+        team2Count += 1
+      end
+      
+      
+      if team1Count < team2Count
+        team1.lose += 1
+        team2.win += 1
+      elsif
+        team1.win += 1
+        team2.lose += 1
+      end
+      
+      team1.save
+      team2.save
+      
+      team1Count = 0
+      team2Count = 0
       
       temp << { team1: {name: team1.name, coach: team1.user.username, id: team1.id}, 
                                     team2: {name: team2.name, coach: team2.user.username, id: team2.id}}
       
       if count % 2 == 0
+        
         @game_results << { date: date, matches: temp.clone}
         temp = Array.new
         date += 1
       end
     end
+    
+    @teams = Room.find(params[:id]).teams
     
     #승패 결과 저장
 
