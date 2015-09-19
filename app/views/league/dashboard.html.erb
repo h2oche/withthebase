@@ -14,14 +14,16 @@
                         <strong id = "leaguename" ><%=team_info[:roomname]%></strong><small style = "font-size:130%"> 리그</small><br>
                         <strong id = "teamname"> <%=team_info[:teamname]%> 팀</strong>
                         <div>
-                            <img id = "emblem"
-                             src = "http://www.pngimage.com/wp-content/uploads/2014/10/real_madrid_logo.png">
+                            
+                            <%= image_tag("#{@teams_emblem_random[index]}") %>
                         </div>
                     </div>
                     <div class = "col-md-7">
                         <br>
                         <div class = "hidden-sm hidden-xs">
-                            <p><strong> 드래프트까지 10일 남았습니다.</strong></p>
+                            <p><strong> 드래프트까지 
+                            <%=Time.diff(@current_time, team_info[:draft_time], '%d')[:diff].split(" ")[0]%>
+                            일 남았습니다.</strong></p>
                             <br>
                             <br>
                             <p>모드 : 

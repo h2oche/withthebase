@@ -7,7 +7,7 @@
             
             <!-- 리그 정보-->
             <div class = "col-lg-6">
-                <div class = "box" style = "max-width : 610px">
+                <div class = "box" >
                 
                     <div id = "title-box">
                         <strong>리그 정보</strong>
@@ -203,9 +203,9 @@
                             </div>
                             <!--접속중 아님 css-->
                             <div class = "col-sm-3" id = "padding-5px">
-                                <div class = "margin_name margin_name_none accessed">
+                                <div class = "margin_name margin_name_none non-accessed">
                                     <i class = "fa fa-circle"></i>
-                                    <strong>접속중</strong>
+                                    <strong>오프라인</strong>
                                 </div>
                             </div>
                             
@@ -274,10 +274,12 @@
                                 </div>
                             </div>
                             <!--접속중 아님 css-->
+
                             <div class = "col-sm-3" id = "padding-5px" ng-controller="AppController">
                                 <div class = "margin_name margin_name_none" ng-class="getClassName()">
                                     <i class = "fa fa-circle"></i>
                                     <strong>{{msg}}</strong>
+
                                 </div>
                             </div>
                             
