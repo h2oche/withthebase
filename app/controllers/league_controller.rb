@@ -73,16 +73,16 @@ class LeagueController < ApplicationController
   def make_new_schedule_for_4teams_3days league_id, date
     league = Room.find(league_id)
     teams = league.teams
-    t1 = teams.First.id
-    t2 = teams.Second.id
-    t3 = teams.Third.id
-    t4 = teams.Fourth.id
-    make_game(league_id, date, t1, t2, 'TBD')
-    make_game(league_id, date, t3, t4, 'TBD')
-    make_game(league_id, date+1, t1, t3, 'TBD')
-    make_game(league_id, date+1, t2, t4, 'TBD')
-    make_game(league_id, date+2, t1, t4, 'TBD')
-    make_game(league_id, date+2, t2, t3, 'TBD')
+    t1 = teams.first.id
+    t2 = teams.second.id
+    t3 = teams.third.id
+    t4 = teams.fourth.id
+    make_new_schedule(league_id, date, t1, t2, 'TBD')
+    make_new_schedule(league_id, date, t3, t4, 'TBD')
+    make_new_schedule(league_id, date+1, t1, t3, 'TBD')
+    make_new_schedule(league_id, date+1, t2, t4, 'TBD')
+    make_new_schedule(league_id, date+2, t1, t4, 'TBD')
+    make_new_schedule(league_id, date+2, t2, t3, 'TBD')
   end
   
   ## SAVE_1DAY_RESULT 
@@ -117,14 +117,14 @@ class LeagueController < ApplicationController
           strikeout = rand(9)
           savehold = rand(2)
           era = rand(2.50..8.00).round(2)
-          get_data(player, 'pitch', date, win, strikeout, savehold, era, nil)
+          generate_result(player, 'pitch', date, win, strikeout, savehold, era, nil)
       else
           bat_avg = rand(0.100..0.350).round(3)
           rbi = rand(3)
           homerun = rand(2)
           steal = rand(2)
           error = rand(2)
-          get_data(player, 'bat', date, bat_avg, rbi, homerun, steal, error)
+          generate_result(player, 'bat', date, bat_avg, rbi, homerun, steal, error)
       end
   end
   
@@ -276,8 +276,22 @@ class LeagueController < ApplicationController
     
   end
   
+  ## DRAFT RESULT INTO ROSTERS
   
-  ## SCHEDULE PLANNER + RESULT MAKER by Jse-Seo ## END
+  def put_draft_results_into_teams room_id
+    
+    room = Room.find(room_id)
+    room.draft.draft_results.each do |x|
+      new_roster = Roster.new
+      new_roster.team_id = x.team_id
+      new_roster.player_id = x.player_id
+      new_roster.save
+    end
+    
+  end
+  
+  
+  ## DRAFT RESULTS 적용 + SCHEDULE PLANNER + RESULT MAKER by Jse-Seo ## END
   
   
   def result
@@ -290,8 +304,9 @@ class LeagueController < ApplicationController
     ## 재서코드 ## START
     room_id = Room.find(params[:id])
     date = Date.today()
-    make_new_schedule_for_4teams_3days(room_id, date)
-    generate_data_all_player_3days(room_id, date)
+    put_draft_results_into_teams(room_id)                       ## DRAFT RESULT 적용
+    make_new_schedule_for_4teams_3days(room_id, date)           ## SCHEDULE MAKER
+    generate_data_all_player_3days(room_id, date)               ## RESULT GENERATOR
     ## 재서코드 ## END
     
     
