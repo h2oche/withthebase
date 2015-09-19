@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 20150916123017) do
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
-    t.string   "admin_id"
+    t.integer  "admin_id"
     t.string   "emblem"
     t.boolean  "is_classic_mode"
     t.boolean  "is_public_mode"

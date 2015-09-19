@@ -3,7 +3,7 @@ class CreateRooms < ActiveRecord::Migration
     create_table :rooms do |t|
       
       t.string :name
-      t.string :admin_id
+      t.integer :admin_id
       t.string :emblem
       
       

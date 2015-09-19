@@ -7,6 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+
+####### dummy USER #######
+
+    ## ADMIN ##
+
 admin_user = User.new
 admin_user.email = 'admin@wtb.com'
 admin_user.username = 'admin'
@@ -28,10 +33,38 @@ admin_user3.password = 'goodsmile'
 admin_user3.password_confirmation = 'goodsmile'
 admin_user3.save!
 
+    ## USER ##
 
+dummy_user_1 = User.new
+dummy_user_1.email = 'dummy1@wtb.com'
+dummy_user_1.username = '두희'
+dummy_user_1.password = 'goodsmile'
+dummy_user_1.password_confirmation = 'goodsmile'
+dummy_user_1.save!
+
+dummy_user_2 = User.new
+dummy_user_2.email = 'dummy2@wtb.com'
+dummy_user_2.username = '경훈'
+dummy_user_2.password = 'goodsmile'
+dummy_user_2.password_confirmation = 'goodsmile'
+dummy_user_2.save!
+
+dummy_user_3 = User.new
+dummy_user_3.email = 'dummy3@wtb.com'
+dummy_user_3.username = '범준'
+dummy_user_3.password = 'goodsmile'
+dummy_user_3.password_confirmation = 'goodsmile'
+dummy_user_3.save!
+
+
+
+
+####### dummy ROOM #######
+
+    ## admin1's ROOMS ##
 
 first_room = Room.new
-first_room.name = '멋사리그'
+first_room.name = '멋사'
 first_room.admin_id = 1
 first_room.is_classic_mode = true
 first_room.is_public_mode = true
@@ -44,13 +77,11 @@ first_room.save
 first_room_team_1 = Team.new
 first_room_team_1.user_id = 1
 first_room_team_1.room_id = 1
-first_room_team_1.name = "Admin의 팀"
+first_room_team_1.name = "라이언투"
 first_room_team_1.save
 
-
-
 second_room = Room.new
-second_room.name = '사자리그'
+second_room.name = '야알못'
 second_room.admin_id = 1
 second_room.is_classic_mode = true
 second_room.is_public_mode = true
@@ -63,10 +94,120 @@ second_room.save
 second_room_team_1 = Team.new
 second_room_team_1.user_id = 1
 second_room_team_1.room_id = 2
-second_room_team_1.name = "나는라이언"
+second_room_team_1.name = "야신"
 second_room_team_1.save
 
+    ## room_list ROOMS ##
 
+dummy_room_1 = Room.new
+dummy_room_1.name = '초보만'
+dummy_room_1.admin_id = 4
+dummy_room_1.is_classic_mode = true
+dummy_room_1.is_public_mode = true
+dummy_room_1.period = 8
+dummy_room_1.draft_time =  "2015-9-10 20:00:00"
+dummy_room_1.size_limit = 4
+dummy_room_1.draft_time_limit = 45
+dummy_room_1.save
+
+dummy_room_1_team_1 = Team.new
+dummy_room_1_team_1.user_id = 4
+dummy_room_1_team_1.room_id = 3
+dummy_room_1_team_1.name = "Dummy"
+dummy_room_1_team_1.save
+
+
+dummy_room_2 = Room.new
+dummy_room_2.name = '아무나'
+dummy_room_2.admin_id = 4
+dummy_room_2.is_classic_mode = false
+dummy_room_2.is_public_mode = true
+dummy_room_2.period = 10
+dummy_room_2.draft_time =  "2015-7-21 20:00:00"
+dummy_room_2.size_limit = 10
+dummy_room_2.draft_time_limit = 30
+dummy_room_2.save
+
+dummy_room_2_team_1 = Team.new
+dummy_room_2_team_1.user_id = 4
+dummy_room_2_team_1.room_id = 4
+dummy_room_2_team_1.name = "내가최고"
+dummy_room_2_team_1.save
+
+
+dummy_room_3 = Room.new
+dummy_room_3.name = '20대이상ㄱㄱ'
+dummy_room_3.admin_id = 4
+dummy_room_3.is_classic_mode = false
+dummy_room_3.is_public_mode = true
+dummy_room_3.period = 10
+dummy_room_3.draft_time =  "2015-7-21 20:00:00"
+dummy_room_3.size_limit = 10
+dummy_room_3.draft_time_limit = 30
+dummy_room_3.save
+
+dummy_room_3_team_1 = Team.new
+dummy_room_3_team_1.user_id = 4
+dummy_room_3_team_1.room_id = 5
+dummy_room_3_team_1.name = "후라이드만"
+dummy_room_3_team_1.save
+
+dummy_room_4 = Room.new
+dummy_room_4.name = '빠른게임ㄱ'
+dummy_room_4.admin_id = 4
+dummy_room_4.is_classic_mode = false
+dummy_room_4.is_public_mode = true
+dummy_room_4.period = 2
+dummy_room_4.draft_time =  "2015-9-15 20:00:00"
+dummy_room_4.size_limit = 5
+dummy_room_4.draft_time_limit = 15
+dummy_room_4.save
+
+dummy_room_4_team_1 = Team.new
+dummy_room_4_team_1.user_id = 4
+dummy_room_4_team_1.room_id = 6
+dummy_room_4_team_1.name = "한화짱"
+dummy_room_4_team_1.save
+
+dummy_room_5 = Room.new
+dummy_room_5.name = '넥센팬 모여라'
+dummy_room_5.admin_id = 4
+dummy_room_5.is_classic_mode = false
+dummy_room_5.is_public_mode = true
+dummy_room_5.period = 2
+dummy_room_5.draft_time =  "2015-9-15 20:00:00"
+dummy_room_5.size_limit = 5
+dummy_room_5.draft_time_limit = 15
+dummy_room_5.save
+
+dummy_room_5_team_1 = Team.new
+dummy_room_5_team_1.user_id = 4
+dummy_room_5_team_1.room_id = 7
+dummy_room_5_team_1.name = "하이드인부쉬"
+dummy_room_5_team_1.save
+
+dummy_room_6 = Room.new
+dummy_room_6.name = '배고파'
+dummy_room_6.admin_id = 4
+dummy_room_6.is_classic_mode = true
+dummy_room_6.is_public_mode = false
+dummy_room_6.period = 8
+dummy_room_6.draft_time =  "2015-10-1 20:00:00"
+dummy_room_6.size_limit = 8
+dummy_room_6.draft_time_limit = 60
+dummy_room_6.save
+
+dummy_room_6_team_1 = Team.new
+dummy_room_6_team_1.user_id = 4
+dummy_room_6_team_1.room_id = 8
+dummy_room_6_team_1.name = "야식먹자"
+dummy_room_6_team_1.save
+
+
+
+### Dummy PLAYERS ###
+
+    ## Real PLAYERS ##
 
 player_1 = Player.new
 player_1.name = '테임즈'
