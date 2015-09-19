@@ -7,9 +7,10 @@
         </div>
         
         <div class="col-md-1 left_time_container">
-            <button type="button" class="btn-white left_time">{{leftTime}}</button>
+            <button type="button" class="btn-white left_time">00:{{leftTime}}</button>
         </div>
         
+        <!--
         <div class="col-md-1">
             <h4>라운드</h4>
         </div>
@@ -17,6 +18,7 @@
         <div class="col-md-1">
             <span>{{round}}</span>
         </div>
+        -->
         
         <div class="col-md-1">
             <i class="fa fa-refresh"></i>
@@ -85,7 +87,7 @@
                         <tbody>
                             <tr ng-repeat="player in players | filter: playerFilter.filter | filter: playerFilter.indexFilter:$index | filter: playerFilter.nameFilter">
                                 <td>{{player.pos}}</td>
-                                <td class="draft_player_list">{{player.name}} ({{player.team}})</td>
+                                <td class="draft_player_list"><a data-toggle="modal" data-target="#myModal">{{player.name}}</a> ({{player.team}})</td>
                                 <td> - </td>
                                 <td>{{player.war}}</td>
                                 <td>{{getTeamnameOfPlayer(player.id)}}</td>
@@ -180,7 +182,11 @@
                                 <div class="team">{{player.team}}</div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 pitchers_mini">
+                            <div class = "badge badge_dark_more badge_mini badge_pitch">
+                                <p>주전 투수</p>
+                            </div>
+                            
                             <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:pitcherFilter | filter:startingFilter">
                                 <div class="pos">{{player.pos}}</div>
                                 <div class="name">{{player.name}}</div>
@@ -188,25 +194,35 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="col-md-1">
-                                타자
-                            </div>
-                            <div class="col-md-4">
-                                <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:batterFilter | filter:benchFilter">
-                                    <div class="pos">{{player.pos}}</div>
-                                    <div class="name">{{player.name}}</div>
-                                    <div class="team">{{player.team}}</div>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                투수
-                            </div>
-                            <div class="col-md-4">
-                                <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:pitcherFilter | filter:benchFilter">
-                                    <div class="pos">{{player.pos}}</div>
-                                    <div class="name">{{player.name}}</div>
-                                    <div class="team">{{player.team}}</div>
-    
+                            <div class="row">
+                                <div class="col-md-9 no_margin_mini_1">
+                                    <div class="col-md-2 background_dark_mini no_margin_mini_2">
+                                        <div class = "badge badge_dark_more badge_mini badge_mini_bench">
+                                            <p>타자</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-4 background_dark_mini no_margin_mini_2">
+                                        <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:batterFilter | filter:benchFilter">
+                                            <div class="pos">{{player.pos}}</div>
+                                            <div class="name">{{player.name}}</div>
+                                            <div class="team">{{player.team}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 background_dark_mini no_margin_mini_2">
+                                        <div class = "badge badge_dark_more badge_mini badge_mini_bench">
+                                            <p>투수</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-4 background_dark_mini no_margin_mini_2">
+                                        <div style="margin:3px 0;" class="drafted-player-container" ng-repeat="player in myDraftedPlayer | filter:pitcherFilter | filter:benchFilter">
+                                            <div class="pos">{{player.pos}}</div>
+                                            <div class="name">{{player.name}}</div>
+                                            <div class="team">{{player.team}}</div>
+            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -229,17 +245,16 @@
         return -1;
     };
     
-    angular.module('app',['draft'])
-        .controller('AppController',['$scope', '$http','$timeout','$interval',function($scope, $http, $timeout, $interval){
+    angular.module('app',['draft']).controller('AppController',['$scope', '$http','$timeout','$interval',function($scope, $http, $timeout, $interval){
             
             $scope.getPickButtonClass = function(_index) {
                 var buttonClasses = ["btn-default","btn-warning","btn-primary"];
                 
                 if(_index == $scope.currentPickOrder) {
-                    return buttonClasses[1];
+                    return buttonClasses[2];
                 }
                 else if(_index == $scope.nextPickOrder) {
-                    return buttonClasses[2];
+                    return buttonClasses[1];
                 }
                 else {
                     return buttonClasses[0];
@@ -456,7 +471,7 @@
             var canRequest = true;
             
             var cancelTick = $interval(tick, 1000);
-            var resetTime = 3;
+            var resetTime = 1;
             
             $scope.draftDone = false;
             $scope.myDraftedPlayer = [];
@@ -543,10 +558,10 @@
             
             $scope.players = null;
             $scope.teams = null;
-            $scope.leftTime = 100000000;
+            $scope.leftTime = 30;
             
             $scope.positions = ["선발","구원","1루","2루","유격","3루","우익","좌익","중견","포수"]
-            $scope.realTeams = ["삼성","롯데","NC","SK","두산","넥센","LG","kt","한화","KIA"]
+            $scope.realTeams = ["삼성","롯데","NC","SK","두산","넥센","LG","KT","한화","KIA"]
             $scope.stats = ["승리","타율","홈런"]
             $scope.playerFilter = {
                 filter: function(_playerObj, _index){
