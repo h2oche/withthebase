@@ -418,6 +418,13 @@ class LeagueController < ApplicationController
     new_draft.save
     
     join_room current_user.id, new_room.id, params[:league_admin_teamname]
+    
+    
+    ##시범용 더미 데이터
+    join_dummy_users(new_room.id)
+    ##시범용 더미 데이터
+    
+    
     redirect_to '/league/dashboard'
   end
   def interleague
@@ -426,5 +433,35 @@ class LeagueController < ApplicationController
     @my_team = @room.teams.where(:user_id => current_user.id)
   end
   
+  
+  def leave_league
+  
+    to_del = Team.find(params[:id])
+    to_del.destroy
+    redirect_to '/league/dashboard'
+  
+  end
+  
+  def join_dummy_users room_id
+  
+    dummy_team_1 = Team.new
+    dummy_team_1.user_id = 4
+    dummy_team_1.room_id = room_id
+    dummy_team_1.name = '두희'
+    dummy_team_1.save
+    
+    dummy_team_2 = Team.new
+    dummy_team_2.user_id = 5
+    dummy_team_2.room_id = room_id
+    dummy_team_2.name = '경훈'
+    dummy_team_2.save
+    
+    dummy_team_3 = Team.new
+    dummy_team_3.user_id = 6
+    dummy_team_3.room_id = room_id
+    dummy_team_3.name = '범준'
+    dummy_team_3.save
+  
+  end
   
 end
