@@ -1,4 +1,4 @@
-<div class="wrapper wrapper-content">
+<div class="wrapper wrapper-content" ng-controller="AppController">
     <div class="animated fadeInRightBig">
         <div class = "row">
             <div class = "col-md-6">
@@ -41,9 +41,11 @@
                                 </div>
                             </div>
                             <div class = "col-xs-2">
-                                <button class = "btn btn-info">
-                                    보기
-                                </button>
+                                <button class="btn btn-info" ng-click="loadResultTable(<%=resultRow[:team1][:id]%>,
+                                                                                        '<%=resultRow[:team1][:name]%>',
+                                                                                        <%=resultRow[:team2][:id]%>,
+                                                                                        '<%=resultRow[:team2][:name]%>',
+                                                                                        '<%=result[:date]%>')">보기</button>
                             </div>
                             <% end %>
                         </div>
@@ -123,18 +125,192 @@
             </div>
         </div>
         
-        <div class = "row">
-            {{gameDate}}
+        <div wtb-focus class="row" ng-show="showResults" tabindex="1" ng-keydown="showBarGraph()">
+            <h3>매치 결과 - {{gameDate}}</h3>
+            <div class="col-md-12">
+                <div class="col-md-2"><h1 style="text-align:center;">{{team1.name}}</h1></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-4"><h1 style="text-align:center;">VS</h1></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-2"><h1 style="text-align:center;">{{team2.name}}</h1></div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <div ng-repeat="s in showed track by $index" class="team1-result-bar bar-{{$index}}" ng-hide="!s"><span></span></div>
+                </div>
+                <div class="col-md-4">
+                    <table class="table">
+                        <tbody>
+                            <tr><td colspan="3">타자부문</td></tr>
+                            <tr>
+                                <td>{{team1.bat_avg.toFixed(2)}}</td>
+                                <td>타율</td>
+                                <td>{{team2.bat_avg.toFixed(2)}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{team1.homerun}}</td>
+                                <td>홈런</td>
+                                <td>{{team2.homerun}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{team1.rbi}}</td>
+                                <td>타점</td>
+                                <td>{{team2.rbi}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{team1.steal}}</td>
+                                <td>도루</td>
+                                <td>{{team2.steal}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{team1.error}}</td>
+                                <td>실책</td>
+                                <td>{{team2.error}}</td>
+                            </tr>
+                            <tr><td colspan="3">투수부문</td></tr>
+                            <tr>
+                                <td>{{team1.win}}</td>
+                                <td>다승</td>
+                                <td>{{team2.win}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{team1.era.toFixed(2)}}</td>
+                                <td>평균자책점</td>
+                                <td>{{team2.era.toFixed(2)}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{team1.strikeout}}</td>
+                                <td>탈삼진</td>
+                                <td>{{team2.strikeout}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{team1.savehold}}</td>
+                                <td>세이브+홀드</td>
+                                <td>{{team2.savehold}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{team1WinCount}}</td>
+                                <td>총합</td>
+                                <td>{{team2WinCount}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <div ng-repeat="s in showed track by $index" class="team2-result-bar bar-{{$index}}"  ng-hide="!s">
+                        <span wtb-bar="{{team2Result[$index]}}"></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
+    var test;
     angular.module("app",["scoreboard"])
-        .controller('AppController',['$http',function($http){
-            $http({
-                method: 'POST'
-            })
+        .controller('AppController',['$http','$scope',function($http,$scope){
+            $scope.gameDate = null;
+            $scope.showResults = false;
+            $scope.team1 = null;
+            $scope.team2 = null;
+            
+            $scope.showed = [false,false,false,false,false,false,false,false,false];
+            $scope.scalebase = [500,10,10,10,10,10,10,7,10]
+            $scope.team1Result = [];
+            $scope.team2Result = [];
+            
+            $scope.showedIndex = 0;
+            
+            $scope.showBarGraph = function(){
+                console.log($scope.showedIndex);
+                if( $scope.showedIndex > 8) return;
+                console.log('asdfasdf');
+                
+                $scope.showed[$scope.showedIndex] = true;
+                
+                jQuery(".team1-result-bar.bar-"+$scope.showedIndex).children().animate({
+                    width:($scope.scalebase[$scope.showedIndex] * $scope.team1Result[$scope.showedIndex])+'px'
+                });
+                
+                jQuery(".team2-result-bar.bar-"+$scope.showedIndex).children().animate({
+                    width:($scope.scalebase[$scope.showedIndex] * $scope.team2Result[$scope.showedIndex])+'px'
+                })
+                
+                $scope.showedIndex += 1;
+                
+            }
+            
+            $scope.loadResultTable = function(_team1Id, _team1Name, _team2Id, _team2Name, _date){
+                $scope.showed = [false,false,false,false,false,false,false,false,false];
+                
+                
+                $http({
+                    method:'POST',
+                    url:'/data/getResults',
+                    data: {
+                        date: _date,
+                        team1: _team1Id,
+                        team2: _team2Id
+                    }
+                })
+                .success(function(_data){
+                    $scope.gameDate = _date;
+                    $scope.showResults = true;
+                    $scope.team1 = _data[0];
+                    $scope.team2 = _data[1];
+                    
+                    $scope.team1Result = [_data[0].bat_avg, _data[0].homerun, _data[0].rbi, _data[0].steal,
+                                            _data[0].error, _data[0].win, _data[0].era, _data[0].strikeout,
+                                            _data[0].savehold];
+                    $scope.team2Result = [_data[1].bat_avg, _data[1].homerun, _data[1].rbi, _data[1].steal,
+                                            _data[1].error, _data[1].win, _data[1].era, _data[1].strikeout,
+                                            _data[1].savehold];
+                    
+                    $scope.team1WinCount = 0;
+                    $scope.team2WinCount = 0;
+                    $scope.drawCount = 0;
+                    
+                    for(var i = 0 ; i < $scope.team1Result.length ; i += 1) {
+                        if( $scope.team1Result[i] > $scope.team2Result[i] ) {
+                            $scope.team1WinCount += 1;
+                        }
+                        else if( $scope.team1Result[i] == $scope.team2Result[i] ) {
+                            $scope.drawCount += 1;
+                        }
+                        else {
+                            $scope.team2WinCount += 1;
+                        }
+                    }
+                    
+                    $scope.team1.name = _team1Name;
+                    $scope.team2.name = _team2Name;
+                    
+                    jQuery(".team1-result-bar").children().css({
+                        width:0+'px'
+                    });
+                    
+                    jQuery(".team2-result-bar").children().css({
+                        width:0+'px'
+                    })
+                    
+                    $scope.showedIndex = 0;
+                });
+                
+            }
+        }])
+        .directive('wtbFocus',['$timeout',function($timeout){
+            return {
+                link:function(_scope, _element, _attrs){
+                    $timeout(function(){_element[0].focus();});
+                }
+            }
+        }])
+        .directive('wtbBar',['$timeout', function($timeout){
+            return {
+                link:function(_scope,_element, _attrs){
+                }
+            }
         }]);
             
     angular.module("scoreboard",["scoreboard.filters",

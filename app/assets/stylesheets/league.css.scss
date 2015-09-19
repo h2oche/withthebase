@@ -1249,3 +1249,20 @@ div.trade-slot-team > img{
     
     padding: 0px 15px !important;
 }
+
+
+.team1-result-bar {
+    text-align:right;
+}
+
+.team1-result-bar > span {
+    display:inline-block;
+    background-color:#f00;
+    height:25px;
+}
+
+.team2-result-bar > span {
+    display:inline-block;
+    background-color:#00f;
+    height:25px;
+}
