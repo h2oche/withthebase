@@ -55,10 +55,11 @@ class LeagueController < ApplicationController
     redirect_to '/users/sign_in' unless user_signed_in?
   end
   
-  def result
-    redirect_to '/users/sign_in' unless user_signed_in?
-    #redirect_to '/leagues/'+params[:id]+'/info' unless Room.find(params[:id]).draft.is_complete
-    
+  
+  ## SCHEDULE PLANNER + RESULT MAKER by Jae-Seo ## START
+  
+  ## MAKE_NEW_SCHEDULE
+  def make_new_schedule room, date, t1, t2, result
     new_game = Game.new
     new_game.room_id = room
     new_game.game_date = date
@@ -66,6 +67,113 @@ class LeagueController < ApplicationController
     new_game.team2 = t2
     new_game.result = result
     new_game.save
+  end
+  
+  ## MAKE_SCHEDULE_FOR_4_TEAMS
+  def make_new_schedule_for_4teams_3days league_id, date
+    league = Room.find(league_id)
+    teams = league.teams
+    t1 = teams.First.id
+    t2 = teams.Second.id
+    t3 = teams.Third.id
+    t4 = teams.Fourth.id
+    make_game(league_id, date, t1, t2, 'TBD')
+    make_game(league_id, date, t3, t4, 'TBD')
+    make_game(league_id, date+1, t1, t3, 'TBD')
+    make_game(league_id, date+1, t2, t4, 'TBD')
+    make_game(league_id, date+2, t1, t4, 'TBD')
+    make_game(league_id, date+2, t2, t3, 'TBD')
+  end
+  
+  ## SAVE_1DAY_RESULT 
+  def generate_result player, pos, date, a1, a2, a3, a4, a5
+      if pos == 'pitch'
+          new_result = Pitch.new
+          new_result.player_id = player
+          new_result.win = a1
+          new_result.strikeout = a2 
+          new_result.savehold = a3
+          new_result.era = a4
+          new_result.record_date = date
+          new_result.save
+      elsif pos == 'bat'
+          new_result = Bat.new
+          new_result.player_id = player
+          new_result.bat_avg = a1
+          new_result.rbi = a2
+          new_result.homerun = a3
+          new_result.steal = a4
+          new_result.error = a5
+          new_result.record_date = date
+          new_result.save
+      end
+  end
+  
+  ## GENERATE_RAMDOM_DATA
+  def get_data_random player, date
+      pos = Player.find(player).pos
+      if (pos == '구원') or (pos == '선발')
+          win = rand(2)
+          strikeout = rand(9)
+          savehold = rand(2)
+          era = rand(2.50..8.00).round(2)
+          get_data(player, 'pitch', date, win, strikeout, savehold, era, nil)
+      else
+          bat_avg = rand(0.100..0.350).round(3)
+          rbi = rand(3)
+          homerun = rand(2)
+          steal = rand(2)
+          error = rand(2)
+          get_data(player, 'bat', date, bat_avg, rbi, homerun, steal, error)
+      end
+  end
+  
+  ## RANDOM_RESULT_ALL_PLAYERS
+  def generate_data_all_player_3days league, date
+    Room.find(league).teams.each do |team|
+      team.players.each do |player|
+        get_data_random(player.id, date)
+        get_data_random(player.id, date+1)
+        get_data_random(player.id, date+2)
+      end
+    end
+  end
+  
+  ## SAVE_TEAM_RESULTS
+  def add_result team_id, win, strikeout, savehold, era, bat_avg, rbi, homerun, steal, error
+    result = Result.new
+    result.team_id = team_id
+    result.win = win
+    result.strikeout = strikeout
+    result.savehold = savehold
+    result.era = era
+    result.bat_avg = bat_avg
+    result.rbi = rbi
+    result.homerun = homerun
+    result.steal = steal
+    result.error = error
+    result.save
+  end
+  
+  ## 
+  
+  ## SCHEDULE PLANNER + RESULT MAKER by Jse-Seo ## END
+  
+  
+  def result
+    redirect_to '/users/sign_in' unless user_signed_in?
+    #redirect_to '/leagues/'+params[:id]+'/info' unless Room.find(params[:id]).draft.is_complete
+    
+    
+    
+    
+    ## 재서코드 ## START
+    room_id = Room.find(params[:id])
+    date = Date.today()
+    make_new_schedule_for_4teams_3days(room_id, date)
+    generate_data_all_player_3days(room_id, date)
+    ## 재서코드 ## END
+    
     
     #해당 리그에 있는 스케쥴 모두 로드
     Room.find(params[:id]).games.each do |game|
