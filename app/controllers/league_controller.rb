@@ -140,7 +140,7 @@ class LeagueController < ApplicationController
   end
   
   ## SAVE_TEAM_RESULTS
-  def add_result team_id, win, strikeout, savehold, era, bat_avg, rbi, homerun, steal, error
+  def add_result team_id, win, strikeout, savehold, era, bat_avg, rbi, homerun, steal, error, game_date
     result = Result.new
     result.team_id = team_id
     result.win = win
@@ -152,10 +152,130 @@ class LeagueController < ApplicationController
     result.homerun = homerun
     result.steal = steal
     result.error = error
+    result.game_date = game_date
     result.save
   end
   
-  ## 
+  ## CALCULATE_TEAM_RESULTS_AND_SAVE
+  def play_game game_id
+        
+        game = Game.find(game_id)
+        team1 = Team.find(game.team1)
+        team2 = Team.find(game.team2)
+        game_date = game.game_date
+        
+        pitch_count_1 = 0
+        bat_count_1 = 0
+        win_1 = 0
+        strikeout_1 = 0
+        savehold_1 = 0
+        era_1 = 0
+        bat_avg_1 = 0
+        rbi_1 = 0
+        homerun_1 = 0
+        steal_1 = 0
+        error_1 = 0
+        
+        team1.players.each do |x|
+            
+            if (x.pos == '구원') or (x.pos == '선발')
+                
+                pitch_count_1 += 1
+                result = x.pitches.find_by_record_date(game_date)
+                
+                win_1 += result.win
+                strikeout_1 += result.strikeout
+                savehold_1 += result.savehold
+                era_1 += result.era
+                
+            else
+                
+                bat_count_1 += 1
+                result = x.bats.find_by_record_date(game_date)
+                
+                bat_avg_1 += result.bat_avg
+                rbi_1 += result.rbi
+                homerun_1 += result.homerun
+                steal_1 += result.steal
+                error_1 += result.error
+                
+            end
+        end
+            
+        pitch_count_2 = 0
+        bat_count_2 = 0
+        win_2 = 0
+        strikeout_2 = 0
+        savehold_2 = 0
+        era_2 = 0
+        bat_avg_2 = 0
+        rbi_2 = 0
+        homerun_2 = 0
+        steal_2 = 0
+        error_2 = 0
+            
+        team2.players.each do |y|
+            
+            if (y.pos == '구원') or (y.pos == '선발')
+                
+                pitch_count_2 += 1
+                result = y.pitches.find_by_record_date(game_date)
+                
+                win_2 += result.win
+                strikeout_2 += result.strikeout
+                savehold_2 += result.savehold
+                era_2 += result.era
+                
+            else
+                
+                bat_count_2 += 1
+                result = y.bats.find_by_record_date(game_date)
+                
+                bat_avg_2 += result.bat_avg
+                rbi_2 += result.rbi
+                homerun_2 += result.homerun
+                steal_2 += result.steal
+                error_2 += result.error
+                
+            end
+        end
+        
+        unless pitch_count_1 == 0
+            era_1 = era_1 / pitch_count_1
+        end
+        
+        unless pitch_count_2 == 0
+            era_2 = era_2 / pitch_count_2
+        end
+        
+        unless bat_count_1 == 0
+            bat_avg_1 = bat_avg_1 / bat_count_1
+        end
+        
+        unless bat_count_2 == 0
+            bat_avg_2 = bat_avg_2 / bat_count_2
+        end
+        
+        add_result(game.team1, win_1, strikeout_1, savehold_1, era_1, bat_avg_1, rbi_1, homerun_1, steal_1, error_1, game_date)
+        add_result(game.team2, win_2, strikeout_2, savehold_2, era_2, bat_avg_2, rbi_2, homerun_2, steal_2, error_2, game_date)
+        
+  end
+  
+  ## CALCULATE RESULTS
+  
+  def calculate_result game_id
+    
+    game = Game.find(game_id)
+    game_date = game.game_date
+    team1 = Team.find(game.team1)
+    result1 = team1.results.find_by_game_date(game_date)
+    team2 = Team.find(game.team2)
+    result2 = team2.results.find_by_game_date(game_date)
+    
+    t1_wins = 0
+    
+  end
+  
   
   ## SCHEDULE PLANNER + RESULT MAKER by Jse-Seo ## END
   
