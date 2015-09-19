@@ -38,6 +38,8 @@ class LeagueController < ApplicationController
     room_id = params[:id]
     @room = Room.find(room_id)
     @my_team = @room.teams.where(:user_id => current_user.id)
+    @teams = @room.teams
+    @team_last = @teams.last
   end
 
   def lineup
