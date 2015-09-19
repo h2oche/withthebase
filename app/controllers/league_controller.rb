@@ -317,8 +317,9 @@ class LeagueController < ApplicationController
 
     #redirect_to '/leagues/'+params[:id]+'/info' unless Room.find(params[:id]).draft.is_complete
     
-    
-    
+    Game.destroy_all
+    Result.destroy_all
+    Roster.destroy_all
     
     ## 재서코드 ## START
     room_id = Room.find(params[:id]).id
@@ -329,11 +330,27 @@ class LeagueController < ApplicationController
     
     ## 재서코드 ## END
     
+    count = 0
+    @game_results = Array.new
+    temp = Array.new
     
     #해당 리그에 있는 스케쥴 모두 로드
     Room.find(params[:id]).games.each do |game|
+      count += 1
       #스케줄에 해당하는 매치 진행
+      play_game(game.id)
       
+      team1 = Team.find(game.team1)
+      team2 = Team.find(game.team2)
+      
+      temp << { team1: {name: team1.name, coach: team1.user.username, id: team1.id}, 
+                                    team2: {name: team2.name, coach: team2.user.username, id: team2.id}}
+      
+      if count % 2 == 0
+        @game_results << { date: date, matches: temp.clone}
+        temp = Array.new
+        date += 1
+      end
     end
     
     #승패 결과 저장

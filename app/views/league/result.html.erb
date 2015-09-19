@@ -1,7 +1,6 @@
 <div class="wrapper wrapper-content">
     <div class="animated fadeInRightBig">
         <div class = "row">
-            
             <div class = "col-md-6">
                 <!--위에 작은 박스-->
                 <div class = "ibox">
@@ -9,6 +8,7 @@
                         <h3>매치</h3>
                     </div>
                     <div class = "ibox-content">
+                        <% @game_results.each do |result| %>
                         <div class = "row line">
                             <div class = "col-xs-2">
                                 <%=image_tag("doubleleft.png")%>
@@ -17,7 +17,7 @@
                                 <%=image_tag("left.png")%>
                             </div>
                             <div class = "col-xs-4 time">
-                                6일차-2015-8-31-금요일
+                                <%=result[:date]%>
                             </div>
                             <div class = "col-xs-2">
                                 <%=image_tag("right.png")%>
@@ -28,15 +28,16 @@
                         </div>
                         
                         <div class = "row result-line">
+                            <% result[:matches].each do |resultRow| %>
                             <div class = "col-xs-10 result-line-half">
                                 <div class = "col-xs-5 team-slot">
-                                    성하짱짱(박성하)
+                                    <%=resultRow[:team1][:name]%>(<%=resultRow[:team1][:coach]%>)
                                 </div>
                                 <div class = "col-xs-2 versus">
                                     vs
                                 </div>
                                 <div class = "col-xs-5 team-slot">
-                                    Juvvon(박주원)
+                                    <%=resultRow[:team2][:name]%>(<%=resultRow[:team2][:coach]%>)
                                 </div>
                             </div>
                             <div class = "col-xs-2">
@@ -44,7 +45,12 @@
                                     보기
                                 </button>
                             </div>
+                            <% end %>
                         </div>
+                        <% end %>
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -116,12 +122,11 @@
                 
             </div>
         </div>
+        
+        <div class = "row">
+            {{gameDate}}
+        </div>
     </div>
-    
-    
-    
-    
-    
 </div>
 
 <script>
