@@ -4,7 +4,7 @@ gem 'json'
 gem 'devise'
 gem 'flipclockjs-rails'
 gem 'jquery-rails'
-
+gem 'time_diff', '~> 0.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 gem 'bootstrap-sass', '~> 3.3.5'
