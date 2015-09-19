@@ -343,19 +343,15 @@ class LeagueController < ApplicationController
       team1 = Team.find(game.team1)
       team2 = Team.find(game.team2)
       
-      result1 = team1.results.find_by_game_date(date)
-      result2 = team2.results.find_by_game_date(date)
-      
       temp << { team1: {name: team1.name, coach: team1.user.username, id: team1.id}, 
                                     team2: {name: team2.name, coach: team2.user.username, id: team2.id}}
       
       if count % 2 == 0
         @game_results << { date: date, matches: temp.clone}
         temp = Array.new
+        date += 1
       end
     end
-    
-    
     
     #승패 결과 저장
 
