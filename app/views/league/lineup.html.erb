@@ -255,6 +255,11 @@
                     $scope.getPositionClassName = function(){
                         return _position.getClassName($scope.player.positionId);
                     }
+                    
+                    $scope.getTeamClassName = function(_teamId){
+                        var teamName = ["hanwha","sk","kia","samsung","nc","doosan","lg","lotte","nexen","kt"];
+                        return teamName[_teamId-1];
+                    }
                 },
                 link:function(_scope, _element, _attrs, _poistionViewController){
                     
@@ -398,21 +403,21 @@
                                         sb:1,
                                         err:1
                                     }},
-                                    {id:2, starting:true, name: '아두치', positionId:2, teamId:2,stats:{
+                                    {id:2, starting:true, name: '아두치', positionId:2, teamId:8,stats:{
                                         avg:0.333,
                                         hr:2,
                                         rbi:3,
                                         sb:1,
                                         err:1
                                     }},
-                                    {id:3, starting:true, name: '이명기', positionId:3, teamId:3,stats:{
+                                    {id:3, starting:true, name: '이명기', positionId:3, teamId:2,stats:{
                                         avg:0.333,
                                         hr:2,
                                         rbi:3,
                                         sb:1,
                                         err:1
                                     }},
-                                    {id:4, starting:true, name: '황재균', positionId:6, teamId:4,stats:{
+                                    {id:4, starting:true, name: '황재균', positionId:6, teamId:8,stats:{
                                         avg:0.333,
                                         hr:2,
                                         rbi:3,
@@ -420,21 +425,21 @@
                                         err:1
                                     }},
                                     
-                                    {id:5, starting:true, name: '김상수', positionId:4, teamId:5,stats:{
+                                    {id:5, starting:true, name: '김상수', positionId:4, teamId:4,stats:{
                                         avg:0.333,
                                         hr:2,
                                         rbi:3,
                                         sb:1,
                                         err:1
                                     }},
-                                    {id:6, starting:true, name: '나바로', positionId:5, teamId:6,stats:{
+                                    {id:6, starting:true, name: '나바로', positionId:5, teamId:4,stats:{
                                         avg:0.333,
                                         hr:2,
                                         rbi:3,
                                         sb:1,
                                         err:1
                                     }},
-                                    {id:7, starting:true, name: '김태균', positionId:7, teamId:7,stats:{
+                                    {id:7, starting:true, name: '김태균', positionId:7, teamId:1,stats:{
                                         avg:0.333,
                                         hr:2,
                                         rbi:3,
@@ -449,14 +454,14 @@
                                         err:1
                                     }},
                                     
-                                    {id:9, starting:true, name: '이승엽', positionId:9, teamId:9,stats:{
+                                    {id:9, starting:true, name: '이승엽', positionId:9, teamId:4,stats:{
                                         avg:0.333,
                                         hr:2,
                                         rbi:3,
                                         sb:1,
                                         err:1
                                     }},
-                                    {id:10, starting:false, name: '최형우', positionId:1, teamId:1,stats:{
+                                    {id:10, starting:false, name: '최형우', positionId:1, teamId:4,stats:{
                                         avg:0.333,
                                         hr:2,
                                         rbi:3,
@@ -471,7 +476,7 @@
                                         err:1
                                     }},
                                     
-                                    {id:12, starting:false,isSpecial: false,name: '채병용', positionId:10, teamId:3,stats:{
+                                    {id:12, starting:false,isSpecial: false,name: '채병용', positionId:10, teamId:2,stats:{
                                         win:3,
                                         era:3.44,
                                         so:10,
@@ -479,28 +484,28 @@
                                         save:0
                                     }},
                                     
-                                    {id:13, starting:false,isSpecial: false, name: '권혁', positionId:11, teamId:4,stats:{
+                                    {id:13, starting:false,isSpecial: false, name: '권혁', positionId:11, teamId:1,stats:{
                                         win:3,
                                         era:3.44,
                                         so:10,
                                         hold:1,
                                         save:0
                                     }},
-                                    {id:14, starting:true, isSpecial: false, name: '레일리', positionId:10, teamId:5,stats:{
+                                    {id:14, starting:true, isSpecial: false, name: '레일리', positionId:10, teamId:8,stats:{
                                         win:3,
                                         era:3.44,
                                         so:10,
                                         hold:1,
                                         save:0
                                     }},
-                                    {id:15, starting:true, isSpecial: false, name: '로저스', positionId:10, teamId:6,stats:{
+                                    {id:15, starting:true, isSpecial: false, name: '로저스', positionId:10, teamId:1,stats:{
                                         win:3,
                                         era:3.44,
                                         so:10,
                                         hold:1,
                                         save:0
                                     }},
-                                    {id:16, starting:true, isSpecial: false, name: '정우람', positionId:11, teamId:7,stats:{
+                                    {id:16, starting:true, isSpecial: false, name: '정우람', positionId:11, teamId:2,stats:{
                                         win:3,
                                         era:3.44,
                                         so:10,
@@ -508,21 +513,21 @@
                                         save:0
                                     }},
                                     
-                                    {id:17, starting:true, isSpecial: false, name: '임창용', positionId:11, teamId:8,stats:{
+                                    {id:17, starting:true, isSpecial: false, name: '임창용', positionId:11, teamId:4,stats:{
                                         win:3,
                                         era:3.44,
                                         so:10,
                                         hold:1,
                                         save:0
                                     }},
-                                    {id:18, starting:true, isSpecial: true, name: '윤규진', positionId:11, teamId:9,stats:{
+                                    {id:18, starting:true, isSpecial: true, name: '윤규진', positionId:11, teamId:1,stats:{
                                         win:3,
                                         era:3.44,
                                         so:10,
                                         hold:1,
                                         save:0
                                     }},
-                                    {id:19, starting:true, isSpecial: true, name: '김광현', positionId:10, teamId:1,stats:{
+                                    {id:19, starting:true, isSpecial: true, name: '김광현', positionId:10, teamId:2,stats:{
                                         win:3,
                                         era:3.44,
                                         so:10,
