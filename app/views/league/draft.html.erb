@@ -327,7 +327,13 @@
                     .success(function(_data, _status, _headers, _config){
                         if(_data == 'draft done!'){
                             $scope.draftDone = true;
-                            return;
+                            $http({
+                                method: 'POST',
+                                url:'/proc/draftEnd',
+                                data: {
+                                    room_id:<%=params[:id]%>
+                                }
+                            })
                         }
                         var index = $scope.teams.indexOfId(_data.team_id);
                         $scope.draftResults[_data.round-1][index] = {teamId: _data.team_id, playerId: _data.player_id};

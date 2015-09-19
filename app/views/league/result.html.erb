@@ -26,6 +26,7 @@
                                 <%=image_tag("doubleright.png")%>
                             </div>
                         </div>
+                        
                         <div class = "row result-line">
                             <div class = "col-xs-10 result-line-half">
                                 <div class = "col-xs-5 team-slot">
@@ -117,3 +118,26 @@
         </div>
     </div>
 </div>
+
+<script>
+    angular.module("app",["scoreboard"])
+        .controller('AppController',['$http',function($http){
+            $http({
+                method: 'POST'
+            })
+        }]);
+            
+    angular.module("scoreboard",["scoreboard.filters",
+                                "scoreboard.directives",
+                                "scoreboard.controllers",
+                                "scoreboard.services"]);
+    
+    angular.module("scoreboard.filters",[]);
+    angular.module("scoreboard.directives",[]);
+    angular.module("scoreboard.controllers",[])
+        .controller("ScoreboardController",['$scope',function($scope){
+            
+        }]);
+    angular.module("scoreboard.services",[])
+        .factory();
+</script>
