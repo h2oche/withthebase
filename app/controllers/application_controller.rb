@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
   
+  
   protected
   
   def configure_devise_permitted_parameters
@@ -20,4 +21,14 @@ class ApplicationController < ActionController::Base
       }
     end
   end
+  
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to new_user_session_path
+    end
+  end
+  
+  
 end

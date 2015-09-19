@@ -1,6 +1,10 @@
 class LeagueController < ApplicationController
+  
+  before_filter :authenticate_user!
+  
   def dashboard
-    redirect_to '/users/sign_in' unless user_signed_in? 
+    
+    
     
     @teams_info = []
     @teams_classname = ["red-bg", "white-bg", "blue-bg"]
