@@ -515,3 +515,203 @@ player_29.pos = '유격'
 player_29.team = '넥센'
 player_29.war = 3.96
 player_29.save
+
+
+## new dummy
+
+
+player_29 = Player.new
+player_29.name = '추신수'
+player_29.pos = '외야'
+player_29.team = '한화'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = '이승엽'
+player_29.pos = '1루'
+player_29.team = '삼성'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = '이대호'
+player_29.pos = '3루'
+player_29.team = '롯데'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = '이병규'
+player_29.pos = '중견'
+player_29.team = '엘지'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = '김종호'
+player_29.pos = '1루'
+player_29.team = 'NC'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = ''
+player_29.pos = ''
+player_29.team = ''
+player_29.war = 1.00
+player_29.save
