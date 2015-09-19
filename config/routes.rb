@@ -25,6 +25,7 @@ Myapp::Application.routes.draw do
   
   post '/data/getPlayers', to: 'data#get_all_players'
   post '/data/getDraftTeams', to: 'data#get_draft_teams'
+  post '/data/getResults', to: 'data#get_result'
   post '/proc/draftRandomPick', to: 'proc#draft_random_pick'
   post '/proc/draftPick', to: 'proc#draft_pick'
   post '/proc/draftEnd', to: 'proc#draft_end'
