@@ -289,6 +289,35 @@ class AdminController < ApplicationController
         
     end
     
+    
+    ## MAKE GAME SCHEDULE FOR 4 TEAMS ##
+    
+    def make_game_4_teams league_id, date
+        
+        league = Room.find(league_id)
+        teams = league.teams
+        t1 = teams.First.id
+        t2 = teams.Second.id
+        t3 = teams.Third.id
+        t4 = teams.Fourth.id
+        
+        make_game(league_id, date, t1, t2)
+        make_game(league_id, date, t3, t4)
+        make_game(league_id, date+1, t1, t3)
+        make_game(league_id, date+1, t2, t4)
+        make_game(league_id, date+2, t1, t4)
+        make_game(league_id, date+2, t2, t3)
+        
+    end
+    
+    
+    
+    
+    
+    
+    
+    
+    
     def delete_game
         
         to_del = Game.find(params[:id])
@@ -423,6 +452,7 @@ class AdminController < ApplicationController
         result.save
         
     end
+    
     
 end
 

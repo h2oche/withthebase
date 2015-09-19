@@ -14,6 +14,8 @@ class CreateResults < ActiveRecord::Migration
       t.integer :homerun
       t.integer :steal
       t.integer :error
+      
+      t.date :game_date
 
       t.timestamps null: false
     end
