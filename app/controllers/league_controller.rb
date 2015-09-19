@@ -9,7 +9,7 @@ class LeagueController < ApplicationController
     
     @teams_info = []
     @teams_classname = ["red-bg", "white-bg", "blue-bg"]
-    @teams_emblem = ["club_logo/NC.png", "club_logo/SK.png","club_logo/Kia.png","club_logo/lg.png","club_logo/lotte.png","club_logo/nexen.png","club_logo/samsung.png","club_logo/hanhwa.png","club_logo/doosan.png"]
+    @teams_emblem = ["club_logo3/kia.png", "club_logo3/future.png","club_logo3/future.png","club_logo3/samsung.png","club_logo3/doosan.png"]
     @teams_emblem_random = @teams_emblem.sample(3)
     User.find(current_user.id).teams.each do |t|
       room = Room.find(t.room_id)
