@@ -520,33 +520,33 @@ player_29.save
 ## new dummy
 
 
-player_29 = Player.new
-player_29.name = '추신수'
-player_29.pos = '외야'
-player_29.team = '한화'
-player_29.war = 1.00
-player_29.save
+player_30 = Player.new
+player_30.name = '추신수'
+player_30.pos = '외야'
+player_30.team = '한화'
+player_30.war = 1.00
+player_30.save
 
-player_29 = Player.new
-player_29.name = '이승엽'
-player_29.pos = '1루'
-player_29.team = '삼성'
-player_29.war = 1.00
-player_29.save
+player_31 = Player.new
+player_31.name = '이승엽'
+player_31.pos = '1루'
+player_31.team = '삼성'
+player_31.war = 1.00
+player_31.save
 
-player_29 = Player.new
-player_29.name = '이대호'
-player_29.pos = '3루'
-player_29.team = '롯데'
-player_29.war = 1.00
-player_29.save
+player_32 = Player.new
+player_32.name = '이대호'
+player_32.pos = '3루'
+player_32.team = '롯데'
+player_32.war = 1.00
+player_32.save
 
-player_29 = Player.new
-player_29.name = '이병규'
-player_29.pos = '중견'
-player_29.team = '엘지'
-player_29.war = 1.00
-player_29.save
+player_33 = Player.new
+player_33.name = '이병규'
+player_33.pos = '중견'
+player_33.team = '엘지'
+player_33.war = 1.00
+player_33.save
 
 player_29 = Player.new
 player_29.name = '김종호'
@@ -556,162 +556,499 @@ player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '박민우'
+player_29.pos = '좌익'
+player_29.team = 'NC'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '최정'
+player_29.pos = '우익'
+player_29.team = 'SK'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '황재균'
+player_29.pos = '포수'
+player_29.team = '롯데'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '김재호'
+player_29.pos = '포수'
+player_29.team = '두산'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '오지환'
+player_29.pos = '포수'
+player_29.team = 'LG'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '김주찬'
+player_29.pos = '포수'
+player_29.team = 'KIA'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '이택근'
+player_29.pos = '1루'
+player_29.team = '넥센'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '민병헌'
+player_29.pos = '1루'
+player_29.team = '두산'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '김민성'
+player_29.pos = '1루'
+player_29.team = '넥센'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '박용택'
+player_29.pos = '2루'
+player_29.team = 'LG'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '댄블랙'
+player_29.pos = '2루'
+player_29.team = 'kt'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '이호준'
+player_29.pos = '2루'
+player_29.team = 'NC'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '윤석민'
+player_29.pos = '3루'
+player_29.team = '넥센'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '브라운'
+player_29.pos = '3루'
+player_29.team = '넥센'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '서건창'
+player_29.pos = '3루'
+player_29.team = '넥센'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '채태인'
+player_29.pos = '3루'
+player_29.team = '삼성'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '김상수'
+player_29.pos = '우익'
+player_29.team = '삼성'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '박동원'
+player_29.pos = '우익'
+player_29.team = '넥센'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '박한이'
+player_29.pos = '우익'
+player_29.team = '삼성'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '이재원'
+player_29.pos = '좌익'
+player_29.team = 'SK'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '김원섭'
+player_29.pos = '좌익'
+player_29.team = 'KIA'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '박해민'
+player_29.pos = '좌익'
+player_29.team = '삼성'
 player_29.war = 1.00
 player_29.save
 
 player_29 = Player.new
-player_29.name = ''
-player_29.pos = ''
-player_29.team = ''
+player_29.name = '이대형'
+player_29.pos = '중견'
+player_29.team = 'NC'
 player_29.war = 1.00
 player_29.save
+
+player_29 = Player.new
+player_29.name = '장성우'
+player_29.pos = '중견'
+player_29.team = 'kt'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = '고종욱'
+player_29.pos = '중견'
+player_29.team = '넥센'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = '이대형'
+player_29.pos = '중견'
+player_29.team = 'NC'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = '이대형'
+player_29.pos = '중견'
+player_29.team = 'NC'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = '이대형'
+player_29.pos = '중견'
+player_29.team = 'NC'
+player_29.war = 1.00
+player_29.save
+
+player_29 = Player.new
+player_29.name = '이대형'
+player_29.pos = '중견'
+player_29.team = 'NC'
+player_29.war = 1.00
+player_29.save
+
+p_1 = Player.new
+p_1.name = '피가로'
+p_1.pos = '선발'
+p_1.team = '삼성'
+p_1.war = 1.00
+p_1.save
+
+p_2 = Player.new
+p_2.name = '정우람'
+p_2.pos = '구원'
+p_2.team = 'SK'
+p_2.war = 1.00
+p_2.save
+
+p_3 = Player.new
+p_3.name = '루카스'
+p_3.pos = '선발'
+p_3.team = 'LG'
+p_3.war = 1.00
+p_3.save
+
+p_4 = Player.new
+p_4.name = '장시환'
+p_4.pos = '구원'
+p_4.team = 'kt'
+p_4.war = 1.00
+p_4.save
+
+p_5 = Player.new
+p_5.name = '박종훈'
+p_5.pos = '선발'
+p_5.team = 'SK'
+p_5.war = 1.00
+p_5.save
+
+p_6 = Player.new
+p_6.name = '옥스프'
+p_6.pos = '구원'
+p_6.team = 'kt'
+p_6.war = 1.00
+p_6.save
+
+p_7 = Player.new
+p_7.name = '한현희'
+p_7.pos = '선발'
+p_7.team = '넥센'
+p_7.war = 1.00
+p_7.save
+
+p_8 = Player.new
+p_8.name = '로저스'
+p_8.pos = '구원'
+p_8.team = '한화'
+p_8.war = 1.00
+p_8.save
+
+p_9 = Player.new
+p_9.name = '클로이'
+p_9.pos = '선발'
+p_9.team = '삼성'
+p_9.war = 1.00
+p_9.save
+
+p_10 = Player.new
+p_10.name = '송승준'
+p_10.pos = '구원'
+p_10.team = '롯데'
+p_10.war = 1.00
+p_10.save
+
+p_11 = Player.new
+p_11.name = '탈보트'
+p_11.pos = '선발'
+p_11.team = '한화'
+p_11.war = 1.00
+p_11.save
+
+p_12 = Player.new
+p_12.name = '임창용'
+p_12.pos = '구원'
+p_12.team = '삼성'
+p_12.war = 1.00
+p_12.save
+
+p_13 = Player.new
+p_13.name = '심수창'
+p_13.pos = '선발'
+p_13.team = '롯데'
+p_13.war = 1.00
+p_13.save
+
+p_14 = Player.new
+p_14.name = '손민한'
+p_14.pos = '구원'
+p_14.team = 'NC'
+p_14.war = 1.00
+p_14.save
+
+p_15 = Player.new
+p_15.name = '윤석민'
+p_15.pos = '선발'
+p_15.team = 'KIA'
+p_15.war = 1.00
+p_15.save
+
+p_16 = Player.new
+p_16.name = '니퍼트'
+p_16.pos = '구원'
+p_16.team = '두산'
+p_16.war = 1.00
+p_16.save
+
+p_17 = Player.new
+p_17.name = '스틴슨'
+p_17.pos = '선발'
+p_17.team = 'KIA'
+p_17.war = 1.00
+p_17.save
+
+p_18 = Player.new
+p_18.name = '김재윤'
+p_18.pos = '구원'
+p_18.team = 'kt'
+p_18.war = 1.00
+p_18.save
+
+p_19 = Player.new
+p_19.name = '마야'
+p_19.pos = '선발'
+p_19.team = '두산'
+p_19.war = 1.00
+p_19.save
+
+p_20 = Player.new
+p_20.name = '조무근'
+p_20.pos = '구원'
+p_20.team = 'kt'
+p_20.war = 1.00
+p_20.save
+
+p_21 = Player.new
+p_21.name = '안지만'
+p_21.pos = '선발'
+p_21.team = '삼성'
+p_21.war = 1.00
+p_21.save
+
+p_22 = Player.new
+p_22.name = '스와잭'
+p_22.pos = '구원'
+p_22.team = '두산'
+p_22.war = 1.00
+p_22.save
+
+p_23 = Player.new
+p_23.name = '임창민'
+p_23.pos = '선발'
+p_23.team = 'NC'
+p_23.war = 1.00
+p_23.save
+
+p_24 = Player.new
+p_24.name = '밴와트'
+p_24.pos = '구원'
+p_24.team = 'SK'
+p_24.war = 1.00
+p_24.save
+
+p_25 = Player.new
+p_25.name = '임정우'
+p_25.pos = '선발'
+p_25.team = 'LG'
+p_25.war = 1.00
+p_25.save
+
+p_26 = Player.new
+p_26.name = '이태양'
+p_26.pos = '구원'
+p_26.team = 'NC'
+p_26.war = 1.00
+p_26.save
+
+p_27 = Player.new
+p_27.name = '임준혁'
+p_27.pos = '선발'
+p_27.team = 'KIA'
+p_27.war = 1.00
+p_27.save
+
+p_28 = Player.new
+p_28.name = '박정진'
+p_28.pos = '구원'
+p_28.team = '한화'
+p_28.war = 1.00
+p_28.save
+
+p_29 = Player.new
+p_29.name = '이동현'
+p_29.pos = '선발'
+p_29.team = 'LG'
+p_29.war = 1.00
+p_29.save
+
+p_30 = Player.new
+p_30.name = '윤지웅'
+p_30.pos = '구원'
+p_30.team = 'LG'
+p_30.war = 1.00
+p_30.save
+
+p_31 = Player.new
+p_31.name = '이재학'
+p_31.pos = '선발'
+p_31.team = 'NC'
+p_31.war = 1.00
+p_31.save
+
+p_32 = Player.new
+p_32.name = '유면'
+p_32.pos = '구원'
+p_32.team = '한화'
+p_32.war = 1.00
+p_32.save
+
+p_33 = Player.new
+p_33.name = '조상우'
+p_33.pos = '선발'
+p_33.team = '넥센'
+p_33.war = 1.00
+p_33.save
+
+p_34 = Player.new
+p_34.name = '류제국'
+p_34.pos = '구원'
+p_34.team = 'LG'
+p_34.war = 1.00
+p_34.save
+
+p_35 = Player.new
+p_35.name = '윤희상'
+p_35.pos = '선발'
+p_35.team = 'SK'
+p_35.war = 1.00
+p_35.save
+
+p_36 = Player.new
+p_36.name = '이현호'
+p_36.pos = '구원'
+p_36.team = '두산'
+p_36.war = 1.00
+p_36.save
+
+p_37 = Player.new
+p_37.name = '심창민'
+p_37.pos = '선발'
+p_37.team = '삼성'
+p_37.war = 1.00
+p_37.save
+
+p_38 = Player.new
+p_38.name = '김대우'
+p_38.pos = '구원'
+p_38.team = '넥센'
+p_38.war = 1.00
+p_38.save
+
+p_39 = Player.new
+p_39.name = '저마노'
+p_39.pos = '선발'
+p_39.team = 'kt'
+p_39.war = 1.00
+p_39.save
+
+p_40 = Player.new
+p_40.name = '함덕주'
+p_40.pos = '구원'
+p_40.team = '두산'
+p_40.war = 1.00
+p_40.save
+
+p_41 = Player.new
+p_41.name = '이현승'
+p_41.pos = '선발'
+p_41.team = '두산'
+p_41.war = 1.00
+p_41.save
+
+p_42 = Player.new
+p_42.name = '윤규진'
+p_42.pos = '구원'
+p_42.team = '한화'
+p_42.war = 1.00
+p_42.save
+
