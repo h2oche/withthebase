@@ -302,11 +302,12 @@ class LeagueController < ApplicationController
     
     
     ## 재서코드 ## START
-    room_id = Room.find(params[:id])
+    room_id = Room.find(params[:id]).id
     date = Date.today()
     put_draft_results_into_teams(room_id)                       ## DRAFT RESULT 적용
     make_new_schedule_for_4teams_3days(room_id, date)           ## SCHEDULE MAKER
     generate_data_all_player_3days(room_id, date)               ## RESULT GENERATOR
+    
     ## 재서코드 ## END
     
     
