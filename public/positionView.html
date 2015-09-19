@@ -2,7 +2,7 @@
     <div id="position-slot-mirror" class="position-slot" ng-hide="selectedSlotScope == null" style="transition:null;">
         <div class="position-slot-position">{{selectedPlayer.positionId | positionName}}</div>
         <div class="position-slot-name">{{selectedPlayer.name}}</div>
-        <div class="position-slot-team">{{selectedPlayer.teamId}}</div>
+        <div class="position-slot-team" ng-class="getTeamClassName(selectedPlayer.teamId)"></div>
     </div>
     
     <div class="row" style="display:table;">

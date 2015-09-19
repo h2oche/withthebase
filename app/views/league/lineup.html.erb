@@ -145,7 +145,10 @@
                         $scope.dragStart(_event);
                     };
                     
-                    
+                    $scope.getTeamClassName = function(_teamId){
+                        var teamName = ["hanwha","sk","kia","samsung","nc","doosan","lg","lotte","nexen","kt"];
+                        return teamName[_teamId-1];
+                    }
                 },
                 
                 link:function(_scope, _element, _attrs){
@@ -256,10 +259,7 @@
                         return _position.getClassName($scope.player.positionId);
                     }
                     
-                    $scope.getTeamClassName = function(_teamId){
-                        var teamName = ["hanwha","sk","kia","samsung","nc","doosan","lg","lotte","nexen","kt"];
-                        return teamName[_teamId-1];
-                    }
+                    
                 },
                 link:function(_scope, _element, _attrs, _poistionViewController){
                     

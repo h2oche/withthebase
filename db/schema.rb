@@ -139,6 +139,8 @@ ActiveRecord::Schema.define(version: 20150916123017) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "win"
+    t.integer  "lose"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1250,7 +1250,27 @@ div.trade-slot-team > img{
     padding: 0px 15px !important;
 }
 
+<<<<<<< HEAD
+.team1-result-bar {
+    text-align:right;
+}
+
+.team1-result-bar > span {
+    display:inline-block;
+    background-color:#f00;
+    height:25px;
+}
+
+.team2-result-bar > span {
+    display:inline-block;
+    background-color:#00f;
+    height:25px;
+}
+
+.trade > img{
+=======
 .capture > img{
+>>>>>>> 5412969ce12c755c43179269ab18acf6bf82403d
     width : 100%;
     margin-left : -15px;
 }
