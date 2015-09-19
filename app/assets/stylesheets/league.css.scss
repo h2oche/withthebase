@@ -372,10 +372,44 @@ div.position-slot-team {
 }
 
 div.position-slot-team.sk {
-    
-    
+    background-image: url(asset-path('구단로고/SK.png'));
 }
 
+div.position-slot-team.hanwha {
+    background-image: url(asset-path('구단로고/한화.png'));
+}
+
+div.position-slot-team.lg{
+    background-image: url(asset-path('구단로고/엘지.png'));
+}
+
+div.position-slot-team.kia {
+    background-image: url(asset-path('구단로고/기아.png'));
+}
+
+div.position-slot-team.samsung {
+    background-image: url(asset-path('구단로고/삼성.png'));
+}
+
+div.position-slot-team.kt{
+    background-image: url(asset-path('bird.png'));
+}
+
+div.position-slot-team.nexen {
+    background-image: url(asset-path('구단로고/넥센.png'));
+}
+
+div.position-slot-team.doosan {
+    background-image: url(asset-path('구단로고/두산.png'));
+}
+
+div.position-slot-team.lotte {
+    background-image: url(asset-path('구단로고/롯데.png'));
+}
+
+div.position-slot-team.nc {
+    background-image: url(asset-path('구단로고/NC.png'));
+}
 
 
 
