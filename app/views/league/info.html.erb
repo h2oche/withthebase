@@ -39,7 +39,7 @@
                                 </div>
                                 <div class = "line col-sm-10">
                                     <label class = "col-sm-6 name_div">참여 인원</label>
-                                    <strong class = "col-sm-6 name_div special">6/<%=@room.size_limit%> 팀 </strong>
+                                    <strong class = "col-sm-6 name_div special"><%=@room.teams.count %>/<%=@room.size_limit%> 팀 </strong>
                                 </div>
                             </div>
                             <!--드래프트 시작 or not-->

@@ -1,14 +1,54 @@
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center m-t-lg">
-                <h1>
-                    <%= @mainTitle %>
-                </h1>
-                <small>
-                    <%= @mainDesc %>
-                </small>
-            </div>
-        </div>
-    </div>
+<div class="bg-video">
+	<div style="width: 100%; height: 30%; display:block; z-index:-1;">
+		<div style="position:absolute; background-color:black; width:100%; height:auto; ">
+		</div>
+		<video controls muted autoplay loop style="display:block; z-index:-1;" >
+	  		<!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+			<source src="https://s3-ap-northeast-1.amazonaws.com/imagesforlecture/uploads/kbovideo.mp4" type="video/mp4">
+		</video>
+	</div>
+	<div id="titlea" style="display:block !important; position:absolute !important; top:25%; left:50%; transform:translate(-50%,-50%); text-align:center;">
+		<div style="font-size:50px; font-weight:900; margin-bottom: -30px; margin-left: -150px;">WITH THE</div>
+		<div style="font-size:80px; font-weight:900;">BASEBALL</div>
+	</div>
+	<div style="display:block !important; transform:translate(-50%,-50%); text-align:center;">
+		<div style="font-size:20px;">Fantasy Baseball Simulator</div>
+	</div>
+	<div id="gamestart" style="display:block !important; position:absolute !important; top:45%; left:50%; transform:translate(-50%,-50%); text-align:center;">
+		<button class="btn btn-primary btn-start" href="/users/sign_in" style="font-size:20px;"> 게임시작</button>
+	</div>
 </div>
+<section class="row" style="z-index=1000;">
+	<div class="indexcontainer">
+	    <div class="col-lg-12" style="padding-top:100px;">
+			<div class="col-sm-4">
+				<div class="col-lg-3" style="margin-bottom:20px;"><%= image_tag("draft.png", :class => "img-responsive")%></div>
+				<div class="col-lg-9">
+					<div style="text-align: left; margin-bottom:20px;"><h2 style="font-weight:600;">드래프트</h2></div>
+					<p style="text-align: left; font-size:15px; margin-bottom:30px;">
+	                박병호부터 양현종까지 내가 원하는 선수를 드래프트하여 나만의 팀을 구성해 보자.<br>
+	                총 19명의 선수를 드래프트하여 리그우승에 도전한다.
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="col-lg-3" style="margin-bottom:20px;"><%= image_tag("matching.jpg", :class => "img-responsive")%></div>
+				<div class="col-lg-9">
+					<div style="text-align: left; margin-bottom:20px;"><h2 style="font-weight:600;">매칭 시스템</h2></div>
+					<p style="text-align: left; font-size:15px; margin-bottom:30px;">
+	                리그내에서 1:1 매칭을 통해 상대팀과 9개의 항목을 경쟁하여 승리를 쟁취해보자.
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="col-lg-3" style="margin-bottom:20px;"><%= image_tag("interleague.jpg", :class => "img-responsive")%></div>
+				<div class="col-lg-9">
+					<div style="text-align: left; margin-bottom:20px;"><h2 style="font-weight:600;">인터리그</h2></div>
+					<p style="text-align: left; font-size:15px; margin-bottom:30px;">
+	                리그내부의 경기에 지친 당신에게 리그 간 교류를 통해 다양한 유저들과의 매치를 즐길수있다.
+					</p>
+				</div>
+			</div>
+	    </div>
+    </div>
+</section>

@@ -76,46 +76,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>장섭 독수리 (오장섭)</td>
-                                <td>4</td>
-                                <td>3</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0.750</td>
-                            </tr>
-                            <tr>
-                                <td>장섭 독수리 (오장섭)</td>
-                                <td>4</td>
-                                <td>3</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0.750</td>
-                            </tr>
-                            <tr>
-                                <td>장섭 독수리 (오장섭)</td>
-                                <td>4</td>
-                                <td>3</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0.750</td>
-                            </tr>
-                            <tr>
-                                <td>장섭 독수리 (오장섭)</td>
-                                <td>4</td>
-                                <td>3</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0.750</td>
-                            </tr>
-                            <tr>
-                                <td>장섭 독수리 (오장섭)</td>
-                                <td>4</td>
-                                <td>3</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0.750</td>
-                            </tr>
+                            <% @teams.each do |t| %>
+                                <tr>
+                                    <td>t.name(t.user.username)</td>
+                                    <td>3</td>
+                                    <td></td>
+                                    <td>0</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            <% end %>
                             </tbody>
                         </table>
 
@@ -188,6 +158,22 @@
                                 <td>세이브+홀드</td>
                                 <td>{{team2.savehold}}</td>
                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <div ng-repeat="s in showed track by $index" class="team2-result-bar bar-{{$index}}"  ng-hide="!s">
+                        <span wtb-bar="{{team2Result[$index]}}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4" style="text-align:right;">
+                    <span ng-repeat="list in team1WinList"><a href="#" class="btn btn-primary">{{list}}</a></span>
+                </div>
+                <div class="col-md-4">
+                    <table class="table">
+                        <tbody>
                             <tr>
                                 <td>{{team1WinCount}}</td>
                                 <td>총합</td>
@@ -197,9 +183,7 @@
                     </table>
                 </div>
                 <div class="col-md-4">
-                    <div ng-repeat="s in showed track by $index" class="team2-result-bar bar-{{$index}}"  ng-hide="!s">
-                        <span wtb-bar="{{team2Result[$index]}}"></span>
-                    </div>
+                    <span ng-repeat="list in team2WinList"><a href="#" class="btn btn-primary">{{list}}</a></span>
                 </div>
             </div>
         </div>
@@ -225,7 +209,13 @@
             $scope.showBarGraph = function(){
                 console.log($scope.showedIndex);
                 if( $scope.showedIndex > 8) return;
-                console.log('asdfasdf');
+                
+                if( $scope.team1Result[$scope.showedIndex] > $scope.team2Result[$scope.showedIndex] ) {
+                    $scope.team1WinList.push($scope.resultNames[$scope.showedIndex]);
+                }
+                else if( $scope.team1Result[$scope.showedIndex] < $scope.team2Result[$scope.showedIndex]) {
+                    $scope.team2WinList.push($scope.resultNames[$scope.showedIndex]);
+                }
                 
                 $scope.showed[$scope.showedIndex] = true;
                 
@@ -243,7 +233,7 @@
             
             $scope.loadResultTable = function(_team1Id, _team1Name, _team2Id, _team2Name, _date){
                 $scope.showed = [false,false,false,false,false,false,false,false,false];
-                
+                $scope.resultNames = ["타율","홈런","타점","도루","실책","에러","승리","평자","삼진","세홀"]
                 
                 $http({
                     method:'POST',
@@ -267,19 +257,25 @@
                                             _data[1].error, _data[1].win, _data[1].era, _data[1].strikeout,
                                             _data[1].savehold];
                     
+                    
+                    
                     $scope.team1WinCount = 0;
                     $scope.team2WinCount = 0;
                     $scope.drawCount = 0;
+                    $scope.team1WinList = [];
+                    $scope.team2WinList = [];
                     
                     for(var i = 0 ; i < $scope.team1Result.length ; i += 1) {
                         if( $scope.team1Result[i] > $scope.team2Result[i] ) {
                             $scope.team1WinCount += 1;
+                            
                         }
                         else if( $scope.team1Result[i] == $scope.team2Result[i] ) {
                             $scope.drawCount += 1;
                         }
                         else {
                             $scope.team2WinCount += 1;
+                            
                         }
                     }
                     

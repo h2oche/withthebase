@@ -2,7 +2,7 @@
     <div id="position-slot-mirror" class="position-slot" ng-hide="selectedSlotScope == null" style="transition:null;">
         <div class="position-slot-position">{{selectedPlayer.positionId | positionName}}</div>
         <div class="position-slot-name">{{selectedPlayer.name}}</div>
-        <div class="position-slot-team">{{selectedPlayer.teamId}}</div>
+        <div class="position-slot-team" ng-class="getTeamClassName(selectedPlayer.teamId)"></div>
     </div>
     
     <div class="row" style="display:table;">
@@ -60,15 +60,12 @@
                 <div class="col-md-4 team_fixed_height_1">
 
                     <img src="https://s3-ap-northeast-1.amazonaws.com/ahnmac/uploads/ahnmac/image_file/1/yank.gif"
-                    style = "width : 100%">
+                    style = "width : 200%; margin-left : -10px" >
                     </img>
-
-                    <img alt="image" src="https://withthebase-dokkodev-1.c9.io/assets/profile_small2.png" height="74" width="60"/>
-
                 </div>
                 <div class="col-md-8 team_fixed_height_2 team_font">
-                    <p><span>오장섭 감독</span>의</p> <br>
-                    <p><span>장섭독수리</span>팀</p>
+                    <p><span style = "font-size:120%">오장섭 감독</span>의</p> <br>
+                    <p><span style = "font-size:140%">장섭독수리</span>팀</p>
                 </div>
                 
             </div>

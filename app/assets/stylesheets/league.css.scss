@@ -678,7 +678,7 @@ div#position-field > div.position-slot.designated {
 
 .team_font span{
     
-    font-size: 20px !important;
+    font-size: 20px;
     font-weight: bold !important;
 }
 
@@ -1250,7 +1250,6 @@ div.trade-slot-team > img{
     padding: 0px 15px !important;
 }
 
-
 .team1-result-bar {
     text-align:right;
 }
@@ -1265,4 +1264,9 @@ div.trade-slot-team > img{
     display:inline-block;
     background-color:#00f;
     height:25px;
+}
+
+.trade > img{
+    width : 100%;
+    margin-left : -15px;
 }

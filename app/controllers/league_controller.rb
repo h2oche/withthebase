@@ -1,6 +1,10 @@
 class LeagueController < ApplicationController
+  
+  before_filter :authenticate_user!
+  
   def dashboard
-    redirect_to '/users/sign_in' unless user_signed_in? 
+    
+    
     
     @teams_info = []
     @teams_classname = ["red-bg", "white-bg", "blue-bg"]
@@ -332,7 +336,10 @@ class LeagueController < ApplicationController
     
     count = 0
     @game_results = Array.new
+    @teams = Room.find(params[:id]).teams
     temp = Array.new
+    
+    parts = [:bat_avg, :rbi, :homerun, :steal, :error, :win, :era, :strikeout, :savehold]
     
     #해당 리그에 있는 스케쥴 모두 로드
     Room.find(params[:id]).games.each do |game|
@@ -342,6 +349,9 @@ class LeagueController < ApplicationController
       
       team1 = Team.find(game.team1)
       team2 = Team.find(game.team2)
+      
+      result1 = team1.results.find_by_game_date(date)
+      result2 = team2.results.find_by_game_date(date)
       
       temp << { team1: {name: team1.name, coach: team1.user.username, id: team1.id}, 
                                     team2: {name: team2.name, coach: team2.user.username, id: team2.id}}
