@@ -57,6 +57,23 @@ class LeagueController < ApplicationController
   
   def result
     redirect_to '/users/sign_in' unless user_signed_in?
+    #redirect_to '/leagues/'+params[:id]+'/info' unless Room.find(params[:id]).draft.is_complete
+    
+    new_game = Game.new
+    new_game.room_id = room
+    new_game.game_date = date
+    new_game.team1 = t1
+    new_game.team2 = t2
+    new_game.result = result
+    new_game.save
+    
+    #해당 리그에 있는 스케쥴 모두 로드
+    Room.find(params[:id]).games.each do |game|
+      #스케줄에 해당하는 매치 진행
+      
+    end
+    
+    #승패 결과 저장
   end
   
   def get_rooms _user_id
