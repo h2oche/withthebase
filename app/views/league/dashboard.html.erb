@@ -1,3 +1,4 @@
+
 <div class="wrapper wrapper-content">
     <div class="animated fadeInRightBig">
         <div class = "row" id = "total">
@@ -22,10 +23,20 @@
                             <p><strong> 드래프트까지 10일 남았습니다.</strong></p>
                             <br>
                             <br>
-                            <p>모드 : 리그매치</p>
-                            <p>리그 기간 : 2주</p>
-                            <p>드래프트 : 시작전</p>
-                            <p>드래프트 일시 : 2015년 9월 10일 20시</p>
+                            <p>모드 : 
+                            <% if team_info[:is_classic_mode] %>
+                            클래식
+                            <% else %>
+                            리그 매치
+                            <% end %></p>
+                            <p>리그 기간 : <%=team_info[:period]%>주</p>
+                            <p>드래프트 : 
+                            <% if team_info[:is_complete] %>
+                            완료
+                            <% else %>
+                            시작전
+                            <% end %></p>
+                            <p>드래프트 일시 : <%=team_info[:draft_time].strftime("%F")%></p>
                         </div>
                     </div>
                 </div>
@@ -104,7 +115,7 @@
                             </td>
                             <td><%=room[:admin]%></td>
                             <td><%=room[:roomname]%></td>
-                            <td class="center"><%=room[:draft_time]%></td>
+                            <td class="center"><%=room[:draft_time].strftime("%F %H:%M")%></td>
                             <td class="center">3/<%=room[:size_limit]%></td>
                             <td class="center">
                                 <% unless room[:is_classic_mode] %>

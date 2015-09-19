@@ -1,19 +1,23 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
-            <li class="nav-header">
-                <div class="dropdown profile-element">
+            <li class="nav-header" style = "background-color : #243544">
+                <div class="dropdown profile-element" style = "text-align : center;">
                     
                     <span>
-                        <img alt="image" class="img-circle" src="<%= image_url 'profile_small2.png' %>"/>
+                        <%= image_tag('yank.gif', class: "img-circle") %>
                     </span>                    
                     
                     
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <strong class="font-bold">윗더베 리그</strong>
-                            </span> <span class="text-muted text-xs block">장섭독수리 팀<b class="caret"></b></span>
+                                <strong class="font-bold" style = "font-size : 130%">
+                                    <%=@room.name%> 
+                                </strong>
+                            </span> <span class="text-muted text-xs block" style = "font-size : 120%">
+                                <%=@my_team.take.name%> 팀
+                            </span>
                         </span>
                     </a>
                     
@@ -58,8 +62,8 @@
                 <a href="/league/<%=params[:id]%>/result">
                     <i class="fa fa-file-text-o"></i><span class="nav-label">결과</span></a>
             </li>
-            <li class="<%= is_active_action('result') %>">
-                <a href="/league/<%=params[:id]%>/result">
+            <li class="<%= is_active_action('interleague') %>">
+                <a href="/league/<%=params[:id]%>/interleague">
                     <i class="fa fa-sitemap"></i><span class="nav-label">인터리그</span></a>
             </li>
         </ul>
