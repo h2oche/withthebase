@@ -1,7 +1,7 @@
 <div class="wrapper wrapper-content">
     <div class="animated fadeInRightBig">
         <div class = "row">
-            
+            test<%=@game_results%>
             <div class = "col-md-6">
                 <!--위에 작은 박스-->
                 <div class = "ibox">
@@ -9,6 +9,7 @@
                         <h3>매치</h3>
                     </div>
                     <div class = "ibox-content">
+                        <% @game_results.each do |result| %>
                         <div class = "row line">
                             <div class = "col-xs-2">
                                 <%=image_tag("doubleleft.png")%>
@@ -28,6 +29,9 @@
                         </div>
                         
                         <div class = "row result-line">
+                            
+                            
+                            <% end %>
                             <div class = "col-xs-10 result-line-half">
                                 <div class = "col-xs-5 team-slot">
                                     성하짱짱(박성하)
