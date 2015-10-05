@@ -38,7 +38,8 @@ class LeagueController < ApplicationController
     room_id = params[:id]
     @room = Room.find(room_id)
     @my_team = @room.teams.where(:user_id => current_user.id)
-    @teams = @room.teams
+    @teams = @room.teams.first(2)
+    @team_auto = @room.teams.third
     @team_last = @teams.last
   end
 

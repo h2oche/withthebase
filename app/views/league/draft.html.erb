@@ -43,19 +43,19 @@
                 </div>
                 <div class = "col-md-12 border-box">
                     <div class = "ordering" id = "ordering1">
-                        <select class="form-control" ng-model="playerFilter.pos" >
+                        <select class="form-control" ng-model="posFilterValue">
                             <option value="0">모든 포지션</option>
                             <option ng-repeat="pos in positions" value="{{pos}}">{{pos}}</option>
                         </select>
                     </div>
                     <div class = "ordering" id = "ordering2">
-                        <select class="form-control" ng-model="playerFilter.team">
+                        <select class="form-control" ng-model="teamFilterValue">
                             <option value="0">모든 팀</option>
                             <option ng-repeat="rteam in realTeams" value="{{rteam}}">{{rteam}}</option>
                         </select>
                     </div>
                     <div class = "ordering" id = "ordering3">
-                        <select class="form-control" ng-model="playerFilter.stat" >
+                        <select class="form-control" ng-model="statFilterValue" >
                             <option value="0">전체</option>
                             <option ng-repeat="stat in stats" value="{{stat}}">{{stat}}</option>
                         </select>
@@ -105,7 +105,7 @@
                     <div class = "row">
                         <div class="col-md-12">
                             페이지당 선수 수 : 
-                            <select class="form-control" style="display:inline-block; width:30%;" ng-model="playerFilter.displayCount" ng-init="playerFilter.displayCount = 5">
+                            <select class="form-control" style="display:inline-block; width:30%;" ng-model="displayCount">
                                 <option value="5">5</option>
                                 <option value="6">6</option>
                                 <option value="7">7</option>
@@ -155,7 +155,7 @@
                 <button class="btn btn-danger" style="margin:7px;" ng-hide="!isAutopickOn" ng-click="isAutopickOn=false">오토픽 끄기</button>
                 <button class="btn btn-success" style="margin:7px;" ng-hide="isAutopickOn" ng-click="isAutopickOn=true">오토픽 켜기</button>
                 <div class="border-box">
-                    <div id="autopick-container border-box" style="clear:both;">
+                    <div class="autopick-container" style="clear:both;">
                         <div ng-repeat="player in autopickPlayers" class="autopick-player-container">
                             <span class="autopick-player-pos">{{player.pos}}</span>
                             <span class="autopick-player-name">{{player.name}}</span>
@@ -246,6 +246,10 @@
     };
     
     angular.module('app',['draft']).controller('AppController',['$scope', '$http','$timeout','$interval',function($scope, $http, $timeout, $interval){
+            $scope.displayCount = "5";
+            $scope.posFilterValue = "0";
+            $scope.teamFilterValue = "0";
+            $scope.statFilterValue = "0";
             
             $scope.getPickButtonClass = function(_index) {
                 var buttonClasses = ["btn-default","btn-warning","btn-primary"];
@@ -569,8 +573,8 @@
                     var posFilter = true;
                     var teamFilter = true;
                     
-                    var posNorm = $scope.playerFilter.pos;
-                    var teamNorm = $scope.playerFilter.team;
+                    var posNorm = $scope.posFilterValue;
+                    var teamNorm = $scope.teamFilterValue;
                     
                     //pos filter
                     if( posNorm != null ) {
@@ -597,7 +601,7 @@
                 
                 indexFilter:function(_playerObj, _index){
                     var indexFilter = true;
-                    var displayCount = $scope.playerFilter.displayCount;
+                    var displayCount = $scope.displayCount;
                     var currentPage = $scope.playerFilter.currentPage - 1;
                     
                     //index filter
@@ -642,6 +646,7 @@
             .success(function(_data, _status, _headers, _config){
                 if( _data ) {
                     $scope.players = _data;
+                    $scope.autopickPlayers = _data.slice(0,14);
                 }
                 else {
                     console.log('error!')
