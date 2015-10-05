@@ -106,7 +106,11 @@
             </div>
             <div class="col-md-12">
                 <div class="col-md-4">
-                    <div ng-repeat="s in showed track by $index" class="team1-result-bar bar-{{$index}}" ng-hide="!s"><span></span></div>
+                    <div class = "bar-container">
+                        <div ng-repeat="s in showed track by $index" class="team1-result-bar bar-{{$index}}" ng-hide="!s">
+                            <span></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <table class="table">
@@ -162,11 +166,14 @@
                     </table>
                 </div>
                 <div class="col-md-4">
-                    <div ng-repeat="s in showed track by $index" class="team2-result-bar bar-{{$index}}"  ng-hide="!s">
-                        <span wtb-bar="{{team2Result[$index]}}"></span>
+                    <div class = "bar-container">
+                        <div ng-repeat="s in showed track by $index" class="team2-result-bar bar-{{$index}}"  ng-hide="!s">
+                            <span wtb-bar="{{team2Result[$index]}}"></span>
+                        </div>
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-12">
                 <div class="col-md-4" style="text-align:right;">
                     <span ng-repeat="list in team1WinList"><a href="#" class="btn btn-primary">{{list}}</a></span>

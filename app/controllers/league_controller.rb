@@ -9,7 +9,7 @@ class LeagueController < ApplicationController
     
     @teams_info = []
     @teams_classname = ["red-bg", "white-bg", "blue-bg"]
-    @teams_emblem = ["club_logo/NC.png", "club_logo/SK.png","club_logo/Kia.png","club_logo/lg.png","club_logo/lotte.png","club_logo/nexen.png","club_logo/samsung.png","club_logo/hanhwa.png","club_logo/doosan.png"]
+    @teams_emblem = ["logo/SK.png", "logo/emblem.png","logo/future.png","logo/samsung.png","logo/doosan.png","logo/lotte_emblem.png"]
     @teams_emblem_random = @teams_emblem.sample(3)
     User.find(current_user.id).teams.each do |t|
       room = Room.find(t.room_id)
@@ -28,7 +28,7 @@ class LeagueController < ApplicationController
       #현재 이 room 에 몇명의 유저가 있는지 체크
       username = User.find(room.admin_id).username
       @rooms_info << {admin: username, roomname: room.name, draft_time: room.draft_time,
-                      size_limit: room.size_limit, is_classic_mode: room.is_classic_mode, is_public_mode: room.is_public_mode, room_id: room.id}
+                      size_limit: room.size_limit, is_classic_mode: room.is_classic_mode, is_public_mode: room.is_public_mode, room_id: room.id, room_count: room.teams.count}
     end
   end
 
@@ -38,6 +38,8 @@ class LeagueController < ApplicationController
     room_id = params[:id]
     @room = Room.find(room_id)
     @my_team = @room.teams.where(:user_id => current_user.id)
+    @teams = @room.teams
+    @team_last = @teams.last
   end
 
   def lineup
