@@ -535,7 +535,7 @@ class LeagueController < ApplicationController
   
   def leave_league
   
-    to_del = Team.find(params[:id])
+    to_del = Room.find(params[:id])
     to_del.destroy
     redirect_to '/league/dashboard'
   
