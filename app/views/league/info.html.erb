@@ -138,7 +138,32 @@
                             </div>
                             
                         </div>
-                        <% @teams.first(3).each do |t| %>
+                        
+                        <!-- auto pick -->
+                        <div class = "row add2">
+                            <div class = "col-sm-2 hidden-sm hidden-xs image_div">
+                                <%= image_tag("host_league.png") %>
+                            </div>
+                            <div class = "col-sm-4" id = "padding-5px" style = "text-align :center">
+                                <div class = "margin_name special">
+                                    <strong><%=@team_auto.name%></strong>
+                                </div>
+                            </div>
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name special" style = "text-align :center">
+                                    <strong><%=@team_auto.user.username%></strong>
+                                </div>
+                            </div>
+                            <!--오토픽중 css-->
+                            <div class = "col-sm-3" id = "padding-5px">
+                                <div class = "margin_name margin_name_none autopick">
+                                    <i class = "fa fa-circle"></i>
+                                    <strong>오토픽</strong>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <% @teams.each do |t| %>
                         <div class = "row add2">
                             <div class = "col-sm-2 hidden-sm hidden-xs image_div">
                                 <%= image_tag("host_league.png") %>
