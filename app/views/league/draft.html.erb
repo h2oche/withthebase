@@ -440,18 +440,20 @@
                 }
             }
             
+            var isFirstPick = true;
+            
             var tick = function() {
                 var playerObj = null;
                 
                 $scope.leftTime -= 1;
-                if( $scope.leftTime == 0) {
+                if( $scope.leftTime == 0 || ( !isFirstPick && $scope.leftTime < 29 ) ) {
                     //드래프트가 끝났는지 검사
                     if($scope.draftDone) return;
                     
                     //오토픽이 켜져있는지
                     if( $scope.teams[$scope.currentPickOrder].user_id == currentUserId && $scope.isAutopickOn ) {
                         //켜져있으면 autopick list에 있는 선수들 뽑아옴
-                        playerObj = $scope.autopickPlayers.shift()
+                        playerObj = $scope.autopickPlayers.shift();
                     }
                     
                     if( canRequest) {
@@ -469,13 +471,17 @@
                     requestPick(_playerObj);
                     $scope.getNextPick();
                     $scope.leftTime = resetTime;
+                    
+                    if(isFirstPick) {
+                        isFirstPick = false;
+                    }
                 }
             }
             
             var canRequest = true;
             
             var cancelTick = $interval(tick, 1000);
-            var resetTime = 1;
+            var resetTime = 30;
             
             $scope.draftDone = false;
             $scope.myDraftedPlayer = [];
