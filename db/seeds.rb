@@ -522,7 +522,7 @@ player_29.save
 
 player_30 = Player.new
 player_30.name = '추신수'
-player_30.pos = '외야'
+player_30.pos = '우익'
 player_30.team = '한화'
 player_30.war = 1.00
 player_30.save
@@ -1066,3 +1066,93 @@ p_42.team = '한화'
 p_42.war = 1.00
 p_42.save
 
+p_43 = Player.new
+p_43.name = '박기혁'
+p_43.pos = '유격'
+p_43.team = 'KT'
+p_43.war = 1.00
+p_43.save
+
+p_44 = Player.new
+p_44.name = '최준석'
+p_44.pos = '지명'
+p_44.team = '롯데'
+p_44.war = 1.00
+p_44.save
+
+p_45 = Player.new
+p_45.name = '이호준'
+p_45.pos = '지명'
+p_45.team = 'NC'
+p_45.war = 1.00
+p_45.save
+
+p_46 = Player.new
+p_46.name = '이승엽'
+p_46.pos = '지명'
+p_46.team = '삼성'
+p_46.war = 1.00
+p_46.save
+
+p_47 = Player.new
+p_47.name = '김주찬'
+p_47.pos = '지명'
+p_47.team = 'KIA'
+p_47.war = 1.00
+p_47.save
+
+p_48 = Player.new
+p_48.name = '김성욱'
+p_48.pos = '좌익'
+p_48.team = 'NC'
+p_48.war = 1.00
+p_48.save
+
+p_49 = Player.new
+p_49.name = '송주호'
+p_49.pos = '좌익'
+p_49.team = '한화'
+p_49.war = 1.00
+p_49.save
+
+p_50 = Player.new
+p_50.name = '최용규'
+p_50.pos = '2루'
+p_50.team = 'KIA'
+p_50.war = 1.00
+p_50.save
+
+p_51 = Player.new
+p_51.name = '김민우'
+p_51.pos = '2루'
+p_51.team = 'KIA'
+p_51.war = 1.00
+p_51.save
+
+p_52 = Player.new
+p_52.name = '나주환'
+p_52.pos = '2루'
+p_52.team = 'SK'
+p_52.war = 1.00
+p_52.save
+
+p_53 = Player.new
+p_53.name = '조동화'
+p_53.pos = '중견'
+p_53.team = 'SK'
+p_53.war = 1.00
+p_53.save
+
+p_54 = Player.new
+p_54.name = '최재원'
+p_54.pos = '중견'
+p_54.team = 'NC'
+p_54.war = 1.00
+p_54.save
+
+p_55 = Player.new
+p_55.name = '김호령'
+p_55.pos = '중견'
+p_55.team = 'KIA'
+p_55.war = 1.00
+p_55.save
