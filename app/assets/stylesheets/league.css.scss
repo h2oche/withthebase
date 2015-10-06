@@ -1324,3 +1324,60 @@ div.trade-slot-team > img{
 #result-table-container:focus {
     outline: 0 solid transparent;
 }
+
+.margin_5px {
+    
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.black_box_50_width {
+    
+    width: 50% !important;
+}
+
+.result_page_top_margin {
+    
+    margin-top: 100px !important;
+}
+
+.result_page_result_top_back {
+    
+    background-color: #2F4050;
+    color: white;
+    margin-top: 50px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.margin_even_text {
+    
+    
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.btn_circle_result {
+    
+    background-color: red;
+    
+}
+
+.team1_circle_result {
+    
+    border-radius: 50%;
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 80%;
+}
+
+
+.team2_circle_result {
+    
+    border-radius: 50%;
+    background-color: blue;
+    width: 50px;
+    height: 50px;
+}
