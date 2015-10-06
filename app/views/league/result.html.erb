@@ -103,19 +103,12 @@
             </div>
         </div>
         
-        
-        
-        
-        <div wtb-focus class="row" ng-show="showResults" tabindex="1" ng-keydown="showBarGraph()">
-            
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                
-                
-                <div class = "col-xs-4">
-                    <div class = "black-box">
-                        <h3>매치 결과</h3>
-                    </div>
+        <div wtb-focus class="row" ng-show="showResults" tabindex="1" ng-keydown="showBarGraph()" id="result-table-container">
+            <h3>매치 결과 - {{gameDate}}</h3>
+            <div class="col-md-12">
+                <div class="col-md-2"><h1 style="text-align:center;">{{team1.name}}</h1></div>
+                <div class="col-md-2">
+                    <h1 ng-show="team1WinLoseString!=''">{{team1WinLoseString}}</h1>
                 </div>
                 <div class = "col-xs-4 time">
                     {{gameDate}}
