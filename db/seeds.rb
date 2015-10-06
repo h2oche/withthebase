@@ -307,113 +307,29 @@ dummy_room_7_team_1.save
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Dummy PLAYERS ###
 
     ## Real PLAYERS ##
 
 ## auto pick 1~18 ##
-
-
-
-
-
-
-
-player_1 = Player.new
-player_1.name = '테임즈'
-player_1.pos = '1루'
-player_1.team = 'NC'
-player_1.war = 10.25
-player_1.save
-
-player_2 = Player.new
-player_2.name = '박병호'
-player_2.pos = '1루'
-player_2.team = '넥센'
-player_2.war = 8.51
-player_2.save
-
-player_3 = Player.new
-player_3.name = '강민호'
-player_3.pos = '포수'
-player_3.team = '롯데'
-player_3.war = 6.65
-player_3.save
-
-player_4 = Player.new
-player_4.name = '나바로'
-player_4.pos = '2루'
-player_4.team = '삼성'
-player_4.war = 6.06
-player_4.save
-
-player_5 = Player.new
-player_5.name = '마르테'
-player_5.pos = '1루'
-player_5.team = 'kt'
-player_5.war = 5.87
-player_5.save
-
-player_6 = Player.new
-player_6.name = '박석민'
-player_6.pos = '3루'
-player_6.team = '삼성'
-player_6.war = 5.44
-player_6.save
-
-player_7 = Player.new
-player_7.name = '김태균'
-player_7.pos = '1루'
-player_7.team = '한화'
-player_7.war = 5.27
-player_7.save
-
-player_8 = Player.new
-player_8.name = '최형우'
-player_8.pos = '우익'
-player_8.team = '삼성'
-player_8.war = 5.26
-player_8.save
-
-player_9 = Player.new
-player_9.name = '박경수'
-player_9.pos = '2루'
-player_9.team = 'kt'
-player_9.war = 4.95
-player_9.save
-
-player_10 = Player.new
-player_10.name = '양의지'
-player_10.pos = '포수'
-player_10.team = '두산'
-player_10.war = 4.86
-player_10.save
-
-player_11 = Player.new
-player_11.name = '김현수'
-player_11.pos = '중견'
-player_11.team = '두산'
-player_11.war = 4.86
-player_11.save
-
-player_12 = Player.new
-player_12.name = '아두치'
-player_12.pos = '좌익'
-player_12.team = '롯데'
-player_12.war = 4.68
-player_12.save
-
-player_13 = Player.new
-player_13.name = '최준석'
-player_13.pos = '3루'
-player_13.team = '롯데'
-player_13.war = 4.31
-player_13.save
-
-
-
-
-
 
 player_14 = Player.new
 player_14.name = '소사'
@@ -442,6 +358,182 @@ player_17.pos = '선발'
 player_17.team = '삼성'
 player_17.war = 4.72
 player_17.save
+
+p_8 = Player.new
+p_8.name = '로저스'
+p_8.pos = '구원'
+p_8.team = '한화'
+p_8.war = 1.00
+p_8.save
+
+player_26 = Player.new
+player_26.name = '임창용'
+player_26.pos = '구원'
+player_26.team = '삼성'
+player_26.war = 1.88
+player_26.save
+
+player_27 = Player.new
+player_27.name = '장시환'
+player_27.pos = '구원'
+player_27.team = 'KT'
+player_27.war = 2.34
+player_27.save
+
+player_28 = Player.new
+player_28.name = '정우람'
+player_28.pos = '구원'
+player_28.team = 'SK'
+player_28.war = 2.38
+player_28.save
+
+player_2 = Player.new
+player_2.name = '박병호'
+player_2.pos = '1루'
+player_2.team = '넥센'
+player_2.war = 8.51
+player_2.save
+
+player_1 = Player.new
+player_1.name = '테임즈'
+player_1.pos = '1루'
+player_1.team = 'NC'
+player_1.war = 10.25
+player_1.save
+
+player_4 = Player.new
+player_4.name = '나바로'
+player_4.pos = '2루'
+player_4.team = '삼성'
+player_4.war = 6.06
+player_4.save
+
+player_9 = Player.new
+player_9.name = '박경수'
+player_9.pos = '2루'
+player_9.team = 'kt'
+player_9.war = 4.95
+player_9.save
+
+player_13 = Player.new
+player_13.name = '최준석'
+player_13.pos = '3루'
+player_13.team = '롯데'
+player_13.war = 4.31
+player_13.save
+
+player_3 = Player.new
+player_3.name = '강민호'
+player_3.pos = '포수'
+player_3.team = '롯데'
+player_3.war = 6.65
+player_3.save
+
+player_8 = Player.new
+player_8.name = '최형우'
+player_8.pos = '우익'
+player_8.team = '삼성'
+player_8.war = 5.26
+player_8.save
+
+player_12 = Player.new
+player_12.name = '아두치'
+player_12.pos = '좌익'
+player_12.team = '롯데'
+player_12.war = 4.68
+player_12.save
+
+player_58 = Player.new
+player_58.name = '장성우'
+player_58.pos = '중견'
+player_58.team = 'kt'
+player_58.war = 1.00
+player_58.save
+
+player_64 = Player.new
+player_64.name = '정상호'
+player_64.pos = '지명'
+player_64.team = 'SK'
+player_64.war = 1.00
+player_64.save
+
+player_29 = Player.new
+player_29.name = '김하성'
+player_29.pos = '유격'
+player_29.team = '넥센'
+player_29.war = 3.96
+player_29.save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+player_5 = Player.new
+player_5.name = '마르테'
+player_5.pos = '1루'
+player_5.team = 'kt'
+player_5.war = 5.87
+player_5.save
+
+player_6 = Player.new
+player_6.name = '박석민'
+player_6.pos = '3루'
+player_6.team = '삼성'
+player_6.war = 5.44
+player_6.save
+
+player_7 = Player.new
+player_7.name = '김태균'
+player_7.pos = '1루'
+player_7.team = '한화'
+player_7.war = 5.27
+player_7.save
+
+
+
+
+
+player_10 = Player.new
+player_10.name = '양의지'
+player_10.pos = '포수'
+player_10.team = '두산'
+player_10.war = 4.86
+player_10.save
+
+player_11 = Player.new
+player_11.name = '김현수'
+player_11.pos = '중견'
+player_11.team = '두산'
+player_11.war = 4.86
+player_11.save
+
+
+
+
+
+
+
+
+
+
+
 
 player_18 = Player.new
 player_18.name = '린드블럼'
@@ -499,34 +591,8 @@ player_25.team = 'KIA'
 player_25.war = 2.95
 player_25.save
 
-player_26 = Player.new
-player_26.name = '임창용'
-player_26.pos = '구원'
-player_26.team = '삼성'
-player_26.war = 1.88
-player_26.save
-
-player_27 = Player.new
-player_27.name = '장시환'
-player_27.pos = '구원'
-player_27.team = 'KT'
-player_27.war = 2.34
-player_27.save
-
-player_28 = Player.new
-player_28.name = '정우람'
-player_28.pos = '구원'
-player_28.team = 'SK'
-player_28.war = 2.38
-player_28.save
 
 
-player_29 = Player.new
-player_29.name = '김하성'
-player_29.pos = '유격'
-player_29.team = '넥센'
-player_29.war = 3.96
-player_29.save
 
 
 ## new dummy
@@ -728,12 +794,7 @@ player_57.team = 'NC'
 player_57.war = 1.00
 player_57.save
 
-player_58 = Player.new
-player_58.name = '장성우'
-player_58.pos = '중견'
-player_58.team = 'kt'
-player_58.war = 1.00
-player_58.save
+
 
 player_59 = Player.new
 player_59.name = '고종욱'
@@ -770,12 +831,7 @@ player_63.team = 'SK'
 player_63.war = 1.00
 player_63.save
 
-player_64 = Player.new
-player_64.name = '정상호'
-player_64.pos = '지명'
-player_64.team = 'SK'
-player_64.war = 1.00
-player_64.save
+
 
 player_65 = Player.new
 player_65.name = '오재일'
@@ -833,12 +889,7 @@ p_7.team = '넥센'
 p_7.war = 1.00
 p_7.save
 
-p_8 = Player.new
-p_8.name = '로저스'
-p_8.pos = '구원'
-p_8.team = '한화'
-p_8.war = 1.00
-p_8.save
+
 
 p_9 = Player.new
 p_9.name = '클로이'
