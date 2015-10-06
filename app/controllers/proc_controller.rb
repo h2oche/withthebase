@@ -18,7 +18,7 @@ class ProcController < ApplicationController
         
         #get available player id
         loop do 
-            player_id = Random.new.rand(0..players.count)
+            player_id = Random.new.rand(19..players.count)
            break if Player.exists?(player_id) && !DraftResult.exists?(:player_id => player_id) && 
                                         is_available_position(player_positions, Player.find(player_id).pos)
         end
