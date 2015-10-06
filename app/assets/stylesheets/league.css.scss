@@ -1256,12 +1256,14 @@ div.trade-slot-team > img{
 
 .team1-result-bar > span {
     display:inline-block;
+    border-radius:3px;
     background-color:rgb(26, 179, 148);
     height:25px;
 }
 
 .team2-result-bar > span {
     display:inline-block;
+    border-radius:3px;
     background-color:rgb(217, 83, 79);
     height:25px;
 }
@@ -1412,4 +1414,10 @@ div.trade-slot-team > img{
 .team_name_result {
     
     font-weight: bolder;
+}
+
+.result_time_top {
+    
+    position: relative;
+    right: 25px;
 }
