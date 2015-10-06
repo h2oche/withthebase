@@ -133,6 +133,10 @@ second_room_team_1.save
 
     ## room_list ROOMS ##
 
+
+
+
+
 dummy_room_1 = Room.new
 dummy_room_1.name = '초보만'
 dummy_room_1.admin_id = 4
@@ -306,6 +310,14 @@ dummy_room_7_team_1.save
 ### Dummy PLAYERS ###
 
     ## Real PLAYERS ##
+
+## auto pick 1~18 ##
+
+
+
+
+
+
 
 player_1 = Player.new
 player_1.name = '테임즈'
