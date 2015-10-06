@@ -8,28 +8,28 @@
                         <h3>매치</h3>
                     </div>
                     <div class = "ibox-content">
-                        <% @game_results.each do |result| %>
-                        <div class = "row line">
+                        <% @game_results.each_with_index do |result, index| %>
+                        <div class = "row line" ng-show="currentPage==<%=index%>">
                             <div class = "col-xs-2">
                                 <%=image_tag("doubleleft.png")%>
                             </div>
                             <div class = "col-xs-2">
-                                <%=image_tag("left.png")%>
+                                <a href="" ng-click="prevPage()"><%=image_tag("left.png", style: "width:50px; height:50px;")%></a>
                             </div>
                             <div class = "col-xs-4 time">
                                 <%=result[:date]%>
                             </div>
                             <div class = "col-xs-2">
-                                <%=image_tag("right.png")%>
+                                <a href="" ng-click="nextPage()"><%=image_tag("right.png", style: "width:50px; height:50px;")%></a>
                             </div>
                             <div class = "col-xs-2">
                                 <%=image_tag("doubleright.png")%>
                             </div>
                         </div>
                         
-                        <div class = "row result-line">
+                        <div class = "row result-line" ng-show="currentPage==<%=index%>">
                             <% result[:matches].each do |resultRow| %>
-                            <div class = "col-xs-10 result-line-half">
+                            <div class = "col-xs-10 result-line-half" style="margin:10px 0;" >
                                 <div class = "col-xs-5 team-slot">
                                     <%=resultRow[:team1][:name]%>(<%=resultRow[:team1][:coach]%>)
                                 </div>
@@ -99,9 +99,13 @@
             <h3>매치 결과 - {{gameDate}}</h3>
             <div class="col-md-12">
                 <div class="col-md-2"><h1 style="text-align:center;">{{team1.name}}</h1></div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    <h1 ng-show="team1WinLoseString!=''">{{team1WinLoseString}}</h1>
+                </div>
                 <div class="col-md-4"><h1 style="text-align:center;">VS</h1></div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    <h1 ng-show="team2WinLoseString!=''">{{team2WinLoseString}}</h1>
+                </div>
                 <div class="col-md-2"><h1 style="text-align:center;">{{team2.name}}</h1></div>
             </div>
             <div class="col-md-12">
@@ -113,54 +117,54 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <table class="table">
+                    <table id="result-table" class="table" style="background-color:rgb(47, 64, 80); color:white; border-top:0px; font-weight:">
                         <tbody>
-                            <tr><td colspan="3">타자부문</td></tr>
+                            <tr><td colspan="3" style="border-bottom:1px solid #fff;">타자부문</td></tr>
                             <tr>
-                                <td>{{team1.bat_avg.toFixed(2)}}</td>
+                                <td ng-class="getWinLoseClass('bat_avg',1,0)">{{team1.bat_avg.toFixed(2)}}</td>
                                 <td>타율</td>
-                                <td>{{team2.bat_avg.toFixed(2)}}</td>
+                                <td ng-class="getWinLoseClass('bat_avg',2,0)">{{team2.bat_avg.toFixed(2)}}</td>
                             </tr>
                             <tr>
-                                <td>{{team1.homerun}}</td>
+                                <td ng-class="getWinLoseClass('homerun',1,1)">{{team1.homerun}}</td>
                                 <td>홈런</td>
-                                <td>{{team2.homerun}}</td>
+                                <td ng-class="getWinLoseClass('homerun',2,1)">{{team2.homerun}}</td>
                             </tr>
                             <tr>
-                                <td>{{team1.rbi}}</td>
+                                <td ng-class="getWinLoseClass('rbi',1,2)">{{team1.rbi}}</td>
                                 <td>타점</td>
-                                <td>{{team2.rbi}}</td>
+                                <td ng-class="getWinLoseClass('rbi',2,2)">{{team2.rbi}}</td>
                             </tr>
                             <tr>
-                                <td>{{team1.steal}}</td>
+                                <td ng-class="getWinLoseClass('steal',1,3)">{{team1.steal}}</td>
                                 <td>도루</td>
-                                <td>{{team2.steal}}</td>
+                                <td ng-class="getWinLoseClass('steal',2,3)">{{team2.steal}}</td>
                             </tr>
-                            <tr>
-                                <td>{{team1.error}}</td>
+                            <tr style="border-bottom:1px solid #fff;">
+                                <td ng-class="getWinLoseClass('error',1,4)">{{team1.error}}</td>
                                 <td>실책</td>
-                                <td>{{team2.error}}</td>
+                                <td ng-class="getWinLoseClass('error',2,4)">{{team2.error}}</td>
                             </tr>
-                            <tr><td colspan="3">투수부문</td></tr>
+                            <tr><td colspan="3" style="border-bottom:1px solid #fff;">투수부문</td></tr>
                             <tr>
-                                <td>{{team1.win}}</td>
+                                <td ng-class="getWinLoseClass('win',1,5)">{{team1.win}}</td>
                                 <td>다승</td>
-                                <td>{{team2.win}}</td>
+                                <td ng-class="getWinLoseClass('win',2,5)">{{team2.win}}</td>
                             </tr>
                             <tr>
-                                <td>{{team1.era.toFixed(2)}}</td>
+                                <td ng-class="getWinLoseClass('era',1,6)">{{team1.era.toFixed(2)}}</td>
                                 <td>평균자책점</td>
-                                <td>{{team2.era.toFixed(2)}}</td>
+                                <td ng-class="getWinLoseClass('era',2,6)">{{team2.era.toFixed(2)}}</td>
                             </tr>
                             <tr>
-                                <td>{{team1.strikeout}}</td>
+                                <td ng-class="getWinLoseClass('strikeout',1,7)">{{team1.strikeout}}</td>
                                 <td>탈삼진</td>
-                                <td>{{team2.strikeout}}</td>
+                                <td ng-class="getWinLoseClass('strikeout',2,7)">{{team2.strikeout}}</td>
                             </tr>
                             <tr>
-                                <td>{{team1.savehold}}</td>
+                                <td ng-class="getWinLoseClass('savehold',1,8)">{{team1.savehold}}</td>
                                 <td>세이브+홀드</td>
-                                <td>{{team2.savehold}}</td>
+                                <td ng-class="getWinLoseClass('savehold',2,8)">{{team2.savehold}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -176,7 +180,7 @@
             
             <div class="col-md-12">
                 <div class="col-md-4" style="text-align:right;">
-                    <span ng-repeat="list in team1WinList"><a href="#" class="btn btn-primary">{{list}}</a></span>
+                    <span style="border-radius:10px; margin:5px;" ng-repeat="list in team1WinList"><a href="#" class="btn btn-primary">{{list}}</a></span>
                 </div>
                 <div class="col-md-4">
                     <table class="table">
@@ -190,7 +194,7 @@
                     </table>
                 </div>
                 <div class="col-md-4">
-                    <span ng-repeat="list in team2WinList"><a href="#" class="btn btn-primary">{{list}}</a></span>
+                    <span style="border-radius:10px; margin:5px;" ng-repeat="list in team2WinList"><a href="#" class="btn btn-primary">{{list}}</a></span>
                 </div>
             </div>
         </div>
@@ -201,6 +205,95 @@
     var test;
     angular.module("app",["scoreboard"])
         .controller('AppController',['$http','$scope',function($http,$scope){
+            $scope.currentPage = 0;
+            
+            $scope.nextPage = function() {
+                $scope.currentPage < 2 ? $scope.currentPage += 1 : $scope.currentPage;
+            }
+            
+            $scope.prevPage = function() {
+                $scope.currentPage > 0 ? $scope.currentPage -= 1 : $scope.currentPage;
+            }
+            
+            $scope.getTeamWinLoseClass = function(_teamId) {
+                var isShow = true;
+                var team1Count = $scope.team1WinCount;
+                var team2Count = $scope.team2WinCount;
+                
+                $scope.showed.forEach(function(_item){
+                    isShow=  isShow && _item;
+                });
+                
+                if(!isShow) return;
+                else {
+                    var isTeam1Win = team1Count > team2Count;
+                    if((_teamId == 1 && isTeam1Win) || (_teamId == 2 && !isTeam1Win)) {
+                        return "final-win";
+                    }
+                    else {
+                        return "final-lose";
+                    }
+                }
+            }
+            
+            $scope.getWinLoseClass = function(_type, _teamId, _index) {
+                var ret = "";
+                var isTeam1Win = false;
+                var isDraw = false;
+                
+                if(!$scope.showed[_index]) return;
+                
+                switch(_type) {
+                case 'bat_avg':
+                    isTeam1Win = $scope.team1.bat_avg > $scope.team2.bat_avg;
+                    isDraw = $scope.team1.bat_avg == $scope.team2.bat_avg;
+                    break;
+                case 'homerun':
+                    isTeam1Win = $scope.team1.homerun > $scope.team2.homerun;
+                    isDraw = $scope.team1.homerun == $scope.team2.homerun;
+                    break;
+                case 'rbi':
+                    isTeam1Win = $scope.team1.rbi > $scope.team2.rbi;
+                    isDraw = $scope.team1.rbi == $scope.team2.rbi;
+                    break;
+                case 'steal':
+                    isTeam1Win = $scope.team1.steal > $scope.team2.steal;
+                    isDraw = $scope.team1.steal == $scope.team2.steal;
+                    break;
+                case 'error':
+                    isTeam1Win = $scope.team1.error > $scope.team2.error;
+                    isDraw = $scope.team1.error == $scope.team2.error;
+                    break;
+                case 'strikeout':
+                    isTeam1Win = $scope.team1.strikeout > $scope.team2.strikeout;
+                    isDraw = $scope.team1.strikeout == $scope.team2.strikeout;
+                    break;
+                case 'win':
+                    isTeam1Win = $scope.team1.win > $scope.team2.win;
+                    isDraw = $scope.team1.win == $scope.team2.win;
+                    break;
+                case 'era':
+                    isTeam1Win = $scope.team1.era > $scope.team2.era;
+                    isDraw = $scope.team1.era == $scope.team2.era;
+                    break;
+                case 'savehold':
+                    var isTeam1Win = $scope.team1.savehold > $scope.team2.savehold;
+                    isDraw = $scope.team1.savehold == $scope.team2.savehold;
+                    break;
+                }
+                
+                if(isDraw) return;
+                
+                if( (_teamId == 1 && isTeam1Win) || (_teamId == 2 && !isTeam1Win) ) {
+                    ret = "win-part";
+                }
+                else {
+                    ret = "lose-part";
+                }
+                
+                return ret;
+            }
+            
             $scope.gameDate = null;
             $scope.showResults = false;
             $scope.team1 = null;
@@ -210,6 +303,9 @@
             $scope.scalebase = [500,10,10,10,10,10,10,7,10]
             $scope.team1Result = [];
             $scope.team2Result = [];
+            
+            $scope.team1WinLoseString = "";
+            $scope.team2WinLoseString = "";
             
             $scope.showedIndex = 0;
             
@@ -232,10 +328,27 @@
                 
                 jQuery(".team2-result-bar.bar-"+$scope.showedIndex).children().animate({
                     width:($scope.scalebase[$scope.showedIndex] * $scope.team2Result[$scope.showedIndex])+'px'
-                })
+                });
+                
+                var showFinalResult = true;
+                $scope.showed.forEach(function(_item){
+                   showFinalResult = showFinalResult && _item; 
+                });
+                
+                if(showFinalResult) {
+                    var isTeam1Win = $scope.team1WinCount > $scope.team2WinCount;
+                    
+                    if(isTeam1Win) {
+                        $scope.team1WinLoseString = "승";
+                        $scope.team2WinLoseString = "패";
+                    }
+                    else {
+                        $scope.team1WinLoseString = "패";
+                        $scope.team2WinLoseString = "승";
+                    }
+                }
                 
                 $scope.showedIndex += 1;
-                
             }
             
             $scope.loadResultTable = function(_team1Id, _team1Name, _team2Id, _team2Name, _date){
@@ -252,6 +365,9 @@
                     }
                 })
                 .success(function(_data){
+                    $scope.team1WinLoseString = "";
+                    $scope.team2WinLoseString = "";
+                    
                     $scope.gameDate = _date;
                     $scope.showResults = true;
                     $scope.team1 = _data[0];

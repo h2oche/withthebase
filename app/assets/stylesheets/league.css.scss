@@ -1307,3 +1307,16 @@ div.trade-slot-team > img{
 .bar-9{
     margin-top:12px;
 }
+
+#result-table td {
+    border:0px;
+}
+
+#result-table .win-part {
+    font-weight:700;
+}
+
+#result-table .lose-part {
+    font-weight:300;
+    color:#ddd;
+}

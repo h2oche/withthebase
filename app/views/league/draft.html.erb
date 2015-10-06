@@ -402,12 +402,16 @@
                         draftedPlayer.ownedTeam = $scope.teams[pickOrder];
                         draftedPlayer.starting = true;
                         
+                        var autopickPlayerIndex = $scope.autopickPlayers.indexOfId(draftedPlayer.player_id);
+                        $scope.autopickPlayers[autopickPlayerIndex] == null;
+                        
                         $scope.draftedPlayers.push(draftedPlayer);
                         
                         var startingPitcherCount = 0;
                         var reliefPitcherCount = 0;
                         
                         if($scope.teams[index].user_id == currentUserId) {
+                            
                             $scope.myDraftedPlayer.forEach(function(_player){
                                 if(_player.pos == draftedPlayer.pos) {
                                     draftedPlayer.starting = false;
