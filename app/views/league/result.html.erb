@@ -120,7 +120,7 @@
                 
                 
                 <div class="col-md-12 result_page_result_top_back">
-                    <div class="col-md-2"><h1 class="margin_even_text" style="text-align:center;">{{team1.name}}</h1></div>
+                    <div class="col-md-2"><h1 class="margin_even_text team_name_result" style="text-align:center;">{{team1.name}}</h1></div>
                     <div class="col-md-2">
                         
                         <h1 class="team1_circle_result" ng-show="team1WinLoseString!=''">{{team1WinLoseString}}</h1>
@@ -130,7 +130,7 @@
                     <div class="col-md-2">
                         <h1 class="team2_circle_result" ng-show="team2WinLoseString!=''">{{team2WinLoseString}}</h1>
                     </div>
-                    <div class="col-md-2"><h1 class="margin_even_text" style="text-align:center;">{{team2.name}}</h1></div>
+                    <div class="col-md-2"><h1 class="margin_even_text team_name_result" style="text-align:center;">{{team2.name}}</h1></div>
                 </div>
                 
                 
@@ -148,7 +148,7 @@
                     <div class="col-md-4">
                         <table id="result-table" class="table" style="background-color:rgb(47, 64, 80); color:white; border-top:0px; font-weight:">
                             <tbody>
-                                <tr><td colspan="3" style="font-weight: bold; border-bottom:1px solid #fff;">타자부문</td></tr>
+                                <tr><td colspan="3" style="font-weight: bold; font-size: 20px; border-bottom:1px solid #fff;">타자부문</td></tr>
                                 <tr>
                                     <td ng-class="getWinLoseClass('bat_avg',1,0)">{{team1.bat_avg.toFixed(2)}}</td>
                                     <td>타율</td>
@@ -174,7 +174,7 @@
                                     <td>실책</td>
                                     <td ng-class="getWinLoseClass('error',2,4)">{{team2.error}}</td>
                                 </tr>
-                                <tr><td colspan="3" style="font-weight: bold; border-bottom:1px solid #fff;">투수부문</td></tr>
+                                <tr><td colspan="3" style="font-weight: bold; font-size: 20px; border-bottom:1px solid #fff;">투수부문</td></tr>
                                 <tr>
                                     <td ng-class="getWinLoseClass('win',1,5)">{{team1.win}}</td>
                                     <td>다승</td>
@@ -210,21 +210,21 @@
                     
                     <div class="col-md-12">
                         <div class="col-md-4" style="text-align:right;">
-                            <span style="border-radius:10px; margin:5px;" ng-repeat="list in team1WinList"><a href="#" style = "margin = 5px;" class="btn btn-primary">{{list}}</a></span>
+                            <span style="border-radius:10px; margin:5px;" ng-repeat="list in team1WinList"><a href="#" class="btn btn-primary margin_5px round_btn_result btn_circle_result_team_1">{{list}}</a></span>
                         </div>
                         <div class="col-md-4">
                             <table class="table">
                                 <tbody>
                                     <tr>
                                         <td>{{team1WinCount}}</td>
-                                        <td style ="font-weight: bold;">총합</td>
+                                        <td style ="font-size: 20px; font-weight: bold;">총합</td>
                                         <td>{{team2WinCount}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-md-4">
-                            <span style="border-radius:10px; margin:5px;" ng-repeat="list in team2WinList"><a href="#" class="btn btn-primary margin_5px">{{list}}</a></span>
+                            <span style="border-radius:10px; margin:5px;" ng-repeat="list in team2WinList"><a href="#" class="btn btn-primary margin_5px round_btn_result btn_circle_result_team_2">{{list}}</a></span>
                         </div>
                     </div>
                 </div>

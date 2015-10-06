@@ -1256,13 +1256,13 @@ div.trade-slot-team > img{
 
 .team1-result-bar > span {
     display:inline-block;
-    background-color:#f00;
+    background-color:rgb(26, 179, 148);
     height:25px;
 }
 
 .team2-result-bar > span {
     display:inline-block;
-    background-color:#00f;
+    background-color:rgb(217, 83, 79);
     height:25px;
 }
 
@@ -1357,27 +1357,59 @@ div.trade-slot-team > img{
     margin-bottom: 20px !important;
 }
 
-.btn_circle_result {
+.btn_circle_result_team_1 {
     
-    background-color: red;
+    background-color: rgb(26, 179, 148) !important;
+    
+}
+
+.btn_circle_result_team_2 {
+    
+    background-color: rgb(217, 83, 79) !important;
     
 }
 
 .team1_circle_result {
     
+    margin-top: 7px !important;
+    margin-bottom: 5px !important;
+    font-weight:bold;
     border-radius: 50%;
-    background-color: red;
-    width: 50px;
-    height: 50px;
+    background-color: rgb(26, 179, 148);
+    width: 60px;
+    height: 60px;
     position: relative;
-    left: 80%;
+    left: 63%;
+    padding-top: 13px !important;
+    padding-left: 15px !important;
+    
 }
 
 
 .team2_circle_result {
     
+    margin-top: 7px !important;
+    margin-bottom: 5px !important;;
+    font-weight:bold;
     border-radius: 50%;
-    background-color: blue;
-    width: 50px;
-    height: 50px;
+    background-color: rgb(217, 83, 79);
+    width: 60px;
+    height: 60px;
+    padding-top: 13px !important;
+    padding-left: 15px !important;
+}
+
+.round_btn_result {
+    border-radius: 50% !important;
+    width:50px;
+    height:50px;
+    padding-top: 12px !important;
+    padding-left: 6px !important;
+    font-weight: bolder !important;
+    font-size: 18px !important;
+}
+
+.team_name_result {
+    
+    font-weight: bolder;
 }
