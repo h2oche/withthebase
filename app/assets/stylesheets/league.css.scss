@@ -830,7 +830,7 @@ table{
 table > thead > tr> th{
     width : auto;
 }
-.black-box{
+.black-box-info-draft{
     text-align : center;
     color : white;
     background-color:black;
@@ -861,9 +861,11 @@ table > thead > tr> th{
 .player > span{
     color : blue;
 }
-
+.next{
+}
 .next > img {
-    width : 100%;
+    max-width : 80px;
+    min-width : 60px;
 
 }
 
