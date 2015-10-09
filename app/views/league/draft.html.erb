@@ -522,7 +522,7 @@
             $scope.isAutopickOn = false;
             $scope.autopickPlayers = [];
             $scope.addAutopickPlayers = function(_player) {
-                $scope.autopickPlayers.push(_player);
+                $scope.autopickPlayers.unshift(_player);
             }
             $scope.removeAutopickPlayer = function(_playerId) {
                 var index = $scope.autopickPlayers.indexOfId(_playerId)
@@ -656,7 +656,7 @@
             .success(function(_data, _status, _headers, _config){
                 if( _data ) {
                     $scope.players = _data;
-                    $scope.autopickPlayers = _data.slice(0,14);
+                    $scope.autopickPlayers = _data.slice(0,15);
                 }
                 else {
                     console.log('error!')
