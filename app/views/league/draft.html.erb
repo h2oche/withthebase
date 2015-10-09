@@ -716,16 +716,16 @@
                 <div class="modal-body">
                     <!-- 위에 엠블럼이랑 소속정보-->
                     <div class = "row">
-                        <div class = "col-sm-3">
-                            <div class = "black-box">
+                        <div class = "col-sm-4">
+                            <div class = "black-box-info-draft">
                                 강민호
                             </div>
                             <div class = "emblem">
-                                <%=image_tag("tiger.jpg")%>
+                                <%=image_tag("logo/lotte_emblem.png")%>
                             </div>
                         </div>
                         
-                        <div class = "col-sm-offset-2 col-sm-7">
+                        <div class = "col-sm-offset-1 col-sm-7">
                             <div class = "row player-line"
                                 style = "margin-right : 0px">
                                 <div class = "col-sm-6">
@@ -759,11 +759,8 @@
                                 <div class = "col-sm-6">
                                     다음 경기 상대 투수 
                                 </div>
-                                <div class = "col-sm-4">
-                                    레일리<br>(롯데 자이언츠)
-                                </div>
-                                <div class = "col-sm-2 next">
-                                    <%=image_tag("bird.png")%>
+                                <div class = "col-sm-6 next">
+                                    레일리 <%=image_tag("logo/hanhwa.png")%>
                                 </div>
                             </div>
                         </div>
@@ -795,32 +792,19 @@
                             <td>1</td>
                             <td>0</td>
                             <td style = "border-right:solid">
-                                <%=image_tag("eagles.png")%>
+                                한현희<%=image_tag("eagles.png")%> 
                             </td>
                             
                         </tr>
-                        <tr>
-                            <td style = "border-left:solid">
-                                8/15
-                            </td>
-                            <td>70</td>
-                            <td>1</td>
-                            <td>1.50</td>
-                            <td>6</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td style = "border-right:solid">
-                                <%=image_tag("eagles.png")%>
-                            </td>
-                        </tr>
+                        
                         <tr class = "border">
                             <td colspan = "2">합계 </td>
-                            <td>70</td>
                             <td>1</td>
                             <td>1.50</td>
                             <td>6</td>
                             <td>1</td>
                             <td>0</td>
+                            <td></td>
                         </tr>
                         </tbody>
                     </table>
@@ -829,17 +813,18 @@
                 <button type="button" class="btn btn-white" data-dismiss="modal">
                     닫기
                 </button>
-                <button class = "btn btn-white"id = "detail">
+                <button class = "btn btn-white" id = "detail">
                     세부정보
                 </button>
                 <!--메인 정보 끝!-->
                 <!--세부정보-->
                 <div id = "detail__information">
-                    <table class="table table-bordered border">
+                    <table class="table table-bordered border"
+                            style = "margin-top : 20px">
                         <thead>
                             <tr class = "border">
                                 <th class = "border-left">
-                                    일시
+                                    일
                                 </th>
                                 <th>경기회차</th>
                                 <th>이닝</th>
@@ -855,36 +840,24 @@
                         <tr>
                             <td style = "border-left : solid">8/15</td>
                             <td>70</td>
+                            <td>100</td>
                             <td>1</td>
-                            <td>1.50</td>
-                            <td>6</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td></td>
+                            <td>20</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0.8</td>
                             <td style = "border-right:solid"></td>
                             
                         </tr>
-                        <tr>
-                            <td style = "border-left:solid">
-                                8/15
-                            </td>
-                            <td>70</td>
-                            <td>1</td>
-                            <td>1.50</td>
-                            <td>6</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td></td>
-                            <td style = "border-right:solid"></td>
-                        </tr>
+                       
                         <tr class = "border">
                             <td colspan = "2">합계 </td>
-                            <td>70</td>
+                            <td>100</td>
                             <td>1</td>
-                            <td>1.50</td>
-                            <td>6</td>
-                            <td>1</td>
-                            <td>0</td>
+                            <td>20</td>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>0.8</td>
                             <td></td>
                         </tr>
                         </tbody>
@@ -928,7 +901,7 @@
 	
 </script>
 
-
+-->
 <script>
     $(document).ready(function(){
         $("#detail__information").hide();
@@ -938,4 +911,3 @@
     });
 </script>
 
--->
