@@ -311,7 +311,7 @@
                     isDraw = $scope.team1.win == $scope.team2.win;
                     break;
                 case 'era':
-                    isTeam1Win = $scope.team1.era > $scope.team2.era;
+                    isTeam1Win = $scope.team1.era < $scope.team2.era;
                     isDraw = $scope.team1.era == $scope.team2.era;
                     break;
                 case 'savehold':
