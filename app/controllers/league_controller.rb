@@ -40,7 +40,7 @@ class LeagueController < ApplicationController
     @my_team = @room.teams.where(:user_id => current_user.id)
     @teams = @room.teams.first(2)
     @team_auto = @room.teams.third
-    @team_last = @teams.last
+    @team_last = @room.teams.last
   end
 
   def lineup
