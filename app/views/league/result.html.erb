@@ -351,6 +351,15 @@
                 console.log($scope.showedIndex);
                 if( $scope.showedIndex > 8) return;
                 
+                if( $scope.showedIndex == 6 ) {
+                    if( $scope.team1Result[$scope.showedIndex] < $scope.team2Result[$scope.showedIndex] ) {
+                        $scope.team1WinList.push($scope.resultNames[$scope.showedIndex]);
+                    }
+                    else if( $scope.team1Result[$scope.showedIndex] > $scope.team2Result[$scope.showedIndex]) {
+                        $scope.team2WinList.push($scope.resultNames[$scope.showedIndex]);
+                    }
+                }
+                
                 if( $scope.team1Result[$scope.showedIndex] > $scope.team2Result[$scope.showedIndex] ) {
                     $scope.team1WinList.push($scope.resultNames[$scope.showedIndex]);
                 }
